@@ -327,8 +327,23 @@
                     <!-- Las preguntas se cargarán aquí -->
                 </div>
 
-                <div class="text-center">
-                    <p class="text-gray-600 font-medium">Selecciona tu respuesta para continuar automáticamente</p>
+                <div class="flex justify-between items-center">
+                    <button id="prevBtn" onclick="previousQuestion()" class="button-primary bg-gray-500 hover:bg-gray-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 hidden">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            Anterior
+                        </span>
+                    </button>
+                    <button id="nextBtn" onclick="nextQuestion()" class="button-primary bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-8 rounded-xl ml-auto">
+                        <span class="flex items-center">
+                            <span id="nextBtnText">Siguiente</span>
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -634,7 +649,9 @@
             // Actualizar indicadores de progreso
             updateProgressIndicators();
             
-            // Los botones se manejan automáticamente en la retroalimentación
+            // Actualizar botones
+            document.getElementById('prevBtn').classList.toggle('hidden', currentQuestionIndex === 0);
+            document.getElementById('nextBtnText').textContent = currentQuestionIndex === questions.length - 1 ? 'Finalizar Sección' : 'Siguiente';
         }
 
         function selectOption(input) {
@@ -791,7 +808,12 @@
             }, 3000);
         }
 
-
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
 
         // Funciones de la Sección 2
         function initSection2() {
@@ -1043,5 +1065,5 @@
             document.getElementById('timeDisplay').textContent = '00:00';
         }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'983b78b7e6c5b488',t:'MTc1ODY0NTQ5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'983df02147ae7038',t:'MTc1ODY3MTM2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
