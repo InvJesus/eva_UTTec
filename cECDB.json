@@ -1,26 +1,86 @@
-
 {
-    "general": {
-        "title": "Evaluación Digital",
-        "subtitle": "TECNOLOGÍAS PARA MANEJO MASIVO DE DATOS",
-        "professor": "MTI JERM"
+    general: {
+        title: "Evaluación Digital",
+        subtitle: "TECNOLOGÍAS PARA MANEJO MASIVO DE DATOS",
+        professor: "MTI JERM"
     },
     
-    "section1": {
-        "name": "Opción Múltiple",
-        "weight": 30,
-        "questions": [
+    section1: {
+        name: "Opción Múltiple",
+        weight: 30,
+        questions: [
             {
-                "question": "Una empresa de comercio electrónico quiere analizar las tendencias de compra de sus clientes a largo plazo para predecir la demanda de productos en futuras temporadas. ¿Qué tipo de estructura de datos sería la más adecuada para este objetivo y por qué?",
-                "options": [
+                question: "Una empresa de comercio electrónico quiere analizar las tendencias de compra de sus clientes a largo plazo para predecir la demanda de productos en futuras temporadas. ¿Qué tipo de estructura de datos sería la más adecuada para este objetivo y por qué?",
+                options: [
                     "Una base de datos operativa, porque gestiona las transacciones diarias y ofrece datos actualizados al momento.",
                     "Un Data Warehouse, porque almacena datos históricos de múltiples fuentes, permitiendo el análisis de tendencias a lo largo del tiempo.",
                     "Un Data Lake, porque es ideal para almacenar grandes volúmenes de datos no estructurados como imágenes y videos sin un propósito de análisis inmediato."
                 ],
-                "correct": 1,
-                "explanation": "Un Data Warehouse es la estructura más adecuada porque está diseñado específicamente para almacenar datos históricos de múltiples fuentes y facilitar el análisis de tendencias a largo plazo."
+                correct: 1,
+                explanation: "Un Data Warehouse es la estructura más adecuada porque está diseñado específicamente para almacenar datos históricos de múltiples fuentes y facilitar el análisis de tendencias a largo plazo."
+            },
+            {
+                question: "Si una organización necesita consolidar datos de ventas, marketing y atención al cliente provenientes de diferentes sistemas para obtener una visión unificada del negocio, ¿cuál es el primer desafío técnico fundamental que debe resolver?",
+                options: [
+                    "La visualización de los datos, ya que representar gráficamente la información es el primer paso para su comprensión.",
+                    "La selección de una arquitectura de procesamiento paralelo como Hadoop para manejar el gran volumen de información.",
+                    "La integración y transformación de los datos, ya que provienen de múltiples fuentes y deben ser limpiados y estandarizados para ser coherentes y útiles para el análisis."
+                ],
+                correct: 2,
+                explanation: "La integración y transformación de datos es el primer desafío fundamental, ya que los datos de diferentes sistemas deben ser limpiados, estandarizados y unificados antes de cualquier análisis o visualización."
+            },
+            {
+                question: "Una startup de redes sociales está experimentando un crecimiento explosivo, generando terabytes de datos no estructurados (fotos, videos, logs) diariamente. ¿Qué enfoque tecnológico debería priorizar para gestionar este volumen y variedad de datos de manera eficiente?",
+                options: [
+                    "Implementar un Data Warehouse tradicional para estructurar y organizar los datos inmediatamente, facilitando la generación de reportes.",
+                    "Adoptar una arquitectura de Big Data con soluciones como Data Lakes, ya que están diseñadas para manejar grandes volúmenes de datos no estructurados y variados a alta velocidad.",
+                    "Centrarse únicamente en el proceso ETL para limpiar los datos, ya que la calidad es más importante que la capacidad de almacenamiento."
+                ],
+                correct: 1,
+                explanation: "Una arquitectura de Big Data con Data Lakes es la más apropiada para manejar grandes volúmenes de datos no estructurados y variados, proporcionando la flexibilidad y escalabilidad necesarias."
+            },
+            {
+                question: "Una cadena de supermercados utiliza sensores de IoT en sus refrigeradores para monitorear la temperatura en tiempo real y evitar la pérdida de productos. ¿A qué fase del ciclo de vida de Big Data corresponde la acción de los sensores?",
+                options: [
+                    "A la fase de Análisis, porque los datos se examinan para obtener conocimientos.",
+                    "A la fase de Almacenamiento, porque los datos se guardan para su fácil acceso posterior.",
+                    "A la fase de Generación/Recolección, ya que los sensores están creando y recopilando los datos crudos directamente desde la fuente."
+                ],
+                correct: 2,
+                explanation: "Los sensores IoT corresponden a la fase de Generación/Recolección, ya que son los dispositivos que crean y capturan los datos en tiempo real desde el entorno físico."
+            },
+            {
+                question: "Un banco quiere implementar un modelo de Machine Learning para detectar transacciones fraudulentas. La institución ya cuenta con un Data Warehouse que contiene años de datos transaccionales limpios y organizados. ¿Cuál es el rol principal del Data Warehouse en este proyecto?",
+                options: [
+                    "Servir como una fuente de datos de alta calidad para entrenar los algoritmos de Machine Learning, ya que estos requieren grandes volúmenes de datos históricos y estructurados.",
+                    "Reemplazar al modelo de Machine Learning, ya que las consultas optimizadas del Data Warehouse son suficientes para detectar fraudes.",
+                    "Almacenar los resultados del modelo de Machine Learning únicamente, sin participar en su fase de entrenamiento."
+                ],
+                correct: 0,
+                explanation: "El Data Warehouse sirve como fuente de datos de alta calidad para entrenar los algoritmos de Machine Learning, proporcionando los datos históricos estructurados y limpios necesarios para el entrenamiento efectivo del modelo."
             }
-            /* Resto de preguntas se agregan de la misma manera */
+        ]
+    },
+    
+    section2: {
+        name: "Relación de Columnas",
+        weight: 30,
+        pairs: {
+            "Hadoop": "Framework de código abierto para procesamiento distribuido de grandes conjuntos de datos",
+            "Data Mining": "Proceso de extracción de patrones y conocimientos útiles de grandes conjuntos de datos",
+            "NoSQL": "Bases de datos no relacionales diseñadas para manejar grandes volúmenes de datos no estructurados",
+            "ETL": "Proceso de Extraer, Transformar y Cargar datos desde múltiples fuentes hacia un destino",
+            "Data Lake": "Repositorio centralizado que permite almacenar datos estructurados y no estructurados a cualquier escala"
+        }
+    },
+    
+    section3: {
+        name: "Juego del Ahorcado",
+        weight: 40,
+        words: [
+            { word: "ANALYTICS", hint: "Proceso de examinar datos para obtener conclusiones y patrones útiles" },
+            { word: "CLUSTER", hint: "Grupo de computadoras trabajando juntas como un sistema unificado" },
+            { word: "STREAMING", hint: "Procesamiento de datos en tiempo real conforme van llegando" }
         ]
     }
 }
