@@ -1,7 +1,7 @@
 {
   "general": {
     "title": "Evaluación Digital - Big Data",
-    "subtitle": "TECNOLOGÍAS PARA MANEJO MASIVO DE DATOS",
+    "subtitle": "EXTRACCIÓN DE CONOCIMIENTO EN BASES DE DATOS",
     "professor": "MTI JESÚS E. ROMERO MORENO"
   },
   "section1": {
@@ -220,4 +220,5 @@
       }
     ]
   }
+
 }
