@@ -747,10 +747,88 @@
         // ====================================
         
         // URL donde se encuentra el archivo JSON de configuración
+        // IMPORTANTE: Cambia esta URL por la ubicación real de tu archivo JSON
         const JSON_CONFIG_URL = "https://invjesus.github.io/eva_UTTec/cECDB.json";
         
         // Variable global para almacenar la configuración cargada
         let EVALUATION_CONFIG = null;
+        
+        // ====================================
+        // EJEMPLO COMPLETO DE JSON ESPERADO
+        // ====================================
+        
+        const EXAMPLE_JSON_CONFIG = {
+            "general": {
+                "title": "Evaluación Digital - Big Data",
+                "subtitle": "TECNOLOGÍAS PARA MANEJO MASIVO DE DATOS",
+                "professor": "MTI JERM"
+            },
+            "section1": {
+                "name": "Opción Múltiple",
+                "weight": 30,
+                "questions": [
+                    {
+                        "question": "¿Qué caracteriza principalmente a Big Data?",
+                        "options": [
+                            "Las 3 V's: Volumen, Velocidad y Variedad",
+                            "Solo el gran tamaño de los datos",
+                            "Únicamente la velocidad de procesamiento"
+                        ],
+                        "correct": 0,
+                        "explanation": "Big Data se caracteriza por las 3 V's: Volumen (gran cantidad), Velocidad (procesamiento rápido) y Variedad (diferentes tipos de datos)."
+                    },
+                    {
+                        "question": "¿Cuál es el principal objetivo de Apache Hadoop?",
+                        "options": [
+                            "Crear bases de datos relacionales",
+                            "Procesar grandes volúmenes de datos de forma distribuida",
+                            "Desarrollar aplicaciones web"
+                        ],
+                        "correct": 1,
+                        "explanation": "Apache Hadoop está diseñado para el almacenamiento y procesamiento distribuido de grandes conjuntos de datos."
+                    },
+                    {
+                        "question": "¿Qué es Apache Spark?",
+                        "options": [
+                            "Un sistema de gestión de bases de datos",
+                            "Un motor de análisis unificado para procesamiento de datos a gran escala",
+                            "Un lenguaje de programación"
+                        ],
+                        "correct": 1,
+                        "explanation": "Apache Spark es un motor de análisis unificado que permite el procesamiento rápido de datos a gran escala."
+                    }
+                ]
+            },
+            "section2": {
+                "name": "Relación de Columnas",
+                "weight": 30,
+                "pairs": {
+                    "MapReduce": "Modelo de programación para procesamiento distribuido de grandes conjuntos de datos",
+                    "HDFS": "Sistema de archivos distribuido de Hadoop para almacenar datos",
+                    "NoSQL": "Bases de datos no relacionales diseñadas para manejar grandes volúmenes",
+                    "Data Mining": "Proceso de descubrir patrones en grandes conjuntos de datos",
+                    "Machine Learning": "Algoritmos que permiten a las máquinas aprender de los datos"
+                }
+            },
+            "section3": {
+                "name": "Juego del Ahorcado",
+                "weight": 40,
+                "words": [
+                    {
+                        "word": "ANALYTICS",
+                        "hint": "Proceso de examinar datos para obtener conclusiones e insights"
+                    },
+                    {
+                        "word": "CLUSTERING",
+                        "hint": "Técnica de agrupación de datos similares en conjuntos"
+                    },
+                    {
+                        "word": "STREAMING",
+                        "hint": "Procesamiento de datos en tiempo real conforme llegan"
+                    }
+                ]
+            }
+        };
         
         // ====================================
         // ESTRUCTURA ESPERADA DEL JSON
@@ -802,15 +880,35 @@
             console.group('📡 CARGANDO CONFIGURACIÓN JSON DESDE URL');
             console.log('🌐 URL configurada:', JSON_CONFIG_URL);
             
+            // Verificar si la URL está configurada correctamente
+            if (JSON_CONFIG_URL.includes('YOUR_JSON_ID') || JSON_CONFIG_URL === 'https://jsonkeeper.com/b/YOUR_JSON_ID') {
+                console.warn('⚠️ URL no configurada - usando configuración de ejemplo');
+                console.log('💡 Para usar tu propio JSON, actualiza JSON_CONFIG_URL con una URL válida');
+                console.groupEnd();
+                
+                // Usar configuración de ejemplo directamente
+                EVALUATION_CONFIG = EXAMPLE_JSON_CONFIG;
+                const validation = validateJSONStructure(EVALUATION_CONFIG);
+                
+                return { 
+                    success: true, 
+                    config: EVALUATION_CONFIG, 
+                    validation,
+                    usingExample: true 
+                };
+            }
+            
             try {
                 console.log('⏳ Iniciando descarga...');
+                console.log('🔧 Configurando headers para CORS...');
                 
                 const response = await fetch(JSON_CONFIG_URL, {
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json',
                         'Cache-Control': 'no-cache'
-                    }
+                    },
+                    mode: 'cors'
                 });
                 
                 if (!response.ok) {
@@ -820,9 +918,11 @@
                 console.log('✅ Descarga exitosa');
                 console.log('📊 Tamaño:', response.headers.get('content-length') || 'Desconocido', 'bytes');
                 console.log('📅 Última modificación:', response.headers.get('last-modified') || 'Desconocido');
+                console.log('🌐 Content-Type:', response.headers.get('content-type') || 'Desconocido');
                 
                 const jsonText = await response.text();
                 console.log('📝 Contenido recibido:', jsonText.length, 'caracteres');
+                console.log('🔍 Primeros 200 caracteres:', jsonText.substring(0, 200) + '...');
                 
                 // Intentar parsear el JSON
                 let parsedConfig;
@@ -830,6 +930,8 @@
                     parsedConfig = JSON.parse(jsonText);
                     console.log('✅ JSON parseado correctamente');
                 } catch (parseError) {
+                    console.error('❌ Error parseando JSON:', parseError.message);
+                    console.log('📄 Contenido completo recibido:', jsonText);
                     throw new Error(`Error de sintaxis JSON: ${parseError.message}`);
                 }
                 
@@ -853,7 +955,7 @@
                 // Asignar configuración global
                 EVALUATION_CONFIG = parsedConfig;
                 
-                console.log('🎉 Configuración cargada exitosamente');
+                console.log('🎉 Configuración cargada exitosamente desde URL externa');
                 console.log('📊 Estadísticas:', validation.stats);
                 console.groupEnd();
                 
@@ -861,6 +963,7 @@
                 
             } catch (error) {
                 console.error('❌ Error cargando configuración:', error.message);
+                console.log('🔧 Detalles del error:', error);
                 console.groupEnd();
                 
                 return { 
@@ -1062,10 +1165,51 @@
         }
         
         function showJSONStructureGuide() {
-            console.group('📋 GUÍA DE ESTRUCTURA JSON ESPERADA');
-            console.log('🌐 URL configurada:', JSON_CONFIG_URL);
-            console.log('📝 El JSON debe tener la siguiente estructura:');
+            console.group('📋 GUÍA COMPLETA PARA CONFIGURAR JSON');
+            console.log('🌐 URL actual configurada:', JSON_CONFIG_URL);
+            
+            if (JSON_CONFIG_URL.includes('YOUR_JSON_ID')) {
+                console.warn('⚠️ IMPORTANTE: Debes cambiar la URL por una real');
+                console.log('');
+                console.log('🔧 OPCIONES PARA ALOJAR TU JSON:');
+                console.log('');
+                console.log('1️⃣ JSONKeeper (Recomendado - Gratis):');
+                console.log('   • Ve a: https://jsonkeeper.com/');
+                console.log('   • Pega tu JSON y obtén una URL');
+                console.log('   • Ejemplo: https://jsonkeeper.com/b/ABCD');
+                console.log('');
+                console.log('2️⃣ GitHub Raw (Gratis):');
+                console.log('   • Sube tu archivo .json a un repositorio público');
+                console.log('   • Usa la URL raw del archivo');
+                console.log('   • Ejemplo: https://raw.githubusercontent.com/usuario/repo/main/config.json');
+                console.log('');
+                console.log('3️⃣ Pastebin (Gratis):');
+                console.log('   • Ve a: https://pastebin.com/');
+                console.log('   • Pega tu JSON y obtén URL raw');
+                console.log('   • Ejemplo: https://pastebin.com/raw/ABC123');
+                console.log('');
+            }
+            
+            console.log('📝 ESTRUCTURA JSON REQUERIDA:');
             console.log(JSON.stringify(EXPECTED_JSON_STRUCTURE, null, 2));
+            console.log('');
+            console.log('✨ EJEMPLO COMPLETO Y FUNCIONAL:');
+            console.log(JSON.stringify(EXAMPLE_JSON_CONFIG, null, 2));
+            console.log('');
+            console.log('💡 INSTRUCCIONES:');
+            console.log('1. Copia el ejemplo JSON completo');
+            console.log('2. Modifica el contenido según tus necesidades');
+            console.log('3. Súbelo a uno de los servicios mencionados');
+            console.log('4. Actualiza la variable JSON_CONFIG_URL con tu URL');
+            console.log('5. Las ponderaciones deben sumar exactamente 100%');
+            console.log('');
+            console.log('🚨 VALIDACIONES AUTOMÁTICAS:');
+            console.log('• Estructura completa de todas las secciones');
+            console.log('• Tipos de datos correctos');
+            console.log('• Ponderaciones que sumen 100%');
+            console.log('• Índices de respuestas correctas válidos');
+            console.log('• Contenido no vacío en campos requeridos');
+            
             console.groupEnd();
         }
 
@@ -1227,8 +1371,28 @@
                     
                 } else {
                     console.log('✅ JSON cargado exitosamente');
-                    errorDiv.classList.add('hidden');
-                    proceedWithAuthentication();
+                    
+                    if (loadResult.usingExample) {
+                        errorDiv.innerHTML = `
+                            <div class="flex items-start text-blue-800">
+                                <svg class="w-5 h-5 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div>
+                                    <p class="font-medium">Usando configuración de ejemplo</p>
+                                    <p class="text-sm mt-1">La URL del JSON no está configurada. Se está usando contenido de demostración.</p>
+                                </div>
+                            </div>
+                        `;
+                        
+                        setTimeout(() => {
+                            errorDiv.classList.add('hidden');
+                            proceedWithAuthentication();
+                        }, 2000);
+                    } else {
+                        errorDiv.classList.add('hidden');
+                        proceedWithAuthentication();
+                    }
                 }
                 
             } else {
@@ -2084,5 +2248,5 @@
             console.groupEnd();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98443958d68edccf',t:'MTc1ODczNzI3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'984452947618165a',t:'MTc1ODczODMwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
