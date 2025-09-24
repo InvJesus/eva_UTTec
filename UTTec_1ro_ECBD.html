@@ -743,311 +743,264 @@
         const ACCESS_KEY = "Admin123.@";
         
         // ====================================
-        // CONFIGURACIÓN JSON DE LA EVALUACIÓN
+        // CONFIGURACIÓN DE URL JSON
         // ====================================
         
-        const EVALUATION_CONFIG = {
-  general: {
-    title: "Evaluación Digital",
-    subtitle: "TECNOLOGÍAS PARA MANEJO MASIVO DE DATOS",
-    professor: "MTI JESÚS E. ROMERO MORENO" 
-  },
-  section1: {
-    name: "Opción Múltiple",
-    weight: 30,
-    questions: [
-      {
-        question: "Una empresa de retail quiere analizar las tendencias de ventas de los últimos cinco años para predecir la demanda en la próxima temporada navideña. ¿Qué sistema sería el más adecuado para esta tarea?",
-        options: [
-          "Una base de datos operativa (OLTP), porque registra las ventas en tiempo real.",
-          "Un Data Warehouse (OLAP), porque está optimizado para analizar grandes volúmenes de datos históricos.",
-          "Un sistema de archivos HDFS, porque puede almacenar todos los logs de ventas sin estructurar."
-        ],
-        correct: 1,
-        explanation: "Un Data Warehouse está diseñado específicamente para el análisis (OLAP) de datos históricos a lo largo del tiempo, permitiendo descubrir patrones y tendencias, a diferencia de una base de datos operativa (OLTP) que se enfoca en transacciones diarias."
-      },
-      {
-        question: "Netflix necesita procesar interacciones de millones de usuarios simultáneamente (pausas, búsquedas, calificaciones) para alimentar su sistema de recomendaciones en tiempo real. ¿Qué tecnología es fundamental para gestionar este flujo masivo y continuo de datos?",
-        options: [
-          "PostgreSQL con extensión Citus, para distribuir las consultas.",
-          "Apache Kafka, para manejar flujos de datos en tiempo real de forma eficiente.",
-          "Un proceso ETL clásico, para limpiar los datos antes de cargarlos."
-        ],
-        correct: 1,
-        explanation: "Apache Kafka es la tecnología utilizada por Netflix para gestionar flujos masivos de datos en tiempo real, lo que permite capturar eficientemente las interacciones de los usuarios para su posterior procesamiento y análisis."
-      },
-      {
-        question: "Una startup está construyendo su infraestructura de datos en la nube y necesita cargar rápidamente datos brutos de diversas fuentes para transformarlos después. ¿Qué enfoque de carga de datos sería más ágil y aprovecharía mejor la potencia de la nube?",
-        options: [
-          "El enfoque ELT (Extraer, Cargar, Transformar), cargando los datos en crudo y usando la potencia de la nube para transformarlos.",
-          "El enfoque ETL (Extraer, Transformar, Cargar), porque garantiza la limpieza de los datos antes de llegar al almacén.",
-          "Usar Apache Chukwa, porque se especializa en la recolección de datos."
-        ],
-        correct: 0,
-        explanation: "El enfoque moderno ELT, impulsado por la nube, permite cargar datos en crudo directamente al Data Warehouse y utilizar la gran capacidad de cómputo de plataformas como BigQuery para transformarlos 'in situ', lo cual es más ágil."
-      },
-      {
-        question: "Un equipo de marketing desea analizar qué productos se compran juntos con frecuencia para crear promociones cruzadas. ¿Qué tipo de análisis de datos deberían aplicar?",
-        options: [
-          "Análisis de Clustering, para agrupar clientes con comportamientos similares.",
-          "Análisis Predictivo, para pronosticar las ventas futuras de cada producto.",
-          "Análisis de Asociación, para descubrir relaciones entre variables, como en una cesta de mercado."
-        ],
-        correct: 2,
-        explanation: "El análisis de asociación está diseñado específicamente para descubrir relaciones entre variables en grandes conjuntos de datos, siendo el 'análisis de cesta de mercado' un ejemplo clásico para identificar productos comprados conjuntamente."
-      },
-      {
-        question: "Una empresa financiera necesita entrenar un modelo de Machine Learning para detectar transacciones fraudulentas. ¿Cuál es el rol principal de su Data Warehouse en este proceso?",
-        options: [
-          "Servir como base de datos operativa para registrar las predicciones del modelo en tiempo real.",
-          "Proporcionar una fuente de datos históricos, limpios y estructurados de alta calidad para entrenar el algoritmo.",
-          "Ejecutar directamente el algoritmo de Machine Learning como su función principal."
-        ],
-        correct: 1,
-        explanation: "Un Data Warehouse actúa como una fuente clave de datos limpios, estructurados e históricos, que son esenciales para entrenar adecuadamente los modelos de Machine Learning y asegurar su precisión."
-      },
-      {
-        question: "El equipo de Business Intelligence de una compañía necesita crear reportes rápidos y fáciles de entender sobre las ventas por región, producto y tiempo. ¿Qué esquema de modelado dimensional sería el más adecuado por su simplicidad y velocidad de consulta?",
-        options: [
-          "Esquema de Copo de Nieve, porque normaliza las dimensiones para ahorrar espacio.",
-          "Esquema de Estrella, porque su estructura simple con una tabla de hechos central y dimensiones directas es rápida e intuitiva.",
-          "Esquema de Constelación, porque permite conectar múltiples procesos de negocio como ventas e inventario."
-        ],
-        correct: 1,
-        explanation: "El esquema de estrella es el más popular y adecuado para la mayoría de los análisis y reportes porque es muy rápido para las consultas y fácil de entender, al conectar directamente las métricas (hechos) con su contexto (dimensiones)."
-      },
-      {
-        question: "Netflix decide producir una nueva serie original. ¿Qué etapa del ciclo de vida del Big Data es crucial para tomar esta decisión estratégica, combinando el análisis técnico con la experiencia humana?",
-        options: [
-          "Generación de Datos, porque se originan las interacciones del usuario.",
-          "Procesamiento de Datos, donde se transforma la información con herramientas como Apache Spark.",
-          "Interpretación de Datos, donde se combinan los insights del análisis con el conocimiento del negocio para decidir."
-        ],
-        correct: 2,
-        explanation: "La interpretación es la etapa final donde el análisis técnico se une a la experiencia humana para tomar decisiones estratégicas, como anticipar tendencias de contenido y planificar lanzamientos."
-      },
-      {
-        question: "Un analista de Netflix utiliza Tableau para crear un dashboard interactivo que muestra el rendimiento de diferentes géneros de contenido por región. ¿A qué fase del ciclo de vida del Big Data corresponde esta actividad?",
-        options: [
-          "Análisis de Datos, porque se usan algoritmos para identificar patrones.",
-          "Visualización de Datos, ya que se crean representaciones gráficas para hacer los datos comprensibles.",
-          "Gestión de Datos, porque se asegura la integridad de la información."
-        ],
-        correct: 1,
-        explanation: "La visualización es la fase donde se emplean herramientas como Tableau para crear dashboards y representaciones gráficas interactivas que ayudan a interpretar y comunicar los resultados del análisis."
-      },
-      {
-        question: "Según la filosofía de diseño de Bill Inmon, ¿cuál debería ser el primer paso al construir una infraestructura de Data Warehouse en una gran corporación?",
-        options: [
-          "Construir pequeños 'data marts' departamentales para entregar valor rápidamente.",
-          "Crear un gran almacén de datos centralizado y único para asegurar la consistencia en toda la empresa.",
-          "Implementar directamente un esquema de constelación para conectar todos los procesos."
-        ],
-        correct: 1,
-        explanation: "Bill Inmon proponía un enfoque 'de arriba hacia abajo', que consiste en construir primero el gran Data Warehouse centralizado para garantizar que exista una única fuente de la verdad, promoviendo la consistencia total."
-      },
-      {
-        question: "Para asegurar una experiencia de streaming fluida y con baja latencia a nivel mundial, Netflix no solo depende de AWS, sino que ha desarrollado su propia Red de Distribución de Contenido (CDN). ¿Cómo se llama esta red?",
-        options: [
-          "Amazon S3",
-          "Open Connect",
-          "Hadoop Distributed File System (HDFS)"
-        ],
-        correct: 1,
-        explanation: "Netflix utiliza su propia CDN llamada Open Connect, que consiste en servidores ubicados estratégicamente cerca de los usuarios para reducir la latencia y optimizar la entrega de contenido."
-      },
-      {
-        question: "Una organización quiere entender por qué una campaña de marketing tuvo un rendimiento inferior al esperado. Necesitan investigar las causas subyacentes. ¿Qué tipo de análisis es el más apropiado?",
-        options: [
-          "Análisis Descriptivo, para resumir las características de la campaña.",
-          "Análisis Prescriptivo, para recomendar acciones para la próxima campaña.",
-          "Análisis Diagnóstico, para entender las causas de un evento o resultado específico."
-        ],
-        correct: 2,
-        explanation: "El análisis diagnóstico se utiliza específicamente para comprender las causas de un resultado particular, buscando identificar relaciones y factores que contribuyeron a un evento pasado."
-      },
-      {
-        question: "Si definimos la Inteligencia Artificial (IA) como la simulación del comportamiento inteligente humano, ¿cómo se relaciona el Machine Learning (ML) con ella?",
-        options: [
-          "Son términos intercambiables que significan exactamente lo mismo.",
-          "El ML es una rama o enfoque específico dentro de la IA, donde la máquina aprende por sí misma a realizar una tarea.",
-          "La IA es una subcategoría del ML que se enfoca en sistemas complejos."
-        ],
-        correct: 1,
-        explanation: "El Machine Learning es un enfoque específico dentro del campo más amplio de la Inteligencia Artificial. Se centra en permitir que las máquinas aprendan de los datos sin ser programadas explícitamente para cada tarea."
-      },
-      {
-        question: "En un modelo de esquema de estrella, la tabla 'Ventas' contiene columnas como 'ID_Producto', 'ID_Cliente', 'Fecha' y 'Monto_Venta'. ¿Qué tipo de tabla es 'Ventas' y qué representa 'Monto_Venta'?",
-        options: [
-          "Es una tabla de dimensión y 'Monto_Venta' es un atributo descriptivo.",
-          "Es una tabla de hechos y 'Monto_Venta' es una métrica cuantitativa.",
-          "Es una tabla de constelación y 'Monto_Venta' es una clave foránea."
-        ],
-        correct: 1,
-        explanation: "La tabla 'Ventas' es una tabla de hechos porque contiene las métricas del negocio. 'Monto_Venta' es una métrica cuantitativa, un 'hecho' a ser analizado, mientras que las otras columnas son claves que la conectan con las tablas de dimensión (contexto)."
-      },
-      {
-        question: "¿Por qué Big Data es un habilitador tan importante para los avances recientes en Machine Learning e Inteligencia Artificial?",
-        options: [
-          "Porque Big Data proporciona las herramientas de visualización como Tableau.",
-          "Porque los algoritmos de ML necesitan grandes volúmenes y variedad de datos de alta calidad para ser entrenados eficazmente.",
-          "Porque Big Data es un sinónimo de Data Warehouse y almacena los datos de forma estructurada."
-        ],
-        correct: 1,
-        explanation: "Machine Learning requiere grandes cantidades de datos para construir modelos precisos. Big Data proporciona el volumen, la variedad y la velocidad de datos necesarios para entrenar algoritmos de manera más efectiva, mejorando su capacidad de predicción y personalización."
-      },
-      {
-        question: "Una empresa decide implementar un 'data mart' para el departamento de Finanzas en lugar de darle acceso a todo el Data Warehouse corporativo. ¿Cuál es la razón estratégica más probable para esta decisión?",
-        options: [
-          "Para reducir los costos de almacenamiento, ya que un data mart es más barato.",
-          "Para optimizar el acceso a la información relevante para Finanzas, haciéndolo más rápido y especializado.",
-          "Para cumplir con la filosofía de diseño de Bill Inmon de crear primero el almacén central."
-        ],
-        correct: 1,
-        explanation: "Los data marts son subconjuntos de un Data Warehouse orientados a las necesidades específicas de un departamento, lo que permite optimizar y agilizar el acceso a la información que es relevante para esa área de negocio en particular."
-      }
-    ]
-  },
-  section2: {
-    name: "Relación de Columnas",
-    weight: 30,
-    pairs: {
-      "Data Warehouse": "Repositorio centralizado de datos históricos, integrados y no volátiles, optimizado para análisis (OLAP) y toma de decisiones estratégicas.",
-      "ETL (Extracción, Transformación, Carga)": "Proceso fundamental para extraer datos de diversas fuentes, limpiarlos, estandarizarlos y cargarlos en un data warehouse, asegurando su consistencia.",
-      "Machine Learning": "Enfoque de la IA que permite a los sistemas aprender patrones a partir de grandes volúmenes de datos sin programación explícita, crucial para las recomendaciones de Netflix.",
-      "Esquema de Estrella": "Modelo dimensional popular en Data Warehouses que organiza los datos con una tabla de hechos central (métricas) rodeada de tablas de dimensión (contexto) para consultas rápidas.",
-      "Apache Spark": "Framework de procesamiento distribuido utilizado por Netflix para analizar datos a gran escala, tanto en lotes como en tiempo real, para tareas como el análisis predictivo.",
-      "Minería de Datos": "Proceso de descubrimiento automático de patrones novedosos y útiles dentro de grandes conjuntos de datos, que va más allá de una simple consulta.",
-      "OLAP (Procesamiento Analítico en Línea)": "Tipo de procesamiento característico de un Data Warehouse, diseñado para ejecutar consultas complejas sobre grandes volúmenes de datos históricos para análisis multidimensional.",
-      "Ciclo de Vida del Big Data": "Proceso sistemático que abarca desde la generación de datos hasta su interpretación final para la toma de decisiones, guiando cómo las organizaciones manejan la información masiva."
-    }
-  },
-  section3: {
-    name: "Juego del Ahorcado",
-    weight: 40,
-    words: [
-      { word: "NETFLIX", hint: "Compañía que transformó el entretenimiento usando datos para personalizar la experiencia del usuario." },
-      { word: "KAFKA", hint: "Tecnología clave para manejar el 'río' de datos de interacciones de usuarios en tiempo real." },
-      { word: "WAREHOUSE", hint: "Funciona como la 'biblioteca central' de datos históricos de una empresa para análisis profundo." },
-      { word: "KIMBALL", hint: "Pionero que abogó por un enfoque práctico y ágil ('de abajo hacia arriba') para construir almacenes de datos." },
-      { word: "PREDICTIVO", hint: "Tipo de análisis que utiliza datos del pasado para adivinar qué podría suceder en el futuro." },
-      { word: "CASSANDRA", hint: "Base de datos NoSQL que Netflix utiliza para almacenar datos de forma descentralizada y con alta disponibilidad." },
-      { word: "DIMENSION", hint: "En un modelo de datos, esta tabla proporciona el contexto (quién, qué, cuándo, dónde) a las métricas numéricas." },
-      { word: "TABLEAU", hint: "Herramienta que transforma números y tablas en gráficos y dashboards interactivos para una mejor comprensión." },
-      { word: "HECHOS", hint: "Tabla central en un esquema de estrella que contiene las métricas cuantitativas del negocio, como 'unidades vendidas'." },
-      { word: "INSIGHTS", hint: "El valioso conocimiento que se obtiene al analizar y entender los datos, más allá de la información cruda." }
-    ]
-  }
-};
-
+        // URL donde se encuentra el archivo JSON de configuración
+        const JSON_CONFIG_URL = "https://invjesus.github.io/eva_UTTec/cECDB.json";
+        
+        // Variable global para almacenar la configuración cargada
+        let EVALUATION_CONFIG = null;
+        
         // ====================================
-        // SISTEMA DE DIAGNÓSTICO JSON
+        // ESTRUCTURA ESPERADA DEL JSON
         // ====================================
         
-        function validateEvaluationConfig() {
+        const EXPECTED_JSON_STRUCTURE = {
+            general: {
+                title: "string - Título de la evaluación",
+                subtitle: "string - Subtítulo o materia",
+                professor: "string - Nombre del profesor"
+            },
+            section1: {
+                name: "string - Nombre de la sección (ej: 'Opción Múltiple')",
+                weight: "number - Ponderación en porcentaje (ej: 30)",
+                questions: [
+                    {
+                        question: "string - Texto de la pregunta",
+                        options: ["string - Opción 1", "string - Opción 2", "string - Opción 3"],
+                        correct: "number - Índice de la respuesta correcta (0, 1, 2, etc.)",
+                        explanation: "string - Explicación de la respuesta correcta"
+                    }
+                ]
+            },
+            section2: {
+                name: "string - Nombre de la sección (ej: 'Relación de Columnas')",
+                weight: "number - Ponderación en porcentaje (ej: 30)",
+                pairs: {
+                    "Concepto 1": "Definición 1",
+                    "Concepto 2": "Definición 2"
+                }
+            },
+            section3: {
+                name: "string - Nombre de la sección (ej: 'Juego del Ahorcado')",
+                weight: "number - Ponderación en porcentaje (ej: 40)",
+                words: [
+                    {
+                        word: "string - Palabra en mayúsculas (ej: 'ANALYTICS')",
+                        hint: "string - Pista para adivinar la palabra"
+                    }
+                ]
+            }
+        };
+        
+        // ====================================
+        // SISTEMA DE CARGA Y VALIDACIÓN JSON
+        // ====================================
+        
+        async function loadJSONConfig() {
+            console.group('📡 CARGANDO CONFIGURACIÓN JSON DESDE URL');
+            console.log('🌐 URL configurada:', JSON_CONFIG_URL);
+            
+            try {
+                console.log('⏳ Iniciando descarga...');
+                
+                const response = await fetch(JSON_CONFIG_URL, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                console.log('✅ Descarga exitosa');
+                console.log('📊 Tamaño:', response.headers.get('content-length') || 'Desconocido', 'bytes');
+                console.log('📅 Última modificación:', response.headers.get('last-modified') || 'Desconocido');
+                
+                const jsonText = await response.text();
+                console.log('📝 Contenido recibido:', jsonText.length, 'caracteres');
+                
+                // Intentar parsear el JSON
+                let parsedConfig;
+                try {
+                    parsedConfig = JSON.parse(jsonText);
+                    console.log('✅ JSON parseado correctamente');
+                } catch (parseError) {
+                    throw new Error(`Error de sintaxis JSON: ${parseError.message}`);
+                }
+                
+                // Validar la estructura
+                console.log('🔍 Validando estructura...');
+                const validation = validateJSONStructure(parsedConfig);
+                
+                if (!validation.isValid) {
+                    console.error('❌ Estructura JSON inválida');
+                    validation.errors.forEach(error => console.error('  •', error));
+                    throw new Error('La estructura del JSON no es válida');
+                }
+                
+                console.log('✅ Estructura JSON válida');
+                if (validation.warnings.length > 0) {
+                    console.group('⚠️ ADVERTENCIAS');
+                    validation.warnings.forEach(warning => console.warn('  •', warning));
+                    console.groupEnd();
+                }
+                
+                // Asignar configuración global
+                EVALUATION_CONFIG = parsedConfig;
+                
+                console.log('🎉 Configuración cargada exitosamente');
+                console.log('📊 Estadísticas:', validation.stats);
+                console.groupEnd();
+                
+                return { success: true, config: parsedConfig, validation };
+                
+            } catch (error) {
+                console.error('❌ Error cargando configuración:', error.message);
+                console.groupEnd();
+                
+                return { 
+                    success: false, 
+                    error: error.message,
+                    fallback: getDefaultConfig()
+                };
+            }
+        }
+        
+        function validateJSONStructure(config) {
             const errors = [];
             const warnings = [];
             
             try {
-                // Validar estructura general
-                if (!EVALUATION_CONFIG || typeof EVALUATION_CONFIG !== 'object') {
-                    errors.push('EVALUATION_CONFIG no está definido o no es un objeto');
+                // Validar que sea un objeto
+                if (!config || typeof config !== 'object') {
+                    errors.push('El JSON debe ser un objeto válido');
                     return { isValid: false, errors, warnings };
                 }
                 
                 // Validar sección general
-                if (!EVALUATION_CONFIG.general) {
-                    errors.push('Falta la sección "general" en la configuración');
+                if (!config.general) {
+                    errors.push('Falta la sección "general"');
                 } else {
-                    if (!EVALUATION_CONFIG.general.title) warnings.push('Falta el título en la configuración general');
-                    if (!EVALUATION_CONFIG.general.subtitle) warnings.push('Falta el subtítulo en la configuración general');
-                    if (!EVALUATION_CONFIG.general.professor) warnings.push('Falta el nombre del profesor en la configuración general');
-                }
-                
-                // Validar Sección 1
-                if (!EVALUATION_CONFIG.section1) {
-                    errors.push('Falta la sección1 en la configuración');
-                } else {
-                    if (typeof EVALUATION_CONFIG.section1.weight !== 'number') {
-                        errors.push('El peso de la sección1 debe ser un número');
+                    if (!config.general.title || typeof config.general.title !== 'string') {
+                        errors.push('general.title debe ser un string no vacío');
                     }
-                    if (!Array.isArray(EVALUATION_CONFIG.section1.questions)) {
-                        errors.push('Las preguntas de la sección1 deben ser un array');
-                    } else {
-                        if (EVALUATION_CONFIG.section1.questions.length === 0) {
-                            errors.push('La sección1 debe tener al menos una pregunta');
-                        }
-                        
-                        EVALUATION_CONFIG.section1.questions.forEach((q, index) => {
-                            if (!q.question) errors.push(`Pregunta ${index + 1}: Falta el texto de la pregunta`);
-                            if (!Array.isArray(q.options)) errors.push(`Pregunta ${index + 1}: Las opciones deben ser un array`);
-                            if (q.options && q.options.length < 2) errors.push(`Pregunta ${index + 1}: Debe tener al menos 2 opciones`);
-                            if (typeof q.correct !== 'number') errors.push(`Pregunta ${index + 1}: El índice de respuesta correcta debe ser un número`);
-                            if (q.options && (q.correct < 0 || q.correct >= q.options.length)) {
-                                errors.push(`Pregunta ${index + 1}: El índice de respuesta correcta está fuera de rango`);
-                            }
-                            if (!q.explanation) warnings.push(`Pregunta ${index + 1}: Falta la explicación`);
-                        });
+                    if (!config.general.subtitle || typeof config.general.subtitle !== 'string') {
+                        errors.push('general.subtitle debe ser un string no vacío');
+                    }
+                    if (!config.general.professor || typeof config.general.professor !== 'string') {
+                        errors.push('general.professor debe ser un string no vacío');
                     }
                 }
                 
-                // Validar Sección 2
-                if (!EVALUATION_CONFIG.section2) {
-                    errors.push('Falta la sección2 en la configuración');
+                // Validar section1
+                if (!config.section1) {
+                    errors.push('Falta la sección "section1"');
                 } else {
-                    if (typeof EVALUATION_CONFIG.section2.weight !== 'number') {
-                        errors.push('El peso de la sección2 debe ser un número');
+                    if (typeof config.section1.weight !== 'number' || config.section1.weight <= 0) {
+                        errors.push('section1.weight debe ser un número mayor a 0');
                     }
-                    if (!EVALUATION_CONFIG.section2.pairs || typeof EVALUATION_CONFIG.section2.pairs !== 'object') {
-                        errors.push('Los pares de la sección2 deben ser un objeto');
+                    if (!Array.isArray(config.section1.questions)) {
+                        errors.push('section1.questions debe ser un array');
                     } else {
-                        const pairsCount = Object.keys(EVALUATION_CONFIG.section2.pairs).length;
-                        if (pairsCount === 0) {
-                            errors.push('La sección2 debe tener al menos un par concepto-definición');
+                        if (config.section1.questions.length === 0) {
+                            errors.push('section1.questions no puede estar vacío');
                         }
                         
-                        Object.entries(EVALUATION_CONFIG.section2.pairs).forEach(([concept, definition], index) => {
-                            if (!concept || concept.trim() === '') {
-                                errors.push(`Par ${index + 1}: El concepto no puede estar vacío`);
+                        config.section1.questions.forEach((q, index) => {
+                            const prefix = `section1.questions[${index}]`;
+                            if (!q.question || typeof q.question !== 'string') {
+                                errors.push(`${prefix}.question debe ser un string no vacío`);
                             }
-                            if (!definition || definition.trim() === '') {
-                                errors.push(`Par ${index + 1}: La definición no puede estar vacía`);
+                            if (!Array.isArray(q.options)) {
+                                errors.push(`${prefix}.options debe ser un array`);
+                            } else {
+                                if (q.options.length < 2) {
+                                    errors.push(`${prefix}.options debe tener al menos 2 opciones`);
+                                }
+                                q.options.forEach((option, optIndex) => {
+                                    if (!option || typeof option !== 'string') {
+                                        errors.push(`${prefix}.options[${optIndex}] debe ser un string no vacío`);
+                                    }
+                                });
+                            }
+                            if (typeof q.correct !== 'number' || q.correct < 0 || (q.options && q.correct >= q.options.length)) {
+                                errors.push(`${prefix}.correct debe ser un índice válido de las opciones`);
+                            }
+                            if (!q.explanation || typeof q.explanation !== 'string') {
+                                warnings.push(`${prefix}.explanation debería ser un string no vacío`);
                             }
                         });
                     }
                 }
                 
-                // Validar Sección 3
-                if (!EVALUATION_CONFIG.section3) {
-                    errors.push('Falta la sección3 en la configuración');
+                // Validar section2
+                if (!config.section2) {
+                    errors.push('Falta la sección "section2"');
                 } else {
-                    if (typeof EVALUATION_CONFIG.section3.weight !== 'number') {
-                        errors.push('El peso de la sección3 debe ser un número');
+                    if (typeof config.section2.weight !== 'number' || config.section2.weight <= 0) {
+                        errors.push('section2.weight debe ser un número mayor a 0');
                     }
-                    if (!Array.isArray(EVALUATION_CONFIG.section3.words)) {
-                        errors.push('Las palabras de la sección3 deben ser un array');
+                    if (!config.section2.pairs || typeof config.section2.pairs !== 'object') {
+                        errors.push('section2.pairs debe ser un objeto');
                     } else {
-                        if (EVALUATION_CONFIG.section3.words.length === 0) {
-                            errors.push('La sección3 debe tener al menos una palabra');
+                        const pairsEntries = Object.entries(config.section2.pairs);
+                        if (pairsEntries.length === 0) {
+                            errors.push('section2.pairs no puede estar vacío');
                         }
                         
-                        EVALUATION_CONFIG.section3.words.forEach((wordObj, index) => {
-                            if (!wordObj.word) errors.push(`Palabra ${index + 1}: Falta la palabra`);
-                            if (!wordObj.hint) errors.push(`Palabra ${index + 1}: Falta la pista`);
-                            if (wordObj.word && !/^[A-Z\s]+$/.test(wordObj.word)) {
-                                warnings.push(`Palabra ${index + 1}: Se recomienda usar solo letras mayúsculas y espacios`);
+                        pairsEntries.forEach(([concept, definition], index) => {
+                            if (!concept || typeof concept !== 'string') {
+                                errors.push(`section2.pairs: el concepto en posición ${index} debe ser un string no vacío`);
+                            }
+                            if (!definition || typeof definition !== 'string') {
+                                errors.push(`section2.pairs: la definición para "${concept}" debe ser un string no vacío`);
                             }
                         });
                     }
                 }
                 
-                // Validar ponderaciones suman 100%
-                const totalWeight = (EVALUATION_CONFIG.section1?.weight || 0) + 
-                                  (EVALUATION_CONFIG.section2?.weight || 0) + 
-                                  (EVALUATION_CONFIG.section3?.weight || 0);
+                // Validar section3
+                if (!config.section3) {
+                    errors.push('Falta la sección "section3"');
+                } else {
+                    if (typeof config.section3.weight !== 'number' || config.section3.weight <= 0) {
+                        errors.push('section3.weight debe ser un número mayor a 0');
+                    }
+                    if (!Array.isArray(config.section3.words)) {
+                        errors.push('section3.words debe ser un array');
+                    } else {
+                        if (config.section3.words.length === 0) {
+                            errors.push('section3.words no puede estar vacío');
+                        }
+                        
+                        config.section3.words.forEach((wordObj, index) => {
+                            const prefix = `section3.words[${index}]`;
+                            if (!wordObj.word || typeof wordObj.word !== 'string') {
+                                errors.push(`${prefix}.word debe ser un string no vacío`);
+                            } else {
+                                if (!/^[A-Z\s]+$/.test(wordObj.word)) {
+                                    warnings.push(`${prefix}.word debería contener solo letras mayúsculas y espacios`);
+                                }
+                            }
+                            if (!wordObj.hint || typeof wordObj.hint !== 'string') {
+                                errors.push(`${prefix}.hint debe ser un string no vacío`);
+                            }
+                        });
+                    }
+                }
+                
+                // Validar que las ponderaciones sumen 100%
+                const totalWeight = (config.section1?.weight || 0) + 
+                                  (config.section2?.weight || 0) + 
+                                  (config.section3?.weight || 0);
                 
                 if (Math.abs(totalWeight - 100) > 0.01) {
-                    errors.push(`Las ponderaciones deben sumar 100%. Actual: ${totalWeight}%`);
+                    errors.push(`Las ponderaciones deben sumar 100%. Suma actual: ${totalWeight}%`);
                 }
                 
                 return {
@@ -1055,24 +1008,97 @@
                     errors,
                     warnings,
                     stats: {
-                        totalQuestions: EVALUATION_CONFIG.section1?.questions?.length || 0,
-                        totalPairs: Object.keys(EVALUATION_CONFIG.section2?.pairs || {}).length,
-                        totalWords: EVALUATION_CONFIG.section3?.words?.length || 0,
+                        totalQuestions: config.section1?.questions?.length || 0,
+                        totalPairs: Object.keys(config.section2?.pairs || {}).length,
+                        totalWords: config.section3?.words?.length || 0,
                         totalWeight
                     }
                 };
                 
             } catch (error) {
-                errors.push(`Error crítico al validar configuración: ${error.message}`);
+                errors.push(`Error crítico validando estructura: ${error.message}`);
                 return { isValid: false, errors, warnings };
             }
+        }
+        
+        function getDefaultConfig() {
+            return {
+                general: {
+                    title: "Evaluación Digital",
+                    subtitle: "CONFIGURACIÓN DE RESPALDO",
+                    professor: "Sistema"
+                },
+                section1: {
+                    name: "Opción Múltiple",
+                    weight: 50,
+                    questions: [
+                        {
+                            question: "Esta es una pregunta de ejemplo del sistema de respaldo.",
+                            options: [
+                                "Opción A - Ejemplo",
+                                "Opción B - Ejemplo", 
+                                "Opción C - Ejemplo"
+                            ],
+                            correct: 0,
+                            explanation: "Esta es la configuración de respaldo del sistema."
+                        }
+                    ]
+                },
+                section2: {
+                    name: "Relación de Columnas",
+                    weight: 25,
+                    pairs: {
+                        "Concepto Ejemplo": "Definición de ejemplo del sistema de respaldo"
+                    }
+                },
+                section3: {
+                    name: "Juego del Ahorcado",
+                    weight: 25,
+                    words: [
+                        { word: "EJEMPLO", hint: "Palabra de prueba del sistema de respaldo" }
+                    ]
+                }
+            };
+        }
+        
+        function showJSONStructureGuide() {
+            console.group('📋 GUÍA DE ESTRUCTURA JSON ESPERADA');
+            console.log('🌐 URL configurada:', JSON_CONFIG_URL);
+            console.log('📝 El JSON debe tener la siguiente estructura:');
+            console.log(JSON.stringify(EXPECTED_JSON_STRUCTURE, null, 2));
+            console.groupEnd();
+        }
+
+        // ====================================
+        // SISTEMA DE DIAGNÓSTICO JSON (ACTUALIZADO)
+        // ====================================
+        
+        function validateEvaluationConfig() {
+            // Si no hay configuración cargada, usar la función de validación de estructura
+            if (!EVALUATION_CONFIG) {
+                return { 
+                    isValid: false, 
+                    errors: ['No se ha cargado ninguna configuración JSON'], 
+                    warnings: [],
+                    stats: { totalQuestions: 0, totalPairs: 0, totalWords: 0, totalWeight: 0 }
+                };
+            }
+            
+            // Usar la función de validación de estructura existente
+            return validateJSONStructure(EVALUATION_CONFIG);
         }
         
         function showConfigDiagnostic() {
             const validation = validateEvaluationConfig();
             
             console.group('🔍 DIAGNÓSTICO DE CONFIGURACIÓN JSON');
-            console.log('📊 Estadísticas:', validation.stats);
+            
+            if (EVALUATION_CONFIG) {
+                console.log('📊 Estadísticas:', validation.stats);
+                console.log('🌐 Fuente: Cargado desde URL');
+            } else {
+                console.log('⚠️ No hay configuración cargada');
+            }
             
             if (validation.errors.length > 0) {
                 console.group('❌ ERRORES CRÍTICOS');
@@ -1150,7 +1176,7 @@
             }
         }
 
-        function authenticateUser(event) {
+        async function authenticateUser(event) {
             event.preventDefault();
             const accessKey = document.getElementById('accessKey').value;
             
@@ -1160,39 +1186,51 @@
             console.log('¿Coinciden?', accessKey === ACCESS_KEY);
             
             if (accessKey === ACCESS_KEY) {
-                // Verificar configuración JSON antes de continuar
-                const validation = validateEvaluationConfig();
+                // Mostrar mensaje de carga
+                const errorDiv = document.getElementById('authError');
+                errorDiv.innerHTML = `
+                    <div class="flex items-center text-blue-800">
+                        <svg class="w-5 h-5 mr-2 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                        Cargando configuración JSON...
+                    </div>
+                `;
+                errorDiv.classList.remove('hidden');
                 
-                if (!validation.isValid) {
-                    console.error('❌ Configuración JSON inválida - Bloqueando acceso');
-                    showConfigDiagnostic();
+                // Cargar configuración JSON desde URL
+                const loadResult = await loadJSONConfig();
+                
+                if (!loadResult.success) {
+                    console.error('❌ Error cargando JSON - Usando configuración de respaldo');
                     
-                    const errorDiv = document.getElementById('authError');
+                    // Usar configuración de respaldo
+                    EVALUATION_CONFIG = loadResult.fallback;
+                    
                     errorDiv.innerHTML = `
-                        <div class="flex items-start text-red-800">
+                        <div class="flex items-start text-yellow-800">
                             <svg class="w-5 h-5 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
                             <div>
-                                <p class="font-medium">Error en la configuración del sistema</p>
-                                <p class="text-sm mt-1">La evaluación no puede iniciarse debido a errores en la configuración JSON. Revisa la consola para más detalles.</p>
+                                <p class="font-medium">Usando configuración de respaldo</p>
+                                <p class="text-sm mt-1">No se pudo cargar el JSON desde la URL. Se usará una configuración básica de ejemplo.</p>
+                                <p class="text-xs mt-1 font-mono">Error: ${loadResult.error}</p>
                             </div>
                         </div>
                     `;
-                    errorDiv.classList.remove('hidden');
-                    return;
+                    
+                    // Continuar con configuración de respaldo después de 3 segundos
+                    setTimeout(() => {
+                        proceedWithAuthentication();
+                    }, 3000);
+                    
+                } else {
+                    console.log('✅ JSON cargado exitosamente');
+                    errorDiv.classList.add('hidden');
+                    proceedWithAuthentication();
                 }
                 
-                // Verificar límite de intentos antes de permitir acceso
-                if (!checkAttemptLimit()) {
-                    return;
-                }
-                
-                console.log('✅ Acceso autorizado');
-                document.getElementById('authScreen').style.display = 'none';
-                document.getElementById('startScreen').classList.remove('hidden');
-                updateStartScreenCounters(); // Actualizar contadores al mostrar la pantalla
-                showNotification('¡Acceso autorizado! Bienvenido a la evaluación.', 'success');
             } else {
                 console.log('❌ Clave incorrecta');
                 const errorDiv = document.getElementById('authError');
@@ -1212,6 +1250,42 @@
                     document.getElementById('accessKey').value = '';
                 }, 1000);
             }
+        }
+        
+        function proceedWithAuthentication() {
+            // Verificar configuración JSON antes de continuar
+            const validation = validateEvaluationConfig();
+            
+            if (!validation.isValid) {
+                console.error('❌ Configuración JSON inválida - Bloqueando acceso');
+                showConfigDiagnostic();
+                
+                const errorDiv = document.getElementById('authError');
+                errorDiv.innerHTML = `
+                    <div class="flex items-start text-red-800">
+                        <svg class="w-5 h-5 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <p class="font-medium">Error en la configuración del sistema</p>
+                            <p class="text-sm mt-1">La evaluación no puede iniciarse debido a errores en la configuración JSON. Revisa la consola para más detalles.</p>
+                        </div>
+                    </div>
+                `;
+                errorDiv.classList.remove('hidden');
+                return;
+            }
+            
+            // Verificar límite de intentos antes de permitir acceso
+            if (!checkAttemptLimit()) {
+                return;
+            }
+            
+            console.log('✅ Acceso autorizado');
+            document.getElementById('authScreen').style.display = 'none';
+            document.getElementById('startScreen').classList.remove('hidden');
+            updateStartScreenCounters(); // Actualizar contadores al mostrar la pantalla
+            showNotification('¡Acceso autorizado! Bienvenido a la evaluación.', 'success');
         }
 
         // Funciones del cronómetro
@@ -1970,34 +2044,45 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 Evaluación Digital cargada correctamente');
             console.log('🔑 Clave de acceso configurada:', ACCESS_KEY);
+            console.log('🌐 URL JSON configurada:', JSON_CONFIG_URL);
             
-            // Ejecutar diagnóstico automático
-            console.log('🔍 Ejecutando diagnóstico automático...');
+            // Mostrar guía de estructura JSON esperada
+            showJSONStructureGuide();
+            
+            // Ejecutar diagnóstico inicial (sin configuración cargada aún)
+            console.log('🔍 Estado inicial del sistema...');
             const validation = showConfigDiagnostic();
             
-            if (validation.isValid) {
+            if (EVALUATION_CONFIG) {
                 console.log('✅ Sistema listo para usar');
                 
                 // Actualizar contadores en la pantalla de inicio si está visible
                 if (!document.getElementById('startScreen').classList.contains('hidden')) {
                     updateStartScreenCounters();
                 }
+                
+                // Mostrar información de configuración
+                console.group('📋 RESUMEN DE CONFIGURACIÓN ACTUAL');
+                console.log('📝 Título:', EVALUATION_CONFIG.general?.title || 'No definido');
+                console.log('📚 Materia:', EVALUATION_CONFIG.general?.subtitle || 'No definido');
+                console.log('👨‍🏫 Profesor:', EVALUATION_CONFIG.general?.professor || 'No definido');
+                console.log('❓ Preguntas:', validation.stats?.totalQuestions || 0);
+                console.log('🔗 Pares:', validation.stats?.totalPairs || 0);
+                console.log('🎯 Palabras:', validation.stats?.totalWords || 0);
+                console.log('⚖️ Ponderación total:', validation.stats?.totalWeight + '%' || 'No calculado');
+                console.groupEnd();
             } else {
-                console.error('❌ Sistema no está listo - Hay errores en la configuración');
-                console.log('💡 Tip: Revisa los errores mostrados arriba y corrige la configuración JSON');
+                console.log('⏳ Configuración se cargará al autenticarse');
+                console.log('💡 Tip: La configuración JSON se descargará automáticamente al ingresar la clave correcta');
             }
             
-            // Mostrar información de configuración
-            console.group('📋 RESUMEN DE CONFIGURACIÓN');
-            console.log('📝 Título:', EVALUATION_CONFIG.general?.title || 'No definido');
-            console.log('📚 Materia:', EVALUATION_CONFIG.general?.subtitle || 'No definido');
-            console.log('👨‍🏫 Profesor:', EVALUATION_CONFIG.general?.professor || 'No definido');
-            console.log('❓ Preguntas:', validation.stats?.totalQuestions || 0);
-            console.log('🔗 Pares:', validation.stats?.totalPairs || 0);
-            console.log('🎯 Palabras:', validation.stats?.totalWords || 0);
-            console.log('⚖️ Ponderación total:', validation.stats?.totalWeight + '%' || 'No calculado');
+            console.group('ℹ️ INFORMACIÓN DEL SISTEMA');
+            console.log('🔐 Autenticación: Requerida');
+            console.log('📡 Carga JSON: Automática al autenticarse');
+            console.log('🛡️ Validación: Automática antes de iniciar');
+            console.log('🔄 Respaldo: Configuración de ejemplo disponible');
             console.groupEnd();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98441d2c94ebd187',t:'MTc1ODczNjEyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98443958d68edccf',t:'MTc1ODczNzI3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
