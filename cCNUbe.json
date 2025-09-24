@@ -1,0 +1,223 @@
+{
+  "general": {
+    "title": "Evaluación Digital",
+    "subtitle": "MODELOS, SERVICIOS Y ESTRATEGIAS DE IMPLEMENTACIÓN",
+    "professor": "MTI JERM"
+  },
+  "section1": {
+    "name": "Opción Múltiple",
+    "weight": 50,
+    "questions": [
+      {
+        "question": "Una startup de tecnología necesita lanzar su aplicación minimizando la inversión inicial en hardware y con capacidad de escalar rápidamente. ¿Qué modelo de servicio en la nube es el más adecuado para desplegar su aplicación sin gestionar la infraestructura subyacente?",
+        "options": [
+          "Infraestructura como Servicio (IaaS), para tener control total sobre los servidores virtuales.",
+          "Plataforma como Servicio (PaaS), para enfocarse solo en el desarrollo y despliegue de la aplicación.",
+          "Software como Servicio (SaaS), adquiriendo una aplicación de software ya existente."
+        ],
+        "correct": 1,
+        "explanation": "PaaS ofrece un entorno de desarrollo y despliegue completo sin que el desarrollador se preocupe por la infraestructura, lo cual es ideal para una startup que busca agilidad y escalabilidad."
+      },
+      {
+        "question": "Un banco internacional maneja datos de transacciones altamente sensibles y regulados, pero desea utilizar servicios de IA de un proveedor público para analizar tendencias de mercado. ¿Qué modelo de implementación en la nube le permitiría cumplir con ambas necesidades?",
+        "options": [
+          "Nube Pública, para aprovechar al máximo los servicios de IA y reducir costos.",
+          "Nube Privada, para mantener todos los datos en un entorno controlado y seguro.",
+          "Nube Híbrida, para combinar la seguridad de la nube privada con la flexibilidad de la pública."
+        ],
+        "correct": 2,
+        "explanation": "La nube híbrida permite a la organización mantener datos críticos y regulados en su nube privada mientras utiliza los recursos de una nube pública para cargas de trabajo menos sensibles."
+      },
+      {
+        "question": "Una empresa de retail experimenta picos de tráfico masivos en su e-commerce durante el 'Buen Fin', sobrecargando su infraestructura local. ¿Qué característica clave de la nube híbrida resuelve este problema de manera más eficiente?",
+        "options": [
+          "Interoperabilidad, para que los sistemas se comuniquen.",
+          "Portabilidad, para mover la aplicación a otro proveedor en el futuro.",
+          "Escalabilidad, para aprovechar la capacidad de la nube pública durante los picos de demanda."
+        ],
+        "correct": 2,
+        "explanation": "La escalabilidad de la nube híbrida permite que una carga de trabajo en la nube privada aproveche la capacidad de la nube pública para manejar picos de demanda de forma rápida y económica."
+      },
+      {
+        "question": "Una compañía de manufactura quiere modernizar sus aplicaciones heredadas ('legacy') integrando notificaciones push y analítica avanzada, servicios nativos de proveedores de nube pública. ¿Cuál de los siguientes casos de uso describe mejor esta estrategia?",
+        "options": [
+          "Integración de datos e IA.",
+          "Migración completa de VMware a la nube.",
+          "Mejora de las aplicaciones heredadas."
+        ],
+        "correct": 2,
+        "explanation": "Este escenario corresponde al caso de uso de mejora de aplicaciones heredadas, donde se utilizan servicios de nube pública para potenciar y modernizar la funcionalidad de aplicaciones que residen localmente."
+      },
+      {
+        "question": "Una empresa decide adoptar una estrategia de nube para no quedarse atrás frente a la competencia. ¿Qué implicación estratégica es la más importante que deben considerar según las tendencias actuales?",
+        "options": [
+          "La virtualización es el único factor a considerar.",
+          "La estrategia de la nube debe ser un componente central de su estrategia empresarial general.",
+          "Solo deben enfocarse en reducir costos de infraestructura."
+        ],
+        "correct": 1,
+        "explanation": "Para responder a la disrupción digital, la estrategia de la nube no puede ser un anexo técnico, sino que debe integrarse como un pilar fundamental de la estrategia empresarial completa."
+      },
+      {
+        "question": "Debido a la pandemia, una consultora implementó el trabajo remoto para todos sus empleados. ¿Qué factor de adopción de la nube fue acelerado directamente por esta situación para garantizar la continuidad del negocio?",
+        "options": [
+          "La necesidad de integrar IA y Machine Learning.",
+          "El crecimiento exponencial de los datos.",
+          "El crecimiento del trabajo remoto y la necesidad de herramientas colaborativas."
+        ],
+        "correct": 2,
+        "explanation": "La pandemia aceleró la adopción de herramientas en la nube que permitieron a las empresas mantener la operación mientras los empleados trabajaban desde casa."
+      },
+      {
+        "question": "Una empresa está evaluando migrar a una multinube compuesta. ¿Qué implicaría esta decisión en términos de arquitectura de aplicaciones?",
+        "options": [
+          "Usar un solo proveedor de nube pública para todas sus aplicaciones.",
+          "Desplegar cada aplicación completa en un único proveedor, pero usando varios en total.",
+          "Distribuir los componentes de una misma aplicación a través de múltiples proveedores de nube."
+        ],
+        "correct": 2,
+        "explanation": "La multinube compuesta se caracteriza por distribuir una aplicación individual a través de múltiples proveedores, a diferencia de otros modelos multinube donde aplicaciones completas residen en proveedores distintos."
+      },
+      {
+        "question": "Al elegir un proveedor de nube para IaaS, una empresa está alquilando acceso a recursos fundamentales. ¿Qué componentes están siendo gestionados por el proveedor en este modelo?",
+        "options": [
+          "Aplicaciones, datos y sistema operativo.",
+          "Solo el software de la aplicación, como un CRM.",
+          "Virtualización, servidores físicos, red y almacenamiento."
+        ],
+        "correct": 2,
+        "explanation": "En el modelo IaaS, el proveedor gestiona la infraestructura física y de virtualización, mientras que el usuario gestiona el sistema operativo, las bases de datos y las aplicaciones."
+      },
+      {
+        "question": "Una organización sin fines de lucro con presupuesto limitado necesita herramientas de colaboración y correo electrónico. No tienen personal de TI. ¿Qué modelo de servicio es la solución más práctica y rentable?",
+        "options": [
+          "IaaS, para construir su propio servidor de correo.",
+          "PaaS, para desarrollar una herramienta de colaboración a medida.",
+          "SaaS, para usar aplicaciones como Office 365 o Google Workspace directamente."
+        ],
+        "correct": 2,
+        "explanation": "SaaS proporciona acceso a aplicaciones listas para usar a través de internet, eliminando la necesidad de instalación y mantenimiento, ideal para organizaciones sin recursos de TI."
+      },
+      {
+        "question": "¿Cuál es la principal diferencia entre portabilidad e interoperabilidad en un contexto de nube híbrida?",
+        "options": [
+          "La portabilidad es sobre mover datos, la interoperabilidad sobre mover aplicaciones.",
+          "La interoperabilidad permite que las nubes se comuniquen, mientras que la portabilidad permite mover cargas de trabajo entre ellas.",
+          "Ambos conceptos significan lo mismo: la capacidad de usar múltiples nubes."
+        ],
+        "correct": 1,
+        "explanation": "La interoperabilidad es la capacidad de las nubes de entenderse mutuamente (APIs, datos), mientras que la portabilidad es la capacidad de mover activamente las aplicaciones y datos entre los entornos."
+      },
+      {
+        "question": "Una empresa de logística quiere optimizar sus rutas de entrega usando datos de GPS en tiempo real. ¿Por qué la nube es esencial para implementar esta solución?",
+        "options": [
+          "Porque la nube es el único lugar donde se pueden almacenar datos de GPS.",
+          "Porque permite procesar grandes volúmenes de datos en tiempo real para tomar decisiones instantáneas.",
+          "Porque reduce los costos de los dispositivos GPS en los camiones."
+        ],
+        "correct": 1,
+        "explanation": "La nube proporciona la capacidad de cómputo y las herramientas de análisis necesarias para procesar flujos masivos de datos en tiempo real, lo cual es crucial para la toma de decisiones."
+      },
+      {
+        "question": "Una agencia gubernamental debe asegurar que los datos de los ciudadanos residan físicamente dentro del país. ¿Cómo puede una nube híbrida satisfacer este requisito de soberanía de datos?",
+        "options": [
+          "Usando únicamente la nube pública de un proveedor global.",
+          "Manteniendo los datos sensibles en una nube privada dentro del país y usando servicios de la nube pública para procesarlos.",
+          "Cifrando todos los datos y almacenándolos en la nube pública."
+        ],
+        "correct": 1,
+        "explanation": "El modelo híbrido permite cumplir con regulaciones de soberanía de datos al mantener la información sensible en una nube privada local, mientras se aprovechan los servicios avanzados de una nube pública."
+      },
+      {
+        "question": "Una empresa de e-learning quiere que su plataforma pueda funcionar en AWS y Azure para evitar la dependencia de un solo proveedor ('vendor lock-in'). ¿Qué estrategia de nube describe mejor este enfoque?",
+        "options": [
+          "Mononube híbrida.",
+          "Nube privada dedicada.",
+          "Multinube híbrida."
+        ],
+        "correct": 2,
+        "explanation": "Una estrategia multinube híbrida implica el uso de servicios de diferentes proveedores de nube pública, combinados con una nube privada, para optimizar costos y evitar la dependencia."
+      },
+      {
+        "question": "Una compañía está considerando migrar sus cargas de trabajo virtualizadas con VMware a la nube. ¿Qué representa esto en el contexto de los casos de uso de la nube híbrida?",
+        "options": [
+          "Una integración de SaaS.",
+          "Una mejora de una aplicación heredada.",
+          "Un caso de uso específico de migración de VMware."
+        ],
+        "correct": 2,
+        "explanation": "La migración de cargas de trabajo de VMware locales a una nube pública es un caso de uso común y específico dentro de las estrategias de adopción de la nube híbrida."
+      },
+      {
+        "question": "Según la investigación, el 75% de las aplicaciones que no están en la nube se trasladarán a ella en los próximos tres años. ¿Qué impulsa principalmente esta migración masiva?",
+        "options": [
+          "La disminución en los costos del hardware físico.",
+          "La búsqueda de mayor flexibilidad, escalabilidad y eficiencia en la infraestructura de TI.",
+          "La obligación regulatoria de todos los gobiernos."
+        ],
+        "correct": 1,
+        "explanation": "La migración a la nube es impulsada por la necesidad de las empresas de ser más ágiles, competitivas y eficientes, adaptándose a las demandas del mercado y optimizando sus recursos."
+      }
+    ]
+  },
+  "section2": {
+    "name": "Relación de Columnas",
+    "weight": 20,
+    "pairs": {
+      "Nube Híbrida": "Entorno que conecta una infraestructura privada con los servicios de al menos un proveedor de nube pública, permitiendo mover cargas de trabajo entre ambos.",
+      "IaaS": "Modelo de servicio que provee recursos de cómputo virtualizados, como servidores y almacenamiento, sobre los cuales el cliente instala su propio sistema operativo y aplicaciones.",
+      "PaaS": "Modelo de servicio que ofrece una plataforma para que los desarrolladores puedan crear, ejecutar y gestionar aplicaciones sin preocuparse por la infraestructura subyacente.",
+      "SaaS": "Modelo de servicio donde el software es licenciado en base a una suscripción y se accede a él a través de internet, sin necesidad de instalación local.",
+      "Escalabilidad": "Característica que permite a una carga de trabajo en la nube privada utilizar recursos adicionales de la nube pública para manejar picos de demanda.",
+      "Interoperabilidad": "Capacidad de una nube pública y una privada para comunicarse y entender mutuamente sus APIs, formatos de datos y métodos de autenticación.",
+      "Nube Pública": "Modelo de implementación donde los servicios de cómputo son propiedad de un proveedor externo y se ofrecen al público general a través de internet.",
+      "Nube Privada": "Modelo de implementación donde la infraestructura de cómputo es operada exclusivamente para una sola organización, ya sea de forma interna o por un tercero."
+    }
+  },
+  "section3": {
+    "name": "Juego del Ahorcado",
+    "weight": 30,
+    "words": [
+      {
+        "word": "VIRTUALIZACION",
+        "hint": "Tecnología clave que permite la creación de múltiples entornos simulados o recursos dedicados desde un solo sistema de hardware físico."
+      },
+      {
+        "word": "ESCALABILIDAD",
+        "hint": "Capacidad de un sistema para aumentar su capacidad de carga de trabajo de forma flexible y económica, a menudo usando recursos externos."
+      },
+      {
+        "word": "HIBRIDA",
+        "hint": "Adjetivo que describe el modelo de nube que combina lo mejor de los mundos público y privado."
+      },
+      {
+        "word": "IAAS",
+        "hint": "Acrónimo del modelo de servicio en la nube que te da los 'bloques de construcción' fundamentales de la infraestructura TI."
+      },
+      {
+        "word": "MULTINUBE",
+        "hint": "Estrategia que utiliza servicios de más de un proveedor de nube pública para optimizar costos o evitar la dependencia."
+      },
+      {
+        "word": "SAAS",
+        "hint": "Acrónimo del modelo de servicio que usas al acceder a tu correo electrónico o a un CRM en línea."
+      },
+      {
+        "word": "PORTABILIDAD",
+        "hint": "Característica que permite mover aplicaciones y datos entre diferentes entornos de nube sin mayores complicaciones."
+      },
+      {
+        "word": "PAAS",
+        "hint": "Acrónimo del modelo de servicio que proporciona un 'lienzo' listo para que los desarrolladores pinten sus aplicaciones."
+      },
+      {
+        "word": "SEGURIDAD",
+        "hint": "Una de las principales ventajas de mantener los datos sensibles en el componente privado de una nube híbrida."
+      },
+      {
+        "word": "PROVEEDOR",
+        "hint": "Entidad que gestiona y ofrece los servicios de la nube pública, como AWS o Microsoft Azure."
+      }
+    ]
+  }
+}
