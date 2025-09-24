@@ -361,13 +361,18 @@
                 </div>
                 
                 <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 md:p-8 mb-6 md:mb-10 text-left slide-in-left border border-blue-100">
-                    <div class="flex items-center mb-4 md:mb-6">
-                        <div class="w-6 h-6 md:w-8 md:h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
-                            <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                            </svg>
+                    <div class="flex items-center justify-between mb-4 md:mb-6">
+                        <div class="flex items-center">
+                            <div class="w-6 h-6 md:w-8 md:h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
+                                <svg class="w-3 h-3 md:w-4 md:h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold text-gray-800">Instrucciones Generales</h3>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-gray-800">Instrucciones Generales</h3>
+                        <div class="bg-white rounded-lg px-3 py-1 border border-blue-200">
+                            <span class="text-blue-600 font-semibold text-sm">Intento #<span id="currentAttemptDisplay">1</span></span>
+                        </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 md:mb-6">
                         <div class="bg-white rounded-lg p-3 md:p-4 border border-blue-200">
@@ -655,6 +660,18 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- Botón para realizar otro intento -->
+                <div class="text-center mt-6">
+                    <button onclick="resetEvaluation()" class="button-primary bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg">
+                        <span class="flex items-center justify-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                            </svg>
+                            Realizar Otro Intento
+                        </span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -693,7 +710,7 @@
         let questionMappings = [];
         let attemptCount = 0;
 
-        // Sistema de control de intentos
+        // Sistema de control de intentos (sin límite)
         function getAttemptCount() {
             const stored = localStorage.getItem('evaluationAttempts');
             return stored ? parseInt(stored) : 0;
@@ -705,36 +722,8 @@
             return attemptCount;
         }
 
-        function checkAttemptLimit() {
-            const currentAttempts = getAttemptCount();
-            if (currentAttempts >= 1) {
-                showAttemptLimitMessage();
-                return false;
-            }
-            return true;
-        }
-
-        function showAttemptLimitMessage() {
-            const authScreen = document.getElementById('authScreen');
-            authScreen.innerHTML = `
-                <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-md mx-4">
-                    <div class="text-center">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full mb-4">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h1 class="text-2xl font-bold text-gray-800 mb-4">Acceso Restringido</h1>
-                        <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
-                            <p class="text-red-800 font-medium mb-2">Ya has completado esta evaluación</p>
-                            <p class="text-red-600 text-sm">Solo se permite un intento por estudiante</p>
-                        </div>
-                        <div class="bg-gray-50 rounded-lg p-3">
-                            <p class="text-gray-600 text-sm">Intentos realizados: <span class="font-bold">${currentAttempts}</span></p>
-                        </div>
-                    </div>
-                </div>
-            `;
+        function getCurrentAttemptNumber() {
+            return getAttemptCount() + 1; // El próximo intento
         }
 
         // ====================================
@@ -1299,6 +1288,12 @@
             if (startSection1WeightEl) startSection1WeightEl.textContent = EVALUATION_CONFIG.section1.weight;
             if (startSection2WeightEl) startSection2WeightEl.textContent = EVALUATION_CONFIG.section2.weight;
             if (startSection3WeightEl) startSection3WeightEl.textContent = EVALUATION_CONFIG.section3.weight;
+            
+            // Actualizar número de intento actual
+            const currentAttemptDisplayEl = document.getElementById('currentAttemptDisplay');
+            if (currentAttemptDisplayEl) {
+                currentAttemptDisplayEl.textContent = getCurrentAttemptNumber();
+            }
         }
 
         // Funciones de autenticación
@@ -1440,10 +1435,9 @@
                 return;
             }
             
-            // Verificar límite de intentos antes de permitir acceso
-            if (!checkAttemptLimit()) {
-                return;
-            }
+            // Mostrar número de intento actual
+            const currentAttempt = getCurrentAttemptNumber();
+            console.log(`🔄 Iniciando intento #${currentAttempt}`);
             
             console.log('✅ Acceso autorizado');
             document.getElementById('authScreen').style.display = 'none';
@@ -2204,6 +2198,48 @@
             }, 500);
         }
 
+        // Función para reiniciar la evaluación
+        function resetEvaluation() {
+            // Resetear todas las variables globales
+            currentQuestionIndex = 0;
+            section1Answers = [];
+            section2Connections = {};
+            section3Data = {
+                currentWordIndex: 0,
+                wordsCompleted: 0,
+                totalAttempts: 0
+            };
+            isProcessingAnswer = false;
+            shuffledQuestions = [];
+            questionMappings = [];
+            
+            // Limpiar campos de entrada
+            document.getElementById('studentName').value = '';
+            document.getElementById('studentGroup').value = '';
+            
+            // Ocultar todas las pantallas
+            document.getElementById('resultsScreen').classList.add('hidden');
+            document.getElementById('section1').classList.add('hidden');
+            document.getElementById('section2').classList.add('hidden');
+            document.getElementById('section3').classList.add('hidden');
+            
+            // Mostrar pantalla de inicio
+            document.getElementById('startScreen').classList.remove('hidden');
+            
+            // Actualizar contadores (incluyendo el número de intento)
+            updateStartScreenCounters();
+            
+            // Parar el cronómetro si está corriendo
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            
+            // Resetear el display del cronómetro
+            document.getElementById('timeDisplay').textContent = '00:00';
+            
+            showNotification('¡Listo para un nuevo intento!', 'success');
+        }
+
         // Inicializar la aplicación cuando se carga la página
         document.addEventListener('DOMContentLoaded', function() {
             console.log('🚀 Evaluación Digital cargada correctamente');
@@ -2248,5 +2284,5 @@
             console.groupEnd();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'984452947618165a',t:'MTc1ODczODMwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9844631ff7e9b1f2',t:'MTc1ODczODk4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
