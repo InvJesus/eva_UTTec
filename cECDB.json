@@ -1,4 +1,4 @@
-{
+
             general: {
                 title: "Evaluación Digital",
                 subtitle: "TECNOLOGÍAS PARA MANEJO MASIVO DE DATOS",
@@ -83,4 +83,5 @@
                     { word: "STREAMING", hint: "Procesamiento de datos en tiempo real conforme van llegando" }
                 ]
             }
-        };
+
+        
