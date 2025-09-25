@@ -1,162 +1,162 @@
 {
   "general": {
-    "title": "Evaluación Digital - Big Data",
-    "subtitle": "TECNOLOGÍAS PARA MANEJO MASIVO DE DATOS",
-    "professor": "MTI JERM"
+    "title": "Evaluación Digital - Big Data y Data Warehouse",
+    "subtitle": "EXTRACCIÓN DE CONOCIMIENTO Y TOMA DE DECISIONES ESTRATÉGICAS",
+    "professor": "MTI JESÚS E. ROMERO MORENO"
   },
   "section1": {
     "name": "Opción Múltiple",
     "weight": 50,
     "questions": [
       {
-        "question": "Una empresa de streaming como Netflix desea capturar cada clic, pausa y búsqueda de sus usuarios en tiempo real sin interrumpir su experiencia. ¿Qué tecnología sería la más adecuada para gestionar este flujo masivo de eventos en la fase de 'Generación de Datos'?",
+        "question": "Una empresa de retail quiere analizar las ventas de los últimos 5 años para identificar tendencias estacionales y optimizar su inventario. ¿Qué tipo de sistema sería más adecuado para este propósito analítico y por qué?",
         "options": [
-          "PostgreSQL, para almacenar los datos de forma estructurada y segura.",
-          "Apache Kafka, para manejar y procesar flujos de datos en tiempo real de manera eficiente.",
-          "HDFS, para almacenar los datos una vez que han sido procesados en lotes."
+          "Una base de datos OLTP, porque gestiona transacciones diarias rápidamente.",
+          "Un Data Warehouse (OLAP), porque está diseñado para consultas complejas sobre datos históricos y orientados a temas.",
+          "Un sistema de archivos local, porque es la forma más sencilla de almacenar reportes de ventas."
         ],
         "correct": 1,
-        "explanation": "Apache Kafka está diseñado específicamente para capturar y manejar grandes volúmenes de datos en tiempo real, lo que lo hace ideal para registrar interacciones de usuario de forma instantánea y confiable."
+        "explanation": "Un Data Warehouse está optimizado para el análisis de grandes volúmenes de datos históricos (variante en el tiempo) y organizados por temas (ventas, clientes), a diferencia de las bases de datos operativas (OLTP) que se centran en transacciones actuales."
       },
       {
-        "question": "Una empresa de logística ha recolectado terabytes de datos de GPS (no estructurados) y registros de entregas (estructurados). Antes de poder analizarlos, necesitan convertir estos datos brutos en un formato consistente y limpio. ¿En qué fase del ciclo de vida de Big Data ocurre esta transformación y qué herramienta es comúnmente usada?",
+        "question": "Netflix necesita procesar en tiempo real las interacciones de millones de usuarios (clics, pausas, búsquedas) para alimentar su sistema de recomendaciones. ¿Qué tecnología del ciclo de Big Data es fundamental en la etapa de 'Generación' para manejar este flujo constante de datos?",
         "options": [
-          "Fase de Recolección con Logstash, que solo agrega los datos.",
-          "Fase de Procesamiento con Apache Hadoop, que transforma los datos brutos a un formato útil.",
-          "Fase de Almacenamiento con Cassandra, que guarda los datos sin procesar."
+          "Apache Kafka, para gestionar flujos de datos en tiempo real de manera eficiente y confiable.",
+          "HDFS (Hadoop Distributed File System), para almacenar los datos una vez que han sido procesados.",
+          "Tableau, para visualizar los dashboards de interacción de los usuarios."
+        ],
+        "correct": 0,
+        "explanation": "Apache Kafka es la tecnología clave que Netflix y otras empresas utilizan para capturar y manejar flujos masivos de datos en tiempo real (streaming) desde su origen, siendo crucial en la etapa de generación y recolección del ciclo de Big Data."
+      },
+      {
+        "question": "Un banco implementó un Data Warehouse siguiendo la filosofía de Kimball. ¿Cuál fue su estrategia más probable y qué beneficio inmediato buscaba obtener?",
+        "options": [
+          "Construir primero un gran almacén de datos centralizado para toda la empresa para asegurar una única fuente de la verdad.",
+          "Crear pequeños 'data marts' por departamento (créditos, marketing) para entregar valor y resultados rápidos a áreas específicas.",
+          "Enfocarse únicamente en la ingesta de datos no estructurados para análisis de redes sociales."
         ],
         "correct": 1,
-        "explanation": "La fase de Procesamiento es donde los datos brutos se transforman en un formato estructurado y útil. Apache Hadoop es un framework clave para procesar grandes volúmenes de datos de forma distribuida."
+        "explanation": "La filosofía de Kimball propone un enfoque 'de abajo hacia arriba', comenzando con data marts departamentales para ofrecer soluciones ágiles y valor de negocio rápidamente, para luego integrarlos."
       },
       {
-        "question": "Netflix necesita tomar una decisión sobre qué nueva serie producir. Para ello, analiza los patrones de visualización de millones de usuarios para identificar géneros y actores populares. ¿Qué fase del ciclo de vida del Big Data es crucial para convertir estos datos en una decisión estratégica?",
+        "question": "Una startup de IA está desarrollando un modelo de Machine Learning para predecir el abandono de clientes. Disponen de datos masivos (Big Data) pero son inconsistentes y de diversas fuentes. ¿Qué proceso es crucial para preparar estos datos antes de entrenar el modelo?",
         "options": [
-          "La fase de Gestión, que solo asegura la disponibilidad de los datos.",
-          "La fase de Visualización, que solo muestra los datos en gráficos.",
-          "La fase de Interpretación, que combina el análisis con la experiencia humana para tomar decisiones."
+          "El proceso de ETL (Extracción, Transformación y Carga) para limpiar, estructurar y consolidar los datos en un Data Warehouse.",
+          "La implementación directa de algoritmos de IA sobre los datos crudos para que el modelo aprenda de la 'variedad'.",
+          "Únicamente almacenar los datos en un sistema como HDFS sin procesarlos."
+        ],
+        "correct": 0,
+        "explanation": "Los modelos de Machine Learning requieren datos de alta calidad. El proceso ETL es fundamental para transformar los datos crudos y masivos (Big Data) en un formato limpio, consistente y estructurado, a menudo cargándolos en un Data Warehouse que servirá como fuente fiable para el entrenamiento."
+      },
+      {
+        "question": "Al diseñar un Data Warehouse para una cadena de supermercados, el equipo decide usar un 'Esquema de Estrella'. ¿Cómo se estructurarán los datos para analizar el monto total de ventas por producto, tienda y fecha?",
+        "options": [
+          "Una gran tabla única con toda la información mezclada para simplificar las consultas.",
+          "Una tabla de hechos central con métricas (monto de venta) y tablas de dimensión separadas (producto, tienda, tiempo) que la rodean.",
+          "Múltiples tablas de hechos que comparten algunas dimensiones, como en un esquema de constelación."
+        ],
+        "correct": 1,
+        "explanation": "El esquema de estrella es el más intuitivo y rápido para consultas. Consiste en una tabla de hechos central (los números, las métricas) conectada directamente a varias tablas de dimensión que proveen el contexto (quién, qué, cuándo, dónde)."
+      },
+      {
+        "question": "Una plataforma de e-commerce quiere entender por qué las ventas de una categoría de productos cayeron el mes pasado. ¿Qué tipo de análisis de datos deberían aplicar para descubrir las causas raíz de este evento?",
+        "options": [
+          "Análisis Predictivo, para pronosticar las ventas del próximo mes.",
+          "Análisis Descriptivo, para resumir cuántas unidades se vendieron.",
+          "Análisis Diagnóstico, para identificar los factores y relaciones que contribuyeron a la caída."
         ],
         "correct": 2,
-        "explanation": "La fase de Interpretación es donde se determinan los significados e implicaciones de los datos analizados, combinando la tecnología con la experiencia humana para guiar decisiones estratégicas, como la producción de contenido."
+        "explanation": "El análisis diagnóstico se enfoca específicamente en entender las causas de un evento pasado, buscando responder al 'porqué' sucedió algo, lo cual es exactamente el objetivo de la empresa en este escenario."
       },
       {
-        "question": "Una cadena de supermercados quiere entender por qué las ventas de un producto cayeron el mes pasado. Ya tienen un reporte que muestra la caída (análisis descriptivo). ¿Qué tipo de análisis deben realizar ahora para identificar las causas subyacentes?",
+        "question": "Netflix utiliza su red de distribución de contenido (CDN) llamada 'Open Connect' con servidores (OCAs) ubicados estratégicamente en todo el mundo. ¿En qué etapa del ciclo de vida de Big Data es más relevante esta infraestructura y cuál es su objetivo principal?",
         "options": [
-          "Análisis Predictivo, para pronosticar las ventas futuras.",
-          "Análisis de Diagnóstico, para explicar por qué ocurrieron los eventos pasados.",
-          "Análisis Prescriptivo, para recibir sugerencias sobre qué acciones tomar."
+          "En la etapa de Análisis, para procesar los datos con Machine Learning.",
+          "En la etapa de Almacenamiento y Gestión, para reducir la latencia y optimizar la entrega de contenido al usuario.",
+          "En la etapa de Generación, para capturar las interacciones iniciales de los usuarios."
         ],
         "correct": 1,
-        "explanation": "El análisis de diagnóstico se enfoca específicamente en buscar y explicar las causas de eventos que ya ocurrieron, respondiendo a la pregunta '¿por qué sucedió?'."
+        "explanation": "Open Connect y sus OCAs son parte de la estrategia de Almacenamiento de Netflix. Su función es acercar el contenido (almacenarlo) geográficamente a los usuarios para minimizar el tiempo de carga (latencia) y mejorar la experiencia de visualización."
       },
       {
-        "question": "Una compañía de seguros quiere construir un modelo de Machine Learning para predecir fraudes. Disponen de un Data Warehouse con datos históricos limpios y estructurados. ¿Cuál es el rol principal de este Data Warehouse en su proyecto?",
+        "question": "Una empresa está migrando su Data Warehouse a la nube y adopta un enfoque ELT en lugar del ETL tradicional. ¿Cuál es el cambio fundamental en su proceso?",
         "options": [
-          "Capturar datos en tiempo real como lo haría Kafka.",
-          "Servir como una fuente centralizada de datos históricos de alta calidad para entrenar el modelo.",
-          "Ejecutar transacciones diarias de la operación del negocio."
+          "La transformación de los datos ahora se realiza antes de cargarlos, usando un servidor intermedio.",
+          "Los datos se extraen y se cargan en crudo directamente en el Data Warehouse en la nube, y la transformación ocurre después utilizando la potencia de la nube.",
+          "Se elimina por completo la etapa de transformación para agilizar el proceso."
         ],
         "correct": 1,
-        "explanation": "Un Data Warehouse integra, organiza y estructura información de múltiples fuentes, proporcionando los datos históricos, limpios y consolidados que son esenciales para entrenar modelos de Machine Learning efectivos."
+        "explanation": "El enfoque moderno ELT (Extraer, Cargar, Transformar), habilitado por la escalabilidad de la nube, invierte el orden. Los datos se cargan primero en su estado bruto y luego se transforman 'in situ' aprovechando el poder de cómputo de plataformas como BigQuery o Redshift."
       },
       {
-        "question": "Un analista de marketing presenta un dashboard interactivo en Power BI al equipo directivo, mostrando las tendencias de ventas por región y producto. ¿A qué fase del ciclo de vida del Big Data corresponde esta actividad y cuál es su objetivo principal?",
+        "question": "Un equipo de marketing utiliza una herramienta para identificar qué productos suelen comprarse juntos (ej. pañales y cerveza). ¿Qué técnica de minería de datos están aplicando?",
         "options": [
-          "Fase de Análisis, cuyo objetivo es descubrir patrones ocultos en los datos.",
-          "Fase de Visualización, cuyo objetivo es representar gráficamente los datos para que sean comprensibles.",
-          "Fase de Recolección, cuyo objetivo es acumular datos de diversas fuentes."
+          "Análisis de Clustering, para agrupar clientes con comportamientos similares.",
+          "Análisis de Asociación, para descubrir relaciones entre variables, como en el análisis de cesta de mercado.",
+          "Análisis Predictivo, para estimar las ventas futuras de cada producto."
         ],
         "correct": 1,
-        "explanation": "La fase de Visualización se centra en convertir datos complejos en representaciones gráficas como dashboards para que los usuarios puedan interpretarlos fácilmente y tomar decisiones."
+        "explanation": "El análisis de asociación es la técnica específica diseñada para encontrar relaciones o patrones de co-ocurrencia entre elementos en grandes conjuntos de datos, siendo el 'análisis de cesta de mercado' su aplicación más clásica."
       },
       {
-        "question": "Una startup está desarrollando un algoritmo de IA y necesita grandes volúmenes de datos para entrenarlo. ¿Cuál es la relación fundamental entre Big Data y el éxito de su proyecto de Machine Learning?",
+        "question": "Una compañía quiere asegurar que los datos en su Data Warehouse sean un registro histórico inmutable para análisis de tendencias a largo plazo. ¿Qué característica clave de un Data Warehouse, definida por Bill Inmon, garantiza esto?",
         "options": [
-          "Big Data solo proporciona velocidad, no afecta al aprendizaje del algoritmo.",
-          "El Machine Learning no necesita Big Data, puede funcionar con pocos datos.",
-          "Big Data proporciona la cantidad y variedad de datos necesarios para que los algoritmos de ML detecten patrones."
+          "Integrado, porque combina datos de múltiples fuentes.",
+          "Orientado a temas, porque organiza los datos por áreas de negocio.",
+          "No volátil, porque una vez que los datos se cargan, no se modifican ni eliminan."
         ],
         "correct": 2,
-        "explanation": "El éxito de los algoritmos de Machine Learning depende directamente de la disponibilidad de grandes cantidades de datos variados (Big Data) para entrenarse, identificar patrones complejos y generar predicciones precisas."
+        "explanation": "La característica 'no volátil' es fundamental, ya que asegura que la información histórica se conserve intacta, permitiendo comparaciones consistentes y análisis de tendencias fiables a lo largo del tiempo."
       },
       {
-        "question": "Una empresa financiera utiliza un sistema OLTP para registrar transacciones de clientes en tiempo real. Ahora, quiere analizar las tendencias de inversión de los últimos cinco años. ¿Por qué su sistema OLTP no es adecuado para este tipo de análisis complejo?",
+        "question": "Una empresa de logística analiza datos de sensores de su flota de camiones (ubicación, velocidad, consumo) para optimizar rutas en tiempo real. Esto representa un desafío de Big Data principalmente relacionado con:",
         "options": [
-          "Porque los sistemas OLTP no pueden almacenar datos.",
-          "Porque OLTP está optimizado para transacciones rápidas y diarias, no para consultas analíticas complejas sobre datos históricos.",
-          "Porque OLTP solo maneja datos no estructurados."
+          "Volumen y Velocidad, por la gran cantidad de datos generados constantemente.",
+          "Solo Variedad, porque los datos provienen de diferentes tipos de sensores.",
+          "Solo Veracidad, asegurando que los datos de ubicación sean precisos."
+        ],
+        "correct": 0,
+        "explanation": "Los datos de sensores IoT son un ejemplo clásico de Big Data donde el desafío principal es manejar el enorme Volumen de datos que llegan a una alta Velocidad, requiriendo tecnologías de procesamiento en tiempo real."
+      },
+      {
+        "question": "¿Cuál es la relación fundamental entre un Data Warehouse y el entrenamiento de un modelo de Machine Learning para predecir ventas?",
+        "options": [
+          "El Data Warehouse se usa solo para almacenar los resultados del modelo de Machine Learning.",
+          "El Data Warehouse actúa como una fuente de datos históricos, limpios y estructurados, esenciales para entrenar un modelo de ML preciso.",
+          "No existe una relación directa; los modelos de ML siempre se entrenan con datos en tiempo real de Big Data."
         ],
         "correct": 1,
-        "explanation": "Los sistemas OLTP (Procesamiento de Transacciones en Línea) están diseñados para gestionar operaciones diarias y rápidas, mientras que los sistemas OLAP, asociados a los Data Warehouses, están optimizados para el análisis de grandes volúmenes de datos históricos."
+        "explanation": "Un Data Warehouse es una fuente ideal para el entrenamiento de modelos de ML, ya que provee grandes cantidades de datos históricos de alta calidad, previamente limpiados y organizados, lo cual es un requisito para que los algoritmos aprendan patrones fiables."
       },
       {
-        "question": "Al diseñar un Data Warehouse, un arquitecto de datos decide crear una tabla central con métricas numéricas como 'total_ventas' y 'cantidad_productos', rodeada de tablas que describen el 'cliente', 'producto' y 'tiempo'. ¿Cómo se llama esta tabla central?",
+        "question": "Un analista de negocios necesita un reporte que cruce información de ventas con datos de inventario para entender cómo el stock afecta las ventas. Ambos procesos tienen sus propias métricas. ¿Qué esquema de Data Warehouse es más adecuado para este tipo de análisis complejo entre diferentes procesos?",
         "options": [
-          "Tabla de Dimensión, que provee contexto descriptivo.",
-          "Tabla de Hechos, que contiene las métricas cuantitativas del negocio.",
-          "Cubo OLAP, que es la estructura multidimensional para el análisis."
-        ],
-        "correct": 1,
-        "explanation": "La tabla de hechos es el componente central en un modelo dimensional (como el esquema de estrella) y almacena los datos numéricos y medibles de un proceso de negocio."
-      },
-      {
-        "question": "Un equipo de BI necesita unificar datos de ventas, marketing y finanzas, que provienen de diferentes sistemas, para tener una visión consolidada. ¿Qué proceso tecnológico les permitiría extraer, limpiar y cargar estos datos en un repositorio central?",
-        "options": [
-          "El proceso de Machine Learning, que predice resultados futuros.",
-          "El proceso ETL (Extracción, Transformación, Carga), que integra datos de múltiples fuentes.",
-          "El proceso de Visualización, que representa los datos gráficamente."
-        ],
-        "correct": 1,
-        "explanation": "ETL es el proceso estándar para extraer datos de diversas fuentes, transformarlos para asegurar su calidad y consistencia, y cargarlos en un destino centralizado como un Data Warehouse."
-      },
-      {
-        "question": "Una empresa de redes sociales almacena publicaciones, imágenes y videos. ¿Qué tipo de sistema de almacenamiento es más adecuado para manejar este gran volumen de datos no estructurados y semiestructurados?",
-        "options": [
-          "Una base de datos relacional como PostgreSQL, ideal para datos estructurados.",
-          "Un Data Lake, diseñado para almacenar datos masivos en su formato nativo.",
-          "Una hoja de cálculo, para análisis a pequeña escala."
-        ],
-        "correct": 1,
-        "explanation": "Los Data Lakes son repositorios de almacenamiento que pueden guardar una gran cantidad de datos brutos en su formato nativo, siendo ideales para datos no estructurados y semiestructurados típicos de Big Data."
-      },
-      {
-        "question": "Para mejorar la experiencia del usuario, Netflix analiza qué porcentaje de una película ve un usuario antes de abandonarla. ¿A qué fuente de generación de datos corresponde esta información?",
-        "options": [
-          "Datos de contenido, como el género o el elenco de la película.",
-          "Datos implícitos o de interacción del usuario, que reflejan su comportamiento.",
-          "Datos de dispositivos, como el modelo del televisor o la velocidad de conexión."
-        ],
-        "correct": 1,
-        "explanation": "El porcentaje de visualización es un dato implícito que se genera a partir de la interacción del usuario con la plataforma, revelando sus preferencias y nivel de engagement."
-      },
-      {
-        "question": "Una ciudad quiere optimizar sus rutas de transporte público analizando datos de tráfico en tiempo real de sensores y aplicaciones móviles. ¿En qué ámbito se está aplicando el Big Data en este caso?",
-        "options": [
-          "Marketing, para personalizar campañas publicitarias.",
-          "Salud, para mejorar la atención a pacientes.",
-          "Control del tráfico y optimización de ciudades."
+          "Esquema de Estrella, porque es el más simple y rápido para consultas de un solo proceso.",
+          "Esquema de Copo de Nieve, porque normaliza las dimensiones para ahorrar espacio.",
+          "Esquema de Constelación (o Galaxia), porque permite que múltiples tablas de hechos (ventas, inventario) compartan dimensiones comunes."
         ],
         "correct": 2,
-        "explanation": "El uso de datos masivos para mejorar la predicción de tendencias de tráfico y seleccionar mejores rutas es una aplicación directa del Big Data en la gestión y optimización urbana."
+        "explanation": "El esquema de constelación, también llamado 'fact constellation' o galaxia, está diseñado específicamente para escenarios donde se necesita analizar la relación entre múltiples procesos de negocio, utilizando varias tablas de hechos que comparten dimensiones."
       },
       {
-        "question": "Una empresa nota que su modelo de IA está dando predicciones sesgadas. Al investigar, descubren que los datos de entrenamiento no eran representativos. ¿Qué aspecto del Machine Learning falló?",
+        "question": "En el ciclo de vida del Big Data, ¿cuál es el objetivo principal de la etapa de 'Interpretación'?",
         "options": [
-          "La cantidad de datos, ya que siempre más datos es mejor.",
-          "La calidad y variabilidad de los datos, que es crucial para un entrenamiento preciso.",
-          "El algoritmo, que probablemente era demasiado simple."
+          "Utilizar herramientas como Tableau para crear gráficos y dashboards.",
+          "Combinar el análisis técnico y la experiencia humana para tomar decisiones estratégicas basadas en los hallazgos.",
+          "Escribir consultas SQL para procesar los datos almacenados en HDFS o Cassandra."
         ],
         "correct": 1,
-        "explanation": "La calidad, relevancia y variabilidad de los datos son fundamentales para que los modelos de Machine Learning aprendan patrones significativos y generen resultados precisos y robustos, evitando sesgos."
+        "explanation": "La interpretación es la etapa final y crucial donde el valor de los datos se materializa. No se trata solo de ver los datos (visualización) o procesarlos, sino de usar el juicio humano y el contexto del negocio para traducir los 'insights' en acciones y estrategias concretas."
       },
       {
-        "question": "Un equipo de desarrollo está construyendo una aplicación que necesita una base de datos para registrar las ventas diarias. Al mismo tiempo, el equipo de análisis necesita consultar datos de los últimos 10 años para reportes estratégicos. ¿Qué distingue a la base de datos operativa de un Data Warehouse?",
+        "question": "Si definimos la Inteligencia Artificial (IA) como la simulación de la inteligencia humana en máquinas, ¿dónde se ubica el Machine Learning (ML)?",
         "options": [
-          "No hay diferencia, ambos sirven para almacenar datos.",
-          "La base de datos operativa gestiona transacciones diarias, mientras que el Data Warehouse está diseñado para el análisis de datos históricos.",
-          "El Data Warehouse es más pequeño y rápido que la base de datos operativa."
+          "El ML es un campo completamente separado de la IA que se enfoca solo en datos.",
+          "El ML es un enfoque o subcampo de la IA que permite a las máquinas aprender de los datos sin ser programadas explícitamente.",
+          "La IA es una subcategoría del ML, enfocada en la creación de robots."
         ],
         "correct": 1,
-        "explanation": "Una base de datos operativa (OLTP) se enfoca en la gestión de transacciones diarias, mientras que un Data Warehouse (OLAP) está optimizado para el análisis y consulta de grandes volúmenes de datos históricos para la toma de decisiones estratégicas."
+        "explanation": "Machine Learning es una de las ramas más importantes de la Inteligencia Artificial. Es el enfoque que ha impulsado los avances recientes, al permitir que los sistemas aprendan patrones y realicen tareas a partir de datos."
       }
     ]
   },
@@ -164,14 +164,14 @@
     "name": "Relación de Columnas",
     "weight": 20,
     "pairs": {
-      "Ciclo de Vida de Big Data": "Proceso sistemático para transformar grandes volúmenes de datos en información valiosa y decisiones estratégicas.",
-      "Apache Hadoop": "Framework de software distribuido utilizado en la fase de Procesamiento para manejar y transformar datos masivos.",
-      "Data Warehouse": "Repositorio centralizado que integra y almacena datos históricos de múltiples fuentes, optimizado para análisis.",
-      "Machine Learning": "Subconjunto de la IA que utiliza grandes cantidades de datos para entrenar algoritmos que pueden hacer predicciones.",
-      "ETL": "Proceso de Extracción, Transformación y Carga, fundamental para poblar un Data Warehouse con datos limpios y consistentes.",
-      "Análisis Predictivo": "Técnica que utiliza modelos estadísticos sobre datos históricos para prever resultados o tendencias futuras.",
-      "HDFS": "Sistema de archivos distribuido, componente clave de Hadoop, diseñado para almacenar grandes volúmenes de datos de forma escalable.",
-      "Visualización": "Fase del ciclo de Big Data que representa datos de forma gráfica (dashboards, mapas) para facilitar su comprensión."
+      "Data Warehouse": "Repositorio centralizado de datos integrados e históricos, optimizado para análisis y la toma de decisiones estratégicas.",
+      "ETL": "Proceso para extraer datos de diversas fuentes, limpiarlos y estandarizarlos, y finalmente cargarlos en un almacén de datos.",
+      "Esquema de Estrella": "Modelo dimensional donde una tabla central de métricas cuantitativas se conecta directamente a tablas descriptivas de contexto.",
+      "Big Data": "Concepto que describe grandes volúmenes de datos (estructurados o no) caracterizados por su velocidad, variedad y volumen, que requieren técnicas avanzadas para su procesamiento.",
+      "Apache Spark": "Framework de procesamiento distribuido utilizado por empresas como Netflix para análisis a gran escala y machine learning, tanto en lotes como en tiempo real.",
+      "Minería de Datos": "Proceso de descubrir patrones y conocimiento útil de forma automática en grandes conjuntos de datos, como parte del proceso KDD.",
+      "Data Mart": "Subconjunto de un Data Warehouse, enfocado en las necesidades analíticas de un área o departamento específico de la empresa.",
+      "No Volátil": "Característica de un Data Warehouse que asegura que los datos, una vez registrados, no se alteran, garantizando un registro histórico consistente."
     }
   },
   "section3": {
@@ -180,43 +180,43 @@
     "words": [
       {
         "word": "KAFKA",
-        "hint": "Tecnología de Apache para manejar flujos de eventos en tiempo real, usada en la fase de Generación."
+        "hint": "Tecnología de streaming usada por Netflix para manejar el flujo de interacciones de usuarios en tiempo real."
       },
       {
-        "word": "PROCESAMIENTO",
-        "hint": "Etapa del ciclo donde los datos brutos se limpian, estructuran y transforman en un formato útil."
-      },
-      {
-        "word": "INTERPRETACION",
-        "hint": "Fase final del ciclo que combina el análisis de datos con el juicio humano para tomar decisiones estratégicas."
-      },
-      {
-        "word": "HECHOS",
-        "hint": "En un Data Warehouse, es la tabla central que contiene las métricas numéricas del negocio."
-      },
-      {
-        "word": "DIMENSION",
-        "hint": "En un Data Warehouse, es la tabla que proporciona contexto descriptivo (quién, qué, cuándo, dónde) a las métricas."
-      },
-      {
-        "word": "SPARK",
-        "hint": "Framework de Apache para el procesamiento rápido de datos a gran escala, tanto en lotes como en tiempo real."
+        "word": "HADOOP",
+        "hint": "Framework de software de código abierto para almacenar y procesar grandes conjuntos de datos de forma distribuida."
       },
       {
         "word": "TABLEAU",
-        "hint": "Herramienta popular de software utilizada en la fase de Visualización para crear dashboards interactivos."
+        "hint": "Herramienta de Business Intelligence y visualización de datos usada para crear dashboards interactivos."
       },
       {
-        "word": "DATALAKE",
-        "hint": "Repositorio de almacenamiento que guarda grandes cantidades de datos brutos en su formato nativo."
+        "word": "CASSANDRA",
+        "hint": "Base de datos NoSQL distribuida utilizada para almacenar grandes cantidades de datos con alta disponibilidad."
       },
       {
-        "word": "VOLUMEN",
-        "hint": "Una de las 'V' del Big Data que se refiere a la enorme cantidad de datos generados y almacenados."
+        "word": "PREDICTIVO",
+        "hint": "Tipo de análisis que utiliza datos históricos para pronosticar resultados futuros."
       },
       {
-        "word": "ESTRELLA",
-        "hint": "Es el esquema de diseño más común en un Data Warehouse, con una tabla de hechos central y tablas de dimensión."
+        "word": "DIMENSION",
+        "hint": "En un modelo de estrella, es la tabla que proporciona el contexto (quién, qué, dónde, cuándo) a los hechos."
+      },
+      {
+        "word": "KIMBALL",
+        "hint": "Pionero del Data Warehousing que abogó por un enfoque 'de abajo hacia arriba' comenzando con data marts."
+      },
+      {
+        "word": "OLAP",
+        "hint": "Término que describe el procesamiento analítico en línea, característico de los Data Warehouses."
+      },
+      {
+        "word": "INSIGHTS",
+        "hint": "Conocimiento valioso y significativo que se extrae del análisis de datos para guiar decisiones."
+      },
+      {
+        "word": "INTEGRACION",
+        "hint": "Característica clave de un Data Warehouse que consiste en unificar datos de fuentes diversas en una vista coherente."
       }
     ]
   }
