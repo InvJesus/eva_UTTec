@@ -1,222 +1,235 @@
 {
   "general": {
-    "title": "Evaluación de Administración de Bases de Datos",
-    "subtitle": "ESTRATEGIAS DE GESTIÓN, SEGURIDAD Y RESPALDO DE DATOS",
-    "professor": "MTI JERM"
+    "title": "Evaluación Digitla 1er Parcial",
+    "subtitle": "Administración de Bases de Datos",
+    "professor": "MTI JESÚS E. ROMERO MORENO"
   },
   "section1": {
     "name": "Opción Múltiple",
-    "weight": 50,
+    "weight": 30,
     "questions": [
       {
-        "question": "Una startup está diseñando su primera base de datos para una aplicación móvil que gestionará perfiles de usuario y contenido dinámico. ¿Cuál sería el primer paso crítico en su proceso de administración de bases de datos?",
+        "question": "Una empresa de e-commerce está experimentando un crecimiento rápido. Para asegurar que la base de datos de clientes y pedidos pueda manejar el aumento de transacciones sin degradar el servicio, ¿qué aspecto de la administración de bases de datos es prioritario atender?",
         "options": [
-          "Elegir el modelo de datos más popular, como NoSQL, para asegurar la flexibilidad.",
-          "Definir los objetivos, requerimientos y una estrategia a largo plazo para los datos.",
-          "Implementar un plan de mantenimiento regular para la limpieza de datos."
+          "Limpieza de datos obsoletos",
+          "Planificación de la escalabilidad",
+          "Documentación de la estructura de la base de datos"
         ],
         "correct": 1,
-        "explanation": "La planificación estratégica es el punto de partida fundamental. Antes de elegir un modelo de datos o planificar el mantenimiento, es crucial definir los objetivos y requerimientos para asegurar que el diseño y la tecnología elegida se alineen con las necesidades de escalabilidad, disponibilidad y seguridad del negocio."
+        "explanation": "La planificación de la escalabilidad es crucial para prever el crecimiento y asegurar que la infraestructura pueda expandirse según sea necesario para manejar un mayor volumen de datos y usuarios."
       },
       {
-        "question": "Una empresa financiera detecta un acceso no autorizado a datos de clientes. ¿Qué área de la administración de la base de datos probablemente requiera una revisión y fortalecimiento inmediato?",
+        "question": "Un hospital debe proteger la información confidencial de sus pacientes. ¿Cuál de las siguientes es la medida de seguridad más fundamental y directa que debe implementar el administrador de la base de datos?",
         "options": [
-          "La optimización del rendimiento mediante índices.",
-          "Las políticas de autenticación y autorización.",
-          "La documentación de la estructura de la base de datos."
-        ],
-        "correct": 1,
-        "explanation": "Para proteger datos confidenciales, la medida más importante es implementar y mantener controles de acceso estrictos a través de políticas robustas de autenticación y autorización, garantizando que solo el personal autorizado pueda acceder a la información sensible."
-      },
-      {
-        "question": "Un sistema de e-commerce experimenta lentitud durante las horas pico. El administrador de la base de datos sospecha de cuellos de botella. ¿Cuál es la estrategia más adecuada para identificar y resolver el problema?",
-        "options": [
-          "Aumentar la capacidad del hardware como primera medida para soportar la carga.",
-          "Monitorear el rendimiento usando métricas para identificar consultas ineficientes y ajustar la configuración.",
-          "Ejecutar un plan de limpieza de datos obsoletos para reducir el tamaño de las tablas."
-        ],
-        "correct": 1,
-        "explanation": "El monitoreo constante del rendimiento es esencial para un diagnóstico preciso. Permite identificar cuellos de botella, como consultas lentas o problemas de configuración. Este enfoque es más eficiente y rentable que simplemente aumentar el hardware sin un análisis previo."
-      },
-      {
-        "question": "Una empresa necesita asegurar la continuidad de su negocio ante un desastre. ¿Qué elemento de la administración de bases de datos es clave para este fin?",
-        "options": [
-          "Capacitar al personal en el uso avanzado de herramientas de consulta de datos.",
-          "Mantener la documentación de la base de datos actualizada y accesible.",
-          "Tener un plan de copias de seguridad y practicar la restauración de datos periódicamente."
+          "Optimizar el rendimiento de las consultas",
+          "Realizar copias de seguridad cada mes",
+          "Controlar el acceso mediante políticas de autenticación y autorización"
         ],
         "correct": 2,
-        "explanation": "Para garantizar la continuidad del negocio, es vital tener una política de copias de seguridad y recuperación. No solo se trata de respaldar los datos, sino de practicar su restauración para asegurar que el proceso funcione correctamente en caso de un fallo real."
+        "explanation": "Para proteger datos confidenciales, la medida de seguridad primordial es implementar un control de acceso robusto con políticas claras de autenticación y autorización para asegurar que solo personal autorizado pueda acceder a la información."
       },
       {
-        "question": "Una empresa está creciendo rápidamente y su base de datos actual se acerca a su límite de capacidad. ¿Qué aspecto de la planificación debió considerar para evitar problemas operativos?",
+        "question": "Una startup tecnológica está diseñando su primera base de datos para una nueva aplicación. ¿Cuál es el primer paso en el proceso de administración que deben considerar para alinear la base de datos con los objetivos del negocio?",
         "options": [
-          "El cumplimiento normativo de privacidad de datos.",
-          "La planificación de la escalabilidad de la infraestructura.",
-          "La optimización de tablas mediante la limpieza de datos."
-        ],
-        "correct": 1,
-        "explanation": "La planificación de la escalabilidad implica prever el crecimiento de los datos y asegurar que la infraestructura pueda expandirse según sea necesario. Haber considerado esto desde el inicio habría permitido una transición más fluida y evitado interrupciones operativas."
-      },
-      {
-        "question": "Un hospital gestiona datos de pacientes y debe cumplir con estrictas regulaciones de privacidad. ¿Qué área de la administración de bases de datos se enfoca directamente en este requisito?",
-        "options": [
-          "Mantenimiento y gestión de datos.",
-          "Cumplimiento normativo.",
-          "Capacitación del personal."
-        ],
-        "correct": 1,
-        "explanation": "El cumplimiento normativo es el área específica que se encarga de asegurar que la gestión de la base de datos se adhiera a las leyes y regulaciones aplicables sobre privacidad y seguridad de datos, como las relativas a la información médica."
-      },
-      {
-        "question": "Una empresa de retail quiere decidir qué información es crítica respaldar. ¿Cuál es el primer paso lógico que debe seguir?",
-        "options": [
-          "Elegir el medio de almacenamiento más rápido y de mayor capacidad.",
-          "Realizar un inventario de activos de información y clasificarlos por importancia.",
-          "Implementar una copia de seguridad en espejo para todos los datos para máxima seguridad."
-        ],
-        "correct": 1,
-        "explanation": "Antes de decidir cómo y dónde respaldar, la empresa debe saber qué respaldar. Esto se logra realizando un inventario y clasificando los activos de información según su importancia para la continuidad del negocio, optimizando así los recursos."
-      },
-      {
-        "question": "Una firma de diseño gráfico trabaja con archivos multimedia muy grandes y necesita una recuperación de datos casi instantánea en caso de fallo del disco principal. ¿Qué tipo de copia de seguridad sería ideal para ellos?",
-        "options": [
-          "Copia de seguridad incremental para minimizar el uso de espacio.",
-          "Copia de seguridad en espejo (RAID 1) para duplicación en tiempo real.",
-          "Copia de seguridad completa realizada semanalmente para simplicidad en la restauración."
-        ],
-        "correct": 1,
-        "explanation": "La copia en espejo (RAID 1) crea una réplica exacta de los datos en tiempo real. Esto permite una recuperación muy ágil y casi inmediata al cambiar al disco secundario, lo cual es ideal para entornos que no pueden permitirse tiempo de inactividad."
-      },
-      {
-        "question": "Una empresa realiza una copia de seguridad completa cada domingo. Para minimizar el tiempo de respaldo diario y el espacio de almacenamiento, decide respaldar solo los archivos que han cambiado desde el respaldo del día anterior. ¿Qué método está utilizando?",
-        "options": [
-          "Copia de seguridad diferencial.",
-          "Copia de seguridad completa.",
-          "Copia de seguridad incremental."
-        ],
-        "correct": 2,
-        "explanation": "Una copia de seguridad incremental respalda solo los datos que han cambiado desde la última copia de seguridad, ya sea completa o incremental. Este método es más rápido y requiere menos espacio que los respaldos diferenciales o completos diarios."
-      },
-      {
-        "question": "Un administrador de sistemas necesita restaurar un archivo que se borró el jueves por la tarde. La política de respaldo es una copia completa el domingo y copias diferenciales cada noche. ¿Qué necesita para la restauración?",
-        "options": [
-          "La copia completa del domingo y la copia diferencial del jueves.",
-          "Solamente la copia diferencial del jueves, ya que contiene todos los cambios.",
-          "La copia completa del domingo y todas las copias diferenciales desde el lunes hasta el jueves."
+          "La planificación estratégica para definir objetivos y requerimientos",
+          "La implementación inmediata de un plan de mantenimiento",
+          "La selección de herramientas de monitoreo avanzadas"
         ],
         "correct": 0,
-        "explanation": "Para restaurar desde una copia diferencial, se necesita la última copia completa (la del domingo) y la última copia diferencial realizada (la del jueves). La copia diferencial por sí sola no es suficiente."
+        "explanation": "La planificación estratégica es el punto de partida esencial, ya que define los objetivos, requerimientos y la estrategia a largo plazo para la gestión de datos, considerando necesidades de escalabilidad y seguridad desde el inicio."
       },
       {
-        "question": "El equipo de TI de una empresa nota que las copias de seguridad completas diarias están ralentizando significativamente el rendimiento de los servidores durante el horario laboral. ¿Cuál sería la recomendación más lógica?",
+        "question": "Una institución financiera realiza una copia de seguridad completa cada domingo por la noche. Para minimizar la pérdida de datos y el tiempo de recuperación, desean respaldar solo los cambios realizados desde ese último respaldo completo. ¿Qué tipo de copia de seguridad deben realizar de lunes a sábado?",
         "options": [
-          "Cambiar a un método de respaldo incremental para reducir la carga en el servidor.",
-          "Continuar con el proceso, ya que la seguridad es más importante que el rendimiento.",
-          "Programar las copias de seguridad completas fuera del horario laboral."
+          "Copia de seguridad incremental",
+          "Copia de seguridad diferencial",
+          "Otra copia de seguridad completa"
+        ],
+        "correct": 1,
+        "explanation": "Una copia de seguridad diferencial respalda todos los cambios acumulados desde la última copia completa. Esto simplifica la restauración, ya que solo se necesita la última copia completa y la última diferencial."
+      },
+      {
+        "question": "Un equipo de desarrollo se queja de que la aplicación web se vuelve extremadamente lenta durante las horas pico. El DBA sospecha que la causa está en la base de datos. ¿Qué acción debería tomar para diagnosticar y solucionar el problema?",
+        "options": [
+          "Realizar una copia de seguridad en espejo (RAID 1)",
+          "Aumentar la capacitación del personal en el uso de la app",
+          "Monitorear el rendimiento para identificar cuellos de botella y optimizar consultas"
         ],
         "correct": 2,
-        "explanation": "Las copias de seguridad completas son intensivas en recursos. No se recomienda realizarlas durante las horas de trabajo. La mejor práctica es programarlas en periodos de baja actividad, como la noche o los fines de semana, para no impactar las operaciones."
+        "explanation": "El monitoreo constante del rendimiento permite identificar cuellos de botella. La optimización a través de índices y consultas eficientes es la solución directa para resolver problemas de lentitud."
       },
       {
-        "question": "Una organización sin fines de lucro con un presupuesto limitado necesita un plan de respaldo. ¿Qué factor influirá más en su elección del medio de almacenamiento?",
+        "question": "Una empresa desea un sistema de respaldo que permita una recuperación de datos casi instantánea y que mantenga una réplica exacta de los datos en tiempo real. ¿Qué estrategia de respaldo cumple mejor con estos requisitos?",
         "options": [
-          "La mayor velocidad de recuperación posible.",
-          "El menor costo.",
-          "La capacidad de realizar copias en tiempo real."
+          "Copia de seguridad en espejo o RAID 1",
+          "Copia de seguridad completa diaria",
+          "Copia de seguridad diferencial cada hora"
+        ],
+        "correct": 0,
+        "explanation": "La copia de seguridad en espejo (RAID 1) crea una copia exacta de los datos en tiempo real, lo que permite una recuperación muy ágil y casi inmediata en caso de fallo del disco principal."
+      },
+      {
+        "question": "El equipo de TI de una organización debe decidir qué información es crítica para respaldar. Según las mejores prácticas, ¿cuál es el primer paso que deben seguir?",
+        "options": [
+          "Respaldar todos los archivos de texto únicamente",
+          "Realizar un inventario de activos de información y clasificarlos por importancia",
+          "Preguntar a cada empleado qué archivos considera importantes"
         ],
         "correct": 1,
-        "explanation": "En un escenario de presupuesto limitado, el costo del medio de almacenamiento es un factor determinante. La organización buscará una solución que ofrezca un equilibrio entre seguridad y asequibilidad, priorizando el costo sobre el rendimiento extremo."
+        "explanation": "Para decidir qué información respaldar, es fundamental realizar primero un inventario de los activos de información y clasificarlos según su importancia para la continuidad del negocio."
       },
       {
-        "question": "Una empresa desea un método de respaldo que ofrezca una restauración rápida, necesitando solo el último respaldo completo y un único archivo de respaldo adicional. ¿Qué tipo de copia de seguridad cumple este requisito?",
+        "question": "Una empresa de logística opera 24/7 y no puede permitirse ralentizar sus sistemas durante el horario laboral. Planean hacer una copia de seguridad que consume muchos recursos del servidor. ¿Cuál es la recomendación más sensata?",
         "options": [
-          "Copia de seguridad en espejo.",
-          "Copia de seguridad diferencial.",
-          "Copia de seguridad incremental."
-        ],
-        "correct": 1,
-        "explanation": "La copia de seguridad diferencial tiene como ventaja que el proceso de restauración es más rápido que el incremental, ya que solo requiere la última copia completa y la última copia diferencial para recuperar todos los datos hasta ese punto."
-      },
-      {
-        "question": "Un nuevo administrador de TI se une a una empresa y no encuentra registros sobre la estructura de la base de datos o los procedimientos de mantenimiento. ¿Qué práctica de administración de bases de datos se ha descuidado?",
-        "options": [
-          "La capacitación del personal en herramientas específicas.",
-          "La planificación de escalabilidad para el crecimiento futuro.",
-          "La documentación detallada del sistema y sus procedimientos."
+          "Realizar una copia de seguridad completa a mediodía",
+          "No realizar copias de seguridad para no afectar el rendimiento",
+          "Programar la copia de seguridad completa fuera de las horas de trabajo"
         ],
         "correct": 2,
-        "explanation": "La falta de registros detallados indica una falla en la documentación. Mantener una documentación adecuada de la estructura, configuraciones y procedimientos es crucial para la gestión, el mantenimiento y la transferencia de conocimiento."
+        "explanation": "No se recomienda realizar una copia completa durante las horas de trabajo debido a la alta carga que representa para el servidor. Hacerlo podría causar una desaceleración en los sistemas críticos para la operación."
       },
       {
-        "question": "El CEO de una empresa afirma: 'Si tenemos copias de seguridad, estamos completamente seguros'. ¿Por qué esta afirmación es incompleta desde la perspectiva de un Plan Director de Seguridad?",
+        "question": "Para asegurar la continuidad del negocio, la dirección de una empresa aprueba la creación de un 'Plan Director de Seguridad'. ¿Qué elemento clave relacionado con los datos debe incluir este plan?",
         "options": [
-          "Porque la seguridad solo depende de la robustez del hardware.",
-          "Porque las copias de seguridad son solo un componente; también se necesita un Plan de Contingencia y Continuidad de Negocio.",
-          "Porque las copias de seguridad solo son útiles para errores humanos, no para fallos de hardware o ciberataques."
+          "El organigrama del departamento de marketing",
+          "La política de copias de seguridad a implementar",
+          "El presupuesto para el mobiliario de oficina"
         ],
         "correct": 1,
-        "explanation": "Un Plan Director de Seguridad es integral. Las copias de seguridad son un elemento clave para la recuperación de datos, pero deben formar parte de una estrategia más amplia que incluya un Plan de Contingencia y Continuidad de Negocio para proteger todos los sistemas de información de manera efectiva."
+        "explanation": "El Plan Director de Seguridad establece prioridades y recursos para la seguridad, e incluirá de manera fundamental la política de copias de seguridad que la organización debe seguir para proteger su información."
+      },
+      {
+        "question": "Un nuevo administrador de base de datos se integra a un equipo. Para ponerse al día rápidamente sobre la arquitectura, configuraciones y procedimientos existentes, ¿qué recurso debería ser su principal fuente de consulta?",
+        "options": [
+          "Los registros de alertas del sistema",
+          "La documentación detallada de la base de datos",
+          "Las conversaciones informales con sus compañeros"
+        ],
+        "correct": 1,
+        "explanation": "Mantener una documentación detallada de la estructura de la base de datos, configuraciones y procedimientos es esencial para la gestión y para la incorporación de nuevo personal."
+      },
+      {
+        "question": "Una empresa maneja datos de ciudadanos de la Unión Europea y debe cumplir con el GDPR. ¿Qué área de la administración de bases de datos se vuelve especialmente crítica?",
+        "options": [
+          "El cumplimiento normativo",
+          "La optimización de tablas",
+          "El costo del hardware de almacenamiento"
+        ],
+        "correct": 0,
+        "explanation": "El cumplimiento normativo es el área que asegura que la base de datos cumple con las regulaciones de privacidad y seguridad de datos aplicables, como el GDPR."
+      },
+      {
+        "question": "Una empresa está evaluando cómo mejorar la eficiencia de su equipo de TI. ¿Cuál de las siguientes acciones contribuye directamente a la correcta administración de las bases de datos y al uso de herramientas específicas?",
+        "options": [
+          "Organizar eventos sociales para el equipo",
+          "Contratar a un consultor de marketing",
+          "Capacitar al personal en mejores prácticas de administración de BD"
+        ],
+        "correct": 2,
+        "explanation": "La capacitación del personal en las mejores prácticas de administración de bases de datos y en el uso de herramientas específicas es fundamental para una gestión eficiente y segura."
+      },
+      {
+        "question": "Para facilitar la solución de problemas futuros, un DBA decide implementar un sistema que le permita revisar eventos pasados y recibir notificaciones automáticas ante posibles fallos. ¿Qué componente de la administración de BD está implementando?",
+        "options": [
+          "Un plan de mantenimiento regular",
+          "Herramientas de monitoreo y alertas",
+          "Un modelo de datos NoSQL"
+        ],
+        "correct": 1,
+        "explanation": "El uso de herramientas de monitoreo permite supervisar el estado de la base de datos, mientras que las alertas notifican sobre problemas de forma proactiva, facilitando la solución de problemas."
+      },
+      {
+        "question": "Una organización detecta que su base de datos acumula muchos registros temporales y datos de pruebas que ya no son útiles. ¿Qué práctica de mantenimiento debería aplicar para mejorar el rendimiento y liberar espacio?",
+        "options": [
+          "Actualizar los parches de software del sistema operativo",
+          "Practicar la restauración de datos desde una copia de seguridad",
+          "Implementar la limpieza de datos obsoletos y la optimización de tablas"
+        ],
+        "correct": 2,
+        "explanation": "Un plan de mantenimiento regular debe incluir la limpieza de datos obsoletos y la optimización de tablas para mantener la eficiencia y el buen rendimiento de la base de datos."
+      },
+      {
+        "question": "¿Cuál es la finalidad principal de realizar copias de seguridad de la información de una empresa?",
+        "options": [
+          "Cumplir con un requisito burocrático sin utilidad práctica",
+          "Liberar espacio en el servidor principal moviendo datos antiguos",
+          "Poder recuperar la información en caso de un fallo en el almacenamiento primario"
+        ],
+        "correct": 2,
+        "explanation": "Una copia de seguridad es un proceso para duplicar información con el fin de poder recuperarla en caso de fallo del primer alojamiento, garantizando así la continuidad del negocio."
       }
     ]
   },
   "section2": {
     "name": "Relación de Columnas",
-    "weight": 25,
+    "weight": 30,
     "pairs": {
-      "Planificación Estratégica": "Proceso inicial para definir metas a largo plazo de una base de datos, considerando su crecimiento y seguridad.",
-      "Seguridad de Datos": "Conjunto de medidas, como la autenticación y autorización, para proteger la información contra accesos no autorizados.",
-      "Optimización del Rendimiento": "Conjunto de acciones, como el uso de índices y ajuste de consultas, para resolver cuellos de botella y mejorar la eficiencia.",
-      "Escalabilidad": "Capacidad de la infraestructura de una base de datos para manejar un crecimiento futuro en el volumen de datos o carga de trabajo.",
-      "Copia de Seguridad Completa": "Tipo de respaldo que duplica todos los datos del sistema, garantizando una restauración simple pero con alta redundancia.",
-      "Copia de Seguridad Diferencial": "Método de respaldo que guarda todos los cambios realizados desde la última copia de seguridad completa.",
-      "Copia de Seguridad Incremental": "Técnica de respaldo que solo copia los datos modificados desde el último respaldo de cualquier tipo, optimizando espacio y tiempo.",
-      "Plan Director de Seguridad": "Documento que establece las prioridades y políticas, incluyendo las de respaldo, para proteger los activos de información de una organización."
+      "Planificación Estratégica": "Fase inicial que define los objetivos a largo plazo y los requisitos de la base de datos.",
+      "Diseño de Base de Datos": "Proceso de crear un modelo lógico y físico que se ajusta a las necesidades de la organización.",
+      "Seguridad": "Conjunto de medidas para proteger datos mediante control de acceso y políticas de autenticación.",
+      "Optimización del Rendimiento": "Prácticas para mejorar la eficiencia de la base de datos, como el uso de índices y ajuste de consultas.",
+      "Mantenimiento": "Tareas regulares como la limpieza de datos obsoletos y la aplicación de parches de software.",
+      "Escalabilidad": "Capacidad de la infraestructura de la base de datos para crecer y manejar un aumento de datos o carga.",
+      "Recuperación de Desastres": "Plan y procedimientos para restaurar datos a partir de copias de seguridad tras un fallo grave.",
+      "Monitoreo y Alertas": "Supervisión continua del estado de la base de datos para detectar y notificar problemas de forma proactiva.",
+      "Cumplimiento Normativo": "Asegurar que la gestión de datos se alinea con las regulaciones de privacidad y seguridad vigentes.",
+      "Copia de Seguridad Completa": "Tipo de respaldo que duplica todos los datos seleccionados, independientemente de si han cambiado o no.",
+      "Copia de Seguridad Diferencial": "Respaldo que guarda todos los cambios realizados desde la última copia de seguridad completa.",
+      "RAID 1": "Estrategia de respaldo que crea una réplica exacta de los datos en tiempo real en otro disco.",
+      "Activos de Información": "Recursos de datos que deben ser inventariados y clasificados para determinar su importancia y qué respaldar."
     }
   },
   "section3": {
     "name": "Juego del Ahorcado",
-    "weight": 25,
+    "weight": 40,
     "words": [
       {
         "word": "RENDIMIENTO",
-        "hint": "Se optimiza mediante índices y consultas eficientes para evitar cuellos de botella."
+        "hint": "Se optimiza con índices y consultas eficientes para evitar cuellos de botella."
       },
       {
-        "word": "RECUPERACION",
-        "hint": "Proceso de restaurar datos desde un respaldo después de un fallo o pérdida."
+        "word": "SEGURIDAD",
+        "hint": "Aspecto crítico que protege los datos confidenciales mediante autenticación y autorización."
       },
       {
-        "word": "AUTENTICACION",
-        "hint": "Proceso de verificar la identidad de un usuario antes de concederle acceso a la base de datos."
+        "word": "ESCALABILIDAD",
+        "hint": "Capacidad del sistema para manejar un crecimiento futuro en el volumen de datos."
+      },
+      {
+        "word": "RESPALDO",
+        "hint": "Proceso de duplicar información para su posterior recuperación en caso de fallo."
       },
       {
         "word": "MONITOREO",
-        "hint": "Supervisión constante del estado de la base de datos para detectar problemas de forma proactiva."
+        "hint": "Actividad constante de supervisión para detectar problemas en la base de datos."
       },
       {
         "word": "DOCUMENTACION",
-        "hint": "Práctica de mantener un registro detallado de la estructura y procedimientos de la base de datos."
+        "hint": "Registro detallado de la estructura, configuraciones y procedimientos de la base de datos."
       },
       {
-        "word": "CONTINGENCIA",
-        "hint": "Plan que detalla cómo responderá una organización ante una interrupción del servicio o pérdida de datos."
+        "word": "DIFERENCIAL",
+        "hint": "Tipo de copia de seguridad que respalda los cambios desde el último respaldo completo."
       },
       {
         "word": "ESPEJO",
-        "hint": "Tipo de copia de seguridad (RAID 1) que crea una réplica exacta de los datos en tiempo real."
+        "hint": "Tipo de copia (RAID 1) que crea una réplica exacta de los datos en tiempo real."
       },
       {
-        "word": "ACTIVOS",
-        "hint": "Recursos de información que una empresa debe inventariar y clasificar para su protección."
+        "word": "RECUPERACION",
+        "hint": "Proceso de restaurar datos desde una copia de seguridad después de un incidente."
       },
       {
-        "word": "INTEGRIDAD",
-        "hint": "Principio que asegura que los datos en una base de datos son precisos, consistentes y confiables."
+        "word": "MANTENIMIENTO",
+        "hint": "Incluye tareas periódicas como la limpieza de datos obsoletos y la aplicación de parches."
       },
       {
-        "word": "NOSQL",
-        "hint": "Modelo de datos alternativo al relacional, a menudo elegido por su flexibilidad y escalabilidad horizontal."
+        "word": "COMPLETA",
+        "hint": "Tipo de copia de seguridad que respalda todos los archivos del sistema, sin excepción."
+      },
+      {
+        "word": "PLANIFICACION",
+        "hint": "Fase estratégica donde se definen los objetivos y requerimientos de la base de datos."
       }
     ]
   }
