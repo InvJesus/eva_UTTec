@@ -1,0 +1,225 @@
+{
+  "general": {
+    "title": "Evaluación Digital - 1er Parcial",
+    "subtitle": "TECNOLOGÍAS PARA MANEJO MASIVO DE DATOS",
+    "professor": "MTI JESÚS E. ROMERO MORENO"
+  },
+  "section1": {
+    "name": "Opción Múltiple",
+    "weight": 50,
+    "questions": [
+      {
+        "question": "Una tienda en línea quiere reducir los carritos de compra abandonados. ¿Cuál debería ser el primer paso en su estrategia de datos para lograr este objetivo?",
+        "options": [
+          "Implementar Google BigQuery por su escalabilidad en la nube.",
+          "Definir el objetivo de negocio: entender el comportamiento del cliente.",
+          "Recolectar datos de redes sociales para análisis de sentimiento."
+        ],
+        "correct": 1,
+        "explanation": "Toda selección de tecnología debe comenzar con la definición clara de la estrategia y el objetivo empresarial. La tecnología es una herramienta para resolver un problema de negocio, no un fin en sí misma."
+      },
+      {
+        "question": "Una startup de rápido crecimiento necesita elegir una tecnología de base de datos. ¿Qué criterio técnico es el más crítico para su contexto?",
+        "options": [
+          "La seguridad a nivel bancario.",
+          "El costo de licenciamiento a 10 años.",
+          "La escalabilidad para soportar picos de demanda como el 'Buen Fin'."
+        ],
+        "correct": 2,
+        "explanation": "Para una startup en crecimiento, la capacidad de escalar rápidamente (escalabilidad) es vital para manejar el aumento de usuarios y datos, como durante eventos de alta demanda. El contexto del negocio siempre define la tecnología."
+      },
+      {
+        "question": "Una empresa financiera detecta que los reportes de análisis de riesgo tardan días en generarse porque los datos están en sistemas de ventas, CRM y operaciones. ¿Qué solución abordaría la raíz de este problema?",
+        "options": [
+          "Construir un Data Warehouse para centralizar e integrar la información.",
+          "Contratar más analistas para procesar los datos manualmente.",
+          "Actualizar los servidores de cada sistema individualmente."
+        ],
+        "correct": 0,
+        "explanation": "Un Data Warehouse está diseñado para integrar datos de diversas fuentes en un repositorio centralizado, creando una 'única fuente de la verdad' y acelerando la generación de reportes y análisis."
+      },
+      {
+        "question": "Al diseñar un Data Warehouse, el equipo de BI decide usar un 'esquema de estrella'. ¿Qué ventaja práctica buscan con esta decisión?",
+        "options": [
+          "Minimizar el espacio de almacenamiento a toda costa, como lo haría un copo de nieve.",
+          "Simplificar el modelo para que las consultas sean más rápidas y fáciles de entender.",
+          "Asegurar la máxima normalización de los datos para evitar redundancia."
+        ],
+        "correct": 1,
+        "explanation": "El esquema de estrella es el más popular porque es intuitivo, con una tabla de hechos central y tablas de dimensión directamente conectadas. Esto simplifica las consultas (menos 'joins') y mejora significativamente la velocidad de respuesta."
+      },
+      {
+        "question": "Una compañía de logística está implementando un sistema IoT con sensores en sus camiones. ¿Qué característica del Big Data describe mejor el flujo constante de datos de geolocalización y temperatura que se genera por segundo?",
+        "options": [
+          "Volumen",
+          "Variedad",
+          "Velocidad"
+        ],
+        "correct": 2,
+        "explanation": "La Velocidad es la 'V' de Big Data que se refiere a la rapidez con la que se generan y deben procesarse los datos. Los datos de sensores IoT que fluyen en tiempo real son un ejemplo clásico de alta velocidad."
+      },
+      {
+        "question": "Un analista de marketing quiere cruzar datos de ventas (estructurados) con comentarios de clientes en redes sociales (no estructurados). ¿Qué enfoque de almacenamiento es más adecuado para esta tarea inicial de exploración?",
+        "options": [
+          "Cargar ambos tipos de datos en un Data Lake para un análisis flexible.",
+          "Forzar la estructuración de los comentarios para cargarlos en un Data Warehouse tradicional.",
+          "Mantener los datos en sus sistemas de origen y analizarlos por separado."
+        ],
+        "correct": 0,
+        "explanation": "Un Data Lake es ideal para almacenar grandes volúmenes de datos de todo tipo (estructurados y no estructurados) en su formato original, permitiendo una exploración y análisis más flexibles antes de decidir qué datos estructurar para un Data Warehouse."
+      },
+      {
+        "question": "¿Cuál es la diferencia fundamental entre el enfoque de diseño de Data Warehouse de Kimball y el de Inmon?",
+        "options": [
+          "Inmon prefiere esquemas de copo de nieve y Kimball de estrella.",
+          "Inmon propone un enfoque centralizado (top-down) y Kimball uno departamental (bottom-up).",
+          "Kimball se enfoca solo en la nube y Inmon solo en sistemas locales (on-premise)."
+        ],
+        "correct": 1,
+        "explanation": "La principal diferencia filosófica es que Inmon aboga por construir primero el gran Data Warehouse centralizado para toda la empresa (top-down), mientras que Kimball sugiere empezar con Data Marts departamentales para entregar valor rápidamente y luego integrarlos (bottom-up)."
+      },
+      {
+        "question": "Una empresa utiliza el proceso ETL para poblar su Data Warehouse. ¿En qué etapa se corrigen errores, se estandarizan fechas y se eliminan duplicados?",
+        "options": [
+          "Extracción (Extract)",
+          "Transformación (Transform)",
+          "Carga (Load)"
+        ],
+        "correct": 1,
+        "explanation": "La etapa de Transformación es la 'cocina' del proceso ETL. Es aquí donde los datos crudos se limpian, estandarizan, enriquecen y se les da un formato consistente para garantizar su calidad y fiabilidad antes de ser cargados."
+      },
+      {
+        "question": "Una cadena de supermercados quiere analizar las tendencias de compra de los últimos 5 años para predecir la demanda futura. ¿Qué característica de un Data Warehouse es esencial para este análisis?",
+        "options": [
+          "Orientado a temas",
+          "No volátil",
+          "Datos históricos (Variante en el tiempo)"
+        ],
+        "correct": 2,
+        "explanation": "La capacidad de un Data Warehouse para almacenar datos históricos a lo largo de años (ser 'variante en el tiempo') es lo que permite realizar análisis de tendencias a largo plazo y predecir comportamientos futuros."
+      },
+      {
+        "question": "Una empresa de comercio electrónico decide migrar su infraestructura a la nube y adopta un proceso ELT en lugar de ETL. ¿Cuál es la principal ventaja de este cambio de enfoque?",
+        "options": [
+          "Aprovecha la potencia de cómputo de la nube para transformar los datos después de cargarlos.",
+          "Elimina la necesidad de transformar los datos por completo.",
+          "Es un proceso más seguro porque los datos no se mueven tanto."
+        ],
+        "correct": 0,
+        "explanation": "El enfoque ELT (Extraer, Cargar, Transformar) carga los datos en crudo directamente al Data Warehouse en la nube y luego utiliza la masiva capacidad de procesamiento de plataformas como BigQuery para realizar las transformaciones 'in situ', lo cual es muy eficiente."
+      },
+      {
+        "question": "Para entrenar un modelo de Machine Learning que prediga la probabilidad de que un cliente abandone la empresa, ¿por qué un Data Warehouse es una fuente de datos ideal?",
+        "options": [
+          "Porque contiene solo los datos del último mes.",
+          "Porque ofrece datos limpios, históricos y estructurados de alta calidad.",
+          "Porque los datos no están organizados y permiten mayor creatividad al algoritmo."
+        ],
+        "correct": 1,
+        "explanation": "Los algoritmos de Machine Learning requieren grandes volúmenes de datos históricos de alta calidad para ser entrenados eficazmente. Un Data Warehouse proporciona exactamente eso: datos integrados, limpios y estructurados, listos para el entrenamiento de modelos."
+      },
+      {
+        "question": "Un equipo de análisis necesita obtener los datos de publicaciones relacionadas con su marca en Twitter. ¿Qué técnica de recolección de datos es la más apropiada y eficiente?",
+        "options": [
+          "Realizar encuestas a los usuarios de Twitter.",
+          "Utilizar Web Scraping para copiar manualmente el contenido de la página.",
+          "Conectarse a la API de Twitter para extraer los datos de forma programática."
+        ],
+        "correct": 2,
+        "explanation": "Las APIs (Interfaces de Programación de Aplicaciones) son 'puentes' digitales que las plataformas como redes sociales ofrecen para permitir que sistemas externos extraigan datos de manera controlada, eficiente y estructurada."
+      },
+      {
+        "question": "En el modelado dimensional, la tabla que contiene métricas numéricas como 'Monto de Venta' y 'Unidades Vendidas' se conoce como:",
+        "options": [
+          "Tabla de dimensión",
+          "Tabla de hechos",
+          "Tabla de constelación"
+        ],
+        "correct": 1,
+        "explanation": "Las tablas de hechos son el centro del modelo dimensional. Contienen los eventos de negocio medibles y cuantitativos (el 'cuánto'), mientras que las tablas de dimensión proveen el contexto (quién, cuándo, dónde)."
+      },
+      {
+        "question": "Una empresa necesita analizar datos de sensores industriales y registros de transacciones financieras simultáneamente. ¿Qué tipo de arquitectura de procesamiento permite dividir estas tareas masivas entre múltiples servidores para acelerar el análisis?",
+        "options": [
+          "Procesamiento Secuencial",
+          "Multiprocesamiento Simétrico (SMP)",
+          "Procesamiento Distribuido"
+        ],
+        "correct": 2,
+        "explanation": "El procesamiento distribuido, ejemplificado por sistemas como Hadoop, es una arquitectura paralela que divide grandes tareas de procesamiento de datos en partes más pequeñas y las distribuye a través de un clúster de servidores, que trabajan en paralelo para obtener resultados mucho más rápido."
+      },
+      {
+        "question": "¿Cuál es el objetivo final y estratégico de todo el ciclo de vida de Big Data, desde la recolección hasta el análisis?",
+        "options": [
+          "Acumular la mayor cantidad de terabytes de datos posible.",
+          "Transformar el 'ruido' de los datos en bruto en conocimiento accionable para la toma de decisiones.",
+          "Crear visualizaciones y gráficos atractivos para las presentaciones ejecutivas."
+        ],
+        "correct": 1,
+        "explanation": "El verdadero valor del Big Data no reside en el volumen de datos almacenados, sino en la capacidad de procesarlos y analizarlos para extraer 'insights' o conocimientos que permitan a una organización tomar decisiones estratégicas más inteligentes y obtener una ventaja competitiva."
+      }
+    ]
+  },
+  "section2": {
+    "name": "Relación de Columnas",
+    "weight": 25,
+    "pairs": {
+      "Data Warehouse": "Repositorio centralizado de datos integrados e históricos, optimizado para consulta y análisis, que sirve como 'única fuente de la verdad' para la inteligencia de negocio.",
+      "ETL": "Proceso secuencial de extraer datos de diversas fuentes, limpiarlos y estandarizarlos en una etapa intermedia, y luego moverlos a un destino final como un Data Warehouse.",
+      "Esquema de Copo de Nieve": "Estructura de modelado dimensional donde las tablas de dimensión se normalizan en tablas más pequeñas, ahorrando espacio pero aumentando la complejidad de las consultas.",
+      "Data Mart": "Un subconjunto de un Data Warehouse, enfocado en las necesidades analíticas de un área o departamento específico de la empresa, como marketing o ventas.",
+      "Big Data": "Concepto que describe conjuntos de datos cuyo volumen, velocidad y variedad superan la capacidad de las herramientas tradicionales, requiriendo arquitecturas paralelas para su procesamiento.",
+      "IoT (Internet of Things)": "Red de dispositivos físicos con sensores que generan un flujo constante de datos en tiempo real sobre su entorno o funcionamiento, siendo una fuente masiva de Big Data.",
+      "OLAP (Online Analytical Processing)": "Tipo de sistema, como un Data Warehouse, diseñado para realizar análisis complejos sobre grandes volúmenes de datos históricos, en contraste con los sistemas transaccionales (OLTP).",
+      "Tabla de Dimensión": "Componente del modelo estrella que proporciona el contexto descriptivo (quién, qué, cuándo, dónde) a las métricas numéricas de la tabla de hechos.",
+      "ELT": "Enfoque moderno, común en la nube, donde los datos se cargan en crudo al repositorio y se transforman 'in situ' utilizando la potencia de cómputo del sistema de destino.",
+      "Ciclo de Vida de Big Data": "Proceso completo que abarca desde la generación y recolección de datos, pasando por su procesamiento y almacenamiento, hasta el análisis y visualización para generar valor."
+    }
+  },
+  "section3": {
+    "name": "Juego del Ahorcado",
+    "weight": 25,
+    "words": [
+      {
+        "word": "ESCALABILIDAD",
+        "hint": "Capacidad de un sistema para manejar un crecimiento en la carga de trabajo, crucial para startups y eventos como el 'Buen Fin'."
+      },
+      {
+        "word": "VISUALIZACION",
+        "hint": "Última etapa del ciclo de vida de los datos, donde los hallazgos se representan gráficamente para facilitar su comprensión."
+      },
+      {
+        "word": "HECHOS",
+        "hint": "En un esquema de estrella, es la tabla central que contiene las métricas cuantitativas del negocio."
+      },
+      {
+        "word": "INMON",
+        "hint": "Pionero del Data Warehousing que propuso un enfoque de diseño 'de arriba hacia abajo' (top-down)."
+      },
+      {
+        "word": "VERACIDAD",
+        "hint": "Una de las 5 V's del Big Data que se refiere a la confiabilidad y calidad de los datos."
+      },
+      {
+        "word": "API",
+        "hint": "Mecanismo utilizado para extraer datos de forma programática de plataformas como redes sociales o sistemas IoT."
+      },
+      {
+        "word": "NUBE",
+        "hint": "Entorno que potenció el cambio de ETL a ELT gracias a su poder de cómputo casi infinito."
+      },
+      {
+        "word": "DATALAKE",
+        "hint": "Repositorio que almacena enormes volúmenes de datos en su formato nativo, tanto estructurados como no estructurados."
+      },
+      {
+        "word": "KIMBALL",
+        "hint": "Promotor del enfoque 'de abajo hacia arriba' (bottom-up) para construir Data Warehouses, comenzando por los Data Marts."
+      },
+      {
+        "word": "TRANSFORMAR",
+        "hint": "La fase 'T' del proceso ETL, donde los datos se limpian, estandarizan y enriquecen."
+      }
+    ]
+  }
+}
