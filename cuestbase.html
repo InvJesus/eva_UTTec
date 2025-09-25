@@ -585,6 +585,17 @@
             <div class="bg-white rounded-xl shadow-xl p-4 md:p-8 text-center">
                 <div class="mb-6">
                     <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">🎉 Evaluación Completada</h2>
+                    
+                    <!-- Información de la Evaluación -->
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 md:p-6 mb-4 border-2 border-blue-200">
+                        <div class="text-center mb-4">
+                            <h3 id="finalEvaluationTitle" class="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">Evaluación Digital</h3>
+                            <h4 id="finalEvaluationSubtitle" class="text-base md:text-lg text-blue-700 font-semibold">TECNOLOGÍAS PARA MANEJO MASIVO DE DATOS</h4>
+                            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-3 rounded-full"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Datos del Estudiante y Evaluación -->
                     <div class="bg-gray-50 rounded-lg p-4 space-y-2">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
@@ -1335,6 +1346,19 @@
             if (professorNameEl && EVALUATION_CONFIG.general.professor) {
                 professorNameEl.textContent = EVALUATION_CONFIG.general.professor;
                 console.log('✅ Nombre del profesor actualizado:', EVALUATION_CONFIG.general.professor);
+            }
+            
+            // Actualizar título y subtítulo en la pantalla de resultados
+            const finalEvaluationTitleEl = document.getElementById('finalEvaluationTitle');
+            if (finalEvaluationTitleEl && EVALUATION_CONFIG.general.title) {
+                finalEvaluationTitleEl.textContent = EVALUATION_CONFIG.general.title;
+                console.log('✅ Título final actualizado:', EVALUATION_CONFIG.general.title);
+            }
+            
+            const finalEvaluationSubtitleEl = document.getElementById('finalEvaluationSubtitle');
+            if (finalEvaluationSubtitleEl && EVALUATION_CONFIG.general.subtitle) {
+                finalEvaluationSubtitleEl.textContent = EVALUATION_CONFIG.general.subtitle;
+                console.log('✅ Subtítulo final actualizado:', EVALUATION_CONFIG.general.subtitle);
             }
             
             // Actualizar nombres de secciones si están definidos en el JSON
@@ -2844,5 +2868,5 @@
             console.groupEnd();
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'984c21f557c78727',t:'MTc1ODgyMDIwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'984c3035a46f34d1',t:'MTc1ODgyMDc4NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
