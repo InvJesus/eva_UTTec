@@ -1,0 +1,223 @@
+{
+  "general": {
+    "title": "Evaluación Digital 2doP - C.Nube",
+    "subtitle": "PROCESO PARA MIGRAR UNA INFRAESTRUCTURA A LA NUBE",
+    "professor": "MTI JESÚS E. ROMERO MORENO"
+  },
+  "section1": {
+    "name": "Opción Múltiple",
+    "weight": 30,
+    "questions": [
+      {
+        "question": "Una empresa de comercio electrónico necesita migrar su servidor web y base de datos a la nube en el menor tiempo posible y con el mínimo riesgo de interrupción, ya que no cuentan con un gran presupuesto para rediseño. ¿Qué estrategia debería priorizar?",
+        "options": [
+          "Re-Arquitectura (Rearchitecting)",
+          "Lift and Shift (Realojamiento)",
+          "Refactorización (Replatforming)"
+        ],
+        "correct": 1,
+        "explanation": "El Lift and Shift es la forma más rápida y sencilla de migración, con menor riesgo, ya que los cambios en la aplicación son mínimos, resultando en costos iniciales bajos por no requerir rediseño o recodificación."
+      },
+      {
+        "question": "Una empresa financiera está rediseñando su Sistema de Gestión de Transacciones para descomponerlo en microservicios, buscando maximizar la resiliencia y aprovechar al máximo las capacidades nativas de la nube. ¿Qué estrategia está siguiendo?",
+        "options": [
+          "Retención (Retain)",
+          "Re-Arquitectura (Rearchitecting)",
+          "Recompra (Repurchasing)"
+        ],
+        "correct": 1,
+        "explanation": "La Re-Arquitectura implica rediseñar completamente la arquitectura de la aplicación (como usar microservicios) para que sea nativa de la nube, maximizando la escalabilidad y flexibilidad."
+      },
+      {
+        "question": "Durante la fase de Evaluación Inicial de un proyecto de migración, ¿cuál es un paso crítico que debe completarse para determinar la viabilidad financiera y mitigar riesgos?",
+        "options": [
+          "Realizar Pruebas de Concepto (PoC) con al menos tres proveedores de nube diferentes.",
+          "Comparar los costos operativos continuos esperados en la nube con los costos actuales de la infraestructura local.",
+          "Definir el Plan de Comunicación para informar a todas las partes interesadas."
+        ],
+        "correct": 1,
+        "explanation": "La Evaluación de Viabilidad exige un Análisis de costos que compare los costos actuales con los esperados en la nube (incluyendo costos de migración y operativos continuos) y una evaluación de riesgos."
+      },
+      {
+        "question": "Una startup del sector salud en Estados Unidos debe cumplir estrictamente con las regulaciones de protección de información de salud protegida (PHI). ¿Qué certificación o normativa es esencial que verifique en su proveedor de nube?",
+        "options": [
+          "PCI DSS",
+          "ISO/IEC 27018",
+          "HIPAA"
+        ],
+        "correct": 2,
+        "explanation": "HIPAA (Health Insurance Portability and Accountability Act) es la ley estadounidense que establece requisitos para la protección de la información de salud protegida."
+      },
+      {
+        "question": "Una empresa de software detecta que, durante el inventario de infraestructura, existe un sistema de gestión de inventario antiguo que ya ha sido completamente reemplazado por un nuevo ERP. ¿Cuál es la estrategia de migración más adecuada para este sistema?",
+        "options": [
+          "Retiro (Retire)",
+          "Retención (Retain)",
+          "Refactorización (Replatforming)"
+        ],
+        "correct": 0,
+        "explanation": "El Retiro se aplica a aplicaciones que ya no son útiles o necesarias, lo que resulta en la reducción de costos asociados y la simplificación del entorno TI."
+      },
+      {
+        "question": "¿Cuál es la principal desventaja de la estrategia *Lift and Shift* (Realojamiento), a pesar de ser la opción más rápida?",
+        "options": [
+          "Alto riesgo de interrupciones, ya que se cambia la infraestructura subyacente.",
+          "Optimización limitada, ya que no se aprovechan plenamente las capacidades nativas de la nube.",
+          "Pérdida de personalización de la aplicación debido a la infraestructura estandarizada."
+        ],
+        "correct": 1,
+        "explanation": "Aunque el riesgo es menor, la principal desventaja es que la arquitectura existente puede no ser óptima para la escalabilidad en la nube, resultando en una optimización limitada."
+      },
+      {
+        "question": "Para asegurar que un proveedor de servicios en la nube gestiona adecuadamente la protección de datos personales en la nube pública, una empresa debería buscar la certificación específica:",
+        "options": [
+          "ISO/IEC 27001",
+          "SOC 2",
+          "ISO/IEC 27018"
+        ],
+        "correct": 2,
+        "explanation": "ISO/IEC 27018 es un estándar de privacidad que se centra en la protección de datos personales y proporciona directrices para la implementación de medidas de protección en la nube pública."
+      },
+      {
+        "question": "Una empresa decide sustituir su solución de Gestión de Relaciones con Clientes (CRM) personalizada y alojada localmente por una solución SaaS líder del mercado como SalesForce. ¿Qué estrategia está utilizando?",
+        "options": [
+          "Re-Arquitectura",
+          "Recompra (Repurchasing)",
+          "Refactorización"
+        ],
+        "correct": 1,
+        "explanation": "La Recompra consiste en cambiar una aplicación existente por una solución SAAS (Software As A Service) que cumpla con los mismos requisitos funcionales, ofreciendo menor mantenimiento."
+      },
+      {
+        "question": "En la fase de Operaciones y Optimización posterior a la migración, ¿qué actividad es fundamental para garantizar la eficiencia continua de los recursos?",
+        "options": [
+          "Inventariar hardware y software restantes en el centro de datos local.",
+          "Utilizar herramientas de análisis de costos y mejores prácticas para la optimización continua.",
+          "Investigar las deducciones fiscales aplicables a la infraestructura anterior."
+        ],
+        "correct": 1,
+        "explanation": "La Optimización de costos es clave en esta fase, utilizando herramientas de análisis y mejores prácticas para asegurar la eficiencia continua de los costos de computación, almacenamiento y ancho de banda."
+      },
+      {
+        "question": "Una empresa de tecnología requiere que su base de datos aproveche la administración automática de la Base de Datos y la escalabilidad (como Amazon RDS) sin tener que cambiar la lógica de la aplicación. ¿Qué estrategia de migración se aplica?",
+        "options": [
+          "Refactorización (Replatforming)",
+          "Retención (Retain)",
+          "Re-Arquitectura (Rearchitecting)"
+        ],
+        "correct": 0,
+        "explanation": "La Refactorización implica hacer algunas optimizaciones (como migrar una base de datos local a un servicio administrado) para aprovechar mejor las capacidades de la nube sin cambiar la arquitectura fundamental o lógica de la aplicación."
+      },
+      {
+        "question": "Para una empresa que procesa información de tarjetas de crédito y débito, es obligatorio cumplir con un estándar de seguridad específico. ¿Cuál es ese estándar, y debe verificarse incluso si usa la nube?",
+        "options": [
+          "HIPAA",
+          "PCI DSS",
+          "ISO/IEC 27017"
+        ],
+        "correct": 1,
+        "explanation": "PCI DSS (Payment Card Industry Data Security Standard) es el estándar de seguridad obligatorio para todas las organizaciones que procesan, almacenan o transmiten información de tarjetas de pago, garantizando su gestión segura en la nube."
+      },
+      {
+        "question": "¿Qué par de métricas son cruciales para definir en el Plan de Recuperación ante Desastres (DRP) para establecer los objetivos de tiempo y pérdida de datos?",
+        "options": [
+          "Latencia y Ancho de banda (Bandwidth).",
+          "RPO (Recovery Point Objective) y RTO (Recovery Time Objective).",
+          "Costo Inicial de Migración y Costos Operativos Continuos."
+        ],
+        "correct": 1,
+        "explanation": "El Plan de Recuperación ante Desastres debe definir el RPO (pérdida máxima de datos tolerable) y el RTO (tiempo máximo tolerable de inactividad) para realizar pruebas regulares y asegurar la continuidad del negocio."
+      },
+      {
+        "question": "Una empresa de salud decide mantener su sistema de gestión de información (HIS) en sus propios servidores locales debido a estrictas regulaciones de privacidad y seguridad que exigen control total de la infraestructura física. ¿Qué estrategia está aplicando?",
+        "options": [
+          "Retención (Retain)",
+          "Retiro (Retire)",
+          "Lift and Shift"
+        ],
+        "correct": 0,
+        "explanation": "La Retención implica mantener ciertas aplicaciones en la infraestructura local debido a razones técnicas, legales o estratégicas, asegurando el cumplimiento con requisitos regulatorios o de seguridad."
+      },
+      {
+        "question": "Durante la Planificación de la Migración, además de los costos iniciales de herramientas y consultoría, ¿qué costos deben calcularse rigurosamente para la Operación Continua?",
+        "options": [
+          "Cálculo de los costos de computación, almacenamiento, ancho de banda y servicios adicionales.",
+          "Análisis de deducciones y regulaciones fiscales locales.",
+          "Costos de capacitación y gestión del cambio para todo el personal."
+        ],
+        "correct": 0,
+        "explanation": "Los costos operativos continuos incluyen el cálculo de los recursos principales consumidos en la nube: computación, almacenamiento, ancho de banda y servicios adicionales."
+      },
+      {
+        "question": "Para la Gestión de Identidades y Accesos (IAM), ¿cuál es el propósito clave de establecer este sistema de seguridad en la nube?",
+        "options": [
+          "Implementar cifrado de datos en tránsito y en reposo.",
+          "Establecer sistemas de monitorización y auditoría continua.",
+          "Configurar políticas de acceso y roles apropiados para controlar el acceso a los recursos."
+        ],
+        "correct": 2,
+        "explanation": "La Gestión de Identidades y Accesos (IAM) se enfoca en configurar políticas de acceso y roles para asegurar que solo los usuarios autorizados tengan el nivel de acceso apropiado a los recursos."
+      }
+    ]
+  },
+  "section2": {
+    "name": "Relación de Columnas",
+    "weight": 30,
+    "pairs": {
+      "Lift and Shift (Realojamiento)": "Estrategia que mueve aplicaciones tal como están a la infraestructura en la nube, priorizando la rapidez y el bajo riesgo al minimizar los cambios de arquitectura.",
+      "Re-Arquitectura (Rearchitecting)": "Rediseño completo de la aplicación, a menudo para adoptar microservicios, con el objetivo de maximizar la escalabilidad, resiliencia y uso de servicios nativos de la nube.",
+      "ISO/IEC 27001": "Estándar internacional que proporciona un marco para establecer, mantener y mejorar continuamente un Sistema de Gestión de la Seguridad de la Información (SGSI).",
+      "RPO (Recovery Point Objective)": "Métrica esencial en la recuperación ante desastres que define la máxima cantidad tolerable de pérdida de datos medida en tiempo.",
+      "SOC 2": "Informe que proporciona una evaluación independiente de los controles de seguridad, disponibilidad, integridad y privacidad de un proveedor de servicios en la nube.",
+      "Recompra (Repurchasing)": "Consiste en sustituir una aplicación existente por una solución basada en Software As A Service (SaaS), reduciendo la carga de administración y mantenimiento local.",
+      "Evaluación de Viabilidad": "Fase inicial del proceso de migración centrada en el análisis de costos, beneficios y riesgos potenciales de mover la infraestructura a la nube.",
+      "Capacitación": "Parte fundamental de la Gestión del Cambio que asegura que el personal adquiera las habilidades necesarias para usar y gestionar la nueva infraestructura en la nube."
+    }
+  },
+  "section3": {
+    "name": "Juego del Ahorcado",
+    "weight": 40,
+    "words": [
+      {
+        "word": "ESCALABILIDAD",
+        "hint": "Uno de los objetivos principales de migrar, que permite que los recursos de la infraestructura crezcan o disminuyan según la demanda."
+      },
+      {
+        "word": "CIFRADO",
+        "hint": "Práctica de seguridad clave para proteger los datos mientras viajan por la red o cuando están almacenados."
+      },
+      {
+        "word": "VIABILIDAD",
+        "hint": "Fase que determina si la migración es práctica desde un punto de vista económico y técnico."
+      },
+      {
+        "word": "AZURE",
+        "hint": "Nombre de uno de los principales proveedores de servicios de nube, rival de AWS y Google Cloud."
+      },
+      {
+        "word": "RELOJAMIENTO",
+        "hint": "Término en español para la estrategia de migración conocida como 'Lift and Shift'."
+      },
+      {
+        "word": "RTO",
+        "hint": "Objetivo temporal que indica el tiempo máximo que debe tardar un sistema en volver a operar después de un desastre."
+      },
+      {
+        "word": "IAM",
+        "hint": "Abreviatura del servicio crítico para gestionar las identidades y los permisos de acceso de los usuarios en la nube."
+      },
+      {
+        "word": "GDPR",
+        "hint": "Regulación de privacidad europea que establece requisitos estrictos para el manejo de datos personales."
+      },
+      {
+        "word": "BACKUPS",
+        "hint": "Soluciones esenciales para la continuidad del negocio que permiten la restauración efectiva de los datos."
+      },
+      {
+        "word": "RETIRO",
+        "hint": "Decisión estratégica durante la migración de eliminar aplicaciones que han quedado obsoletas o no son útiles."
+      }
+    ]
+  }
+}

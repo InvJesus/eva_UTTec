@@ -1,0 +1,295 @@
+{
+  "general": {
+    "title": "Evaluación Digital: Administración de bases de datos",
+    "subtitle": "Diagnóstico Inicial",
+    "professor": "MTI Jesús E. Romero Moreno"
+  },
+  "section1": {
+    "name": "Opción Múltiple",
+    "weight": 30,
+    "questions": [
+      {
+        "question": "¿Cuál es el propósito fundamental de la normalización en el diseño de bases de datos relacionales?",
+        "options": [
+          "Aumentar la redundancia para asegurar copias de seguridad.",
+          "Organizar los datos para minimizar la redundancia y proteger la integridad.",
+          "Crear visualizaciones gráficas de los datos para reportes."
+        ],
+        "correct": 1,
+        "explanation": "La normalización busca organizar los datos eficientemente, minimizando la redundancia y protegiendo la integridad de la información [1]."
+      },
+      {
+        "question": "En el contexto de la administración de bases de datos, ¿qué significan las siglas DRP?",
+        "options": [
+          "Data Recovery Process",
+          "Plan de Recuperación ante Desastres",
+          "Database Replication Protocol"
+        ],
+        "correct": 1,
+        "explanation": "DRP son las siglas de 'Plan de Recuperación ante Desastres' (Disaster Recovery Plan) [2]."
+      },
+      {
+        "question": "Para gestionar bases de datos como PostgreSQL y MongoDB en este curso, ¿qué herramienta de gestión universal se utiliza?",
+        "options": [
+          "VirtualBox",
+          "DBeaver",
+          "Excel"
+        ],
+        "correct": 1,
+        "explanation": "El curso utiliza DBeaver para la gestión eficiente de bases de datos relacionales y no relacionales [3], [4]."
+      },
+      {
+        "question": "¿Qué regla define la Primera Forma Normal (1FN)?",
+        "options": [
+          "Eliminar dependencias transitivas.",
+          "Todos los atributos deben ser atómicos y no deben existir grupos repetitivos.",
+          "La tabla debe tener una clave foránea."
+        ],
+        "correct": 1,
+        "explanation": "La 1FN requiere que cada celda contenga un único valor indivisible (atómico) y que no existan grupos repetitivos [5], [6]."
+      },
+      {
+        "question": "Al automatizar tareas en Linux para la administración de bases de datos, ¿qué herramienta se utiliza para programar la ejecución?",
+        "options": [
+          "Schtasks",
+          "Cron",
+          "VBoxManage"
+        ],
+        "correct": 1,
+        "explanation": "Cron es el administrador de procesos en segundo plano en Linux que permite programar tareas automáticamente [7]."
+      },
+      {
+        "question": "¿Qué herramienta de línea de comandos se utiliza para administrar máquinas virtuales en VirtualBox?",
+        "options": [
+          "VMWareTools",
+          "VBoxManage",
+          "Hyper-V Cmd"
+        ],
+        "correct": 1,
+        "explanation": "VBoxManage es la interfaz de línea de comandos (CLI) de VirtualBox para gestionar máquinas virtuales [8]."
+      },
+      {
+        "question": "En MongoDB, ¿qué comando se utiliza para realizar una copia de seguridad de la base de datos?",
+        "options": [
+          "mongoexport",
+          "pg_dump",
+          "mongodump"
+        ],
+        "correct": 2,
+        "explanation": "mongodump es la herramienta utilizada para realizar copias de seguridad en MongoDB [9]."
+      },
+      {
+        "question": "¿Qué es Apache Parquet según el contenido del curso?",
+        "options": [
+          "Un sistema de gestión de base de datos relacional.",
+          "Un formato de almacenamiento columnar eficiente para Big Data.",
+          "Una herramienta para crear diagramas entidad-relación."
+        ],
+        "correct": 1,
+        "explanation": "Apache Parquet es un formato de almacenamiento columnar que reduce el tamaño mediante compresión y es eficiente para consultas [10]."
+      },
+      {
+        "question": "¿Qué métrica define la máxima cantidad de tiempo durante el cual se pueden tolerar la pérdida de datos en un DRP?",
+        "options": [
+          "RTO (Recovery Time Objective)",
+          "RPO (Recovery Point Objective)",
+          "SLA (Service Level Agreement)"
+        ],
+        "correct": 1,
+        "explanation": "El RPO (Punto de recuperación objetivo) es la máxima cantidad de tiempo tolerable de pérdida de datos [11]."
+      },
+      {
+        "question": "¿Cuál es la característica principal de una base de datos clave-valor en NoSQL?",
+        "options": [
+          "Almacena datos en tablas relacionadas.",
+          "La información se guarda usando una clave única en un hash-map.",
+          "Utiliza grafos para relacionar entidades."
+        ],
+        "correct": 1,
+        "explanation": "En las BD clave-valor, la información se guarda utilizando una clave única y el valor vinculado es opaco [12]."
+      },
+      {
+        "question": "En el caso de estudio Horizon, ¿cuál fue una de las principales fallas detectadas?",
+        "options": [
+          "Falta de capacitación de los empleados.",
+          "Falta de controles de calidad en la información y auditorías independientes.",
+          "El uso de bases de datos NoSQL en lugar de relacionales."
+        ],
+        "correct": 1,
+        "explanation": "La problemática central fue utilizar datos de Horizon sin aplicar controles de calidad ni auditorías técnicas independientes [13]."
+      },
+      {
+        "question": "¿Qué comando de PostgreSQL se utiliza para generar un respaldo lógico de la base de datos?",
+        "options": [
+          "pg_restore",
+          "pg_dump",
+          "copy to"
+        ],
+        "correct": 1,
+        "explanation": "pg_dump es un comando clave para el respaldo de bases de datos en PostgreSQL [14]."
+      },
+      {
+        "question": "¿Qué tecnología se menciona para garantizar conectividad segura (VPN) entre servidores en la práctica de replicación?",
+        "options": [
+          "Hamachi",
+          "ZeroTier",
+          "OpenVPN"
+        ],
+        "correct": 1,
+        "explanation": "Se utiliza ZeroTier para conectar servidores a través de una VPN y asegurar la conectividad [15]."
+      },
+      {
+        "question": "¿Qué tipo de copia de seguridad crea una copia exacta de los datos en tiempo real (espejo)?",
+        "options": [
+          "Incremental",
+          "Diferencial",
+          "RAID 1"
+        ],
+        "correct": 2,
+        "explanation": "Una copia de seguridad en espejo, también conocida como RAID 1, crea una copia exacta en tiempo real [16]."
+      },
+      {
+        "question": "¿Qué es DuckDB según la investigación presentada?",
+        "options": [
+          "Una base de datos documental.",
+          "Un sistema de gestión de bases de datos analíticas (OLAP) integrable.",
+          "Un servicio de nube para hospedar MongoDB."
+        ],
+        "correct": 1,
+        "explanation": "DuckDB es un sistema de gestión de bases de datos analíticas relacionales e integrables enfocado en cargas de trabajo OLAP [17]."
+      },
+      {
+        "question": "En MongoDB, si deseamos actualizar un campo específico de un documento, ¿qué operador utilizamos?",
+        "options": [
+          "$update",
+          "$set",
+          "$modify"
+        ],
+        "correct": 1,
+        "explanation": "Se utiliza el operador $set para actualizar campos específicos dentro de un documento [18]."
+      },
+      {
+        "question": "¿Qué implica la 'desnormalización' en el contexto de bases de datos NoSQL como MongoDB?",
+        "options": [
+          "Dividir datos en múltiples tablas para reducir redundancia.",
+          "Consolidar información relacionada en un solo documento para evitar múltiples consultas.",
+          "Eliminar todos los índices de la colección."
+        ],
+        "correct": 1,
+        "explanation": "La desnormalización implica proponer un esquema que consolide información relacionada para minimizar múltiples consultas [19]."
+      },
+      {
+        "question": "¿Qué herramienta en Windows permite programar la ejecución automática de tareas, similar a cron en Linux?",
+        "options": [
+          "Taskmgr",
+          "Schtasks",
+          "Cmd"
+        ],
+        "correct": 1,
+        "explanation": "Schtasks en Windows permite programar la ejecución automática de tareas [7]."
+      },
+      {
+        "question": "¿Qué diferencia principal existe entre SQL y NoSQL según el modelo de datos?",
+        "options": [
+          "SQL usa esquemas dinámicos y NoSQL esquemas rígidos.",
+          "SQL usa tablas y relaciones; NoSQL usa modelos flexibles como documentos o clave-valor.",
+          "No hay diferencia, ambos usan tablas."
+        ],
+        "correct": 1,
+        "explanation": "Las bases relacionales (SQL) usan tablas y reglas estrictas, mientras que NoSQL ofrece esquemas flexibles y modelos variados [20], [21]."
+      },
+      {
+        "question": "¿Qué función cumple el comando `VBoxManage snapshot`?",
+        "options": [
+          "Inicia una máquina virtual.",
+          "Toma una instantánea del estado actual de una máquina virtual.",
+          "Elimina el disco duro virtual."
+        ],
+        "correct": 1,
+        "explanation": "Este comando permite la toma de snapshots automáticos para guardar el estado de la VM [22]."
+      }
+    ]
+  },
+  "section2": {
+    "name": "Relación de Columnas",
+    "weight": 30,
+    "pairs": {
+      "DRP": "Plan de Recuperación ante Desastres para asegurar continuidad del negocio.",
+      "1FN": "Forma normal que exige atomicidad y eliminación de grupos repetitivos.",
+      "MongoDB": "Base de datos NoSQL orientada a documentos (BSON/JSON).",
+      "VBoxManage": "Interfaz de línea de comandos para administrar VirtualBox.",
+      "PostgreSQL": "Sistema de gestión de bases de datos relacional objeto-relacional.",
+      "ZeroTier": "Tecnología utilizada para crear redes privadas virtuales (VPN) seguras.",
+      "Cron": "Administrador de tareas programadas en sistemas Linux.",
+      "Parquet": "Formato de almacenamiento columnar comprimido para Big Data.",
+      "RPO": "Punto de recuperación objetivo: máxima pérdida de datos tolerable.",
+      "DuckDB": "Base de datos analítica en proceso enfocada en OLAP."
+    }
+  },
+  "section3": {
+    "name": "Juego del Ahorcado",
+    "weight": 40,
+    "words": [
+      {
+        "word": "NORMALIZACION",
+        "hint": "Proceso para minimizar redundancia y organizar datos."
+      },
+      {
+        "word": "MONGODB",
+        "hint": "Base de datos NoSQL orientada a documentos."
+      },
+      {
+        "word": "POSTGRESQL",
+        "hint": "Sistema de gestión de base de datos relacional potente."
+      },
+      {
+        "word": "DBEAVER",
+        "hint": "Herramienta gráfica universal para administrar bases de datos."
+      },
+      {
+        "word": "ATOMICIDAD",
+        "hint": "Propiedad de la 1FN donde los valores son indivisibles."
+      },
+      {
+        "word": "SNAPSHOT",
+        "hint": "Captura del estado de una máquina virtual en un momento dado."
+      },
+      {
+        "word": "PARQUET",
+        "hint": "Formato de archivo columnar eficiente para análisis."
+      },
+      {
+        "word": "REPLICACION",
+        "hint": "Copia de datos entre servidores para alta disponibilidad."
+      },
+      {
+        "word": "ZEROTIER",
+        "hint": "Herramienta para crear una VPN y conectar servidores."
+      },
+      {
+        "word": "SCHTASKS",
+        "hint": "Comando de Windows para programar tareas automáticas."
+      },
+      {
+        "word": "VBOXMANAGE",
+        "hint": "Comando para gestionar VirtualBox desde la consola."
+      },
+      {
+        "word": "DUCKDB",
+        "hint": "Base de datos SQL OLAP integrable y rápida."
+      },
+      {
+        "word": "JSON",
+        "hint": "Formato de texto ligero para intercambio de datos."
+      },
+      {
+        "word": "BACKUP",
+        "hint": "Copia de seguridad de la información."
+      },
+      {
+        "word": "SHELL",
+        "hint": "Interfaz de línea de comandos para interactuar con el sistema."
+      }
+    ]
+  }
+}
