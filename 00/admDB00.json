@@ -1,7 +1,7 @@
 {
   "general": {
     "title": "Evaluación Digital: Administración de base de datos",
-    "subtitle": "Diagnóstico inicial",
+    "subtitle": "Diagnóstico",
     "professor": "MTI Jesús E. Romero Moreno"
   },
   "section1": {
@@ -9,204 +9,204 @@
     "weight": 30,
     "questions": [
       {
-        "question": "¿Cuál es el objetivo principal de establecer un RTO (Objetivo de Tiempo de Recuperación) dentro de un Plan de Recuperación ante Desastres (DRP)?",
+        "question": "¿Cuál es el objetivo principal de la Normalización en bases de datos relacionales?",
         "options": [
-          "Definir la cantidad máxima de datos que la organización tolera perder.",
-          "Establecer el tiempo máximo permitido para restaurar los servicios y reanudar operaciones tras un incidente.",
-          "Determinar el costo financiero total de la infraestructura de respaldo."
+          "Aumentar la redundancia para asegurar copias de seguridad",
+          "Organizar los datos para minimizar la redundancia y proteger la integridad",
+          "Convertir bases de datos relacionales en NoSQL"
         ],
         "correct": 1,
-        "explanation": "El RTO define el tiempo objetivo para la recuperación de los servicios, asegurando la continuidad operativa en un plazo aceptable."
+        "explanation": "La normalización busca organizar los datos eficientemente, minimizando la redundancia y protegiendo la integridad de la información."
       },
       {
-        "question": "En el contexto de la normalización, ¿qué condición debe cumplir una tabla para estar en Primera Forma Normal (1FN)?",
+        "question": "¿Qué condición fundamental debe cumplir una tabla para estar en Primera Forma Normal (1FN)?",
         "options": [
-          "Todos los atributos deben ser atómicos y no deben existir grupos repetitivos.",
-          "No deben existir dependencias transitivas entre columnas no clave.",
-          "La tabla debe tener una clave foránea que referencie a otra tabla."
+          "Todos los atributos deben ser atómicos y no existir filas repetidas",
+          "No deben existir dependencias transitivas",
+          "La tabla debe tener una clave foránea"
         ],
         "correct": 0,
-        "explanation": "La 1FN exige que cada celda contenga un valor único e indivisible (atomicidad) y que no existan filas o columnas duplicadas con el mismo tipo de información."
+        "explanation": "Para la 1FN, cada celda debe contener un valor indivisible (atómico) y cada fila debe ser única."
       },
       {
-        "question": "Un administrador necesita automatizar una tarea de respaldo en un servidor Windows para que se ejecute diariamente. ¿Qué herramienta nativa del sistema operativo debe utilizar?",
+        "question": "¿Qué tipo de dependencia busca eliminar la Segunda Forma Normal (2FN)?",
         "options": [
+          "Dependencias transitivas",
+          "Dependencias parciales de una clave compuesta",
+          "Dependencias multivaluadas"
+        ],
+        "correct": 1,
+        "explanation": "La 2FN requiere que no existan dependencias parciales de ninguna clave candidata; los atributos no clave deben depender de la clave completa."
+      },
+      {
+        "question": "¿Qué es un RTO (Objetivo de Tiempo de Recuperación) en el contexto de un DRP?",
+        "options": [
+          "La cantidad máxima de datos que se pueden perder",
+          "El tiempo máximo tolerable para recuperar un proceso de negocio tras un incidente",
+          "El tiempo que tarda en realizarse una copia de seguridad completa"
+        ],
+        "correct": 1,
+        "explanation": "El RTO define el tiempo máximo tolerable para recuperar un proceso de negocio tras un incidente."
+      },
+      {
+        "question": "¿Cuál es la función principal de la herramienta 'schtasks' en Windows?",
+        "options": [
+          "Gestionar máquinas virtuales",
+          "Programar la ejecución automática de tareas, scripts o aplicaciones",
+          "Monitorizar el tráfico de red en tiempo real"
+        ],
+        "correct": 1,
+        "explanation": "Schtasks permite programar tareas que se ejecuten en intervalos específicos, como copias de seguridad o scripts de mantenimiento."
+      },
+      {
+        "question": "¿Qué característica define a una base de datos NoSQL de tipo Documental como MongoDB?",
+        "options": [
+          "Almacena datos en tablas con filas y columnas rígidas",
+          "Almacena datos en documentos flexibles similares a JSON (BSON)",
+          "Solo permite transacciones ACID estrictas sin escalabilidad"
+        ],
+        "correct": 1,
+        "explanation": "MongoDB es una base de datos de documentos que almacena datos en formatos flexibles tipo JSON/BSON."
+      },
+      {
+        "question": "¿Qué comando de VBoxManage se utiliza para listar las máquinas virtuales registradas?",
+        "options": [
+          "VBoxManage showvminfo",
+          "VBoxManage list vms",
+          "VBoxManage startvm"
+        ],
+        "correct": 1,
+        "explanation": "El comando 'VBoxManage list vms' muestra todas las máquinas virtuales registradas en VirtualBox."
+      },
+      {
+        "question": "¿Cuál es el propósito de un Plan de Recuperación ante Desastres (DRP)?",
+        "options": [
+          "Documentar el código fuente de la aplicación",
+          "Describir cómo una organización responderá a incidentes no planeados para reanudar operaciones",
+          "Optimizar las consultas SQL para mejorar el rendimiento"
+        ],
+        "correct": 1,
+        "explanation": "Un DRP es un documento detallado para responder efectivamente a incidentes y reanudar operaciones comerciales."
+      },
+      {
+        "question": "¿Qué implica la replicación de bases de datos?",
+        "options": [
+          "Copiar y mantener actualizados los datos entre múltiples bases de datos en diferentes servidores",
+          "Realizar una copia de seguridad en una cinta magnética",
+          "Dividir una tabla en particiones lógicas en el mismo disco"
+        ],
+        "correct": 0,
+        "explanation": "La replicación implica copiar y mantener actualizados los datos entre múltiples bases de datos situadas en diferentes servidores."
+      },
+      {
+        "question": "¿Qué es 'ZeroTier' en el contexto de la práctica de laboratorio?",
+        "options": [
+          "Un gestor de base de datos NoSQL",
+          "Una herramienta para crear una VPN y conectar servidores de forma segura",
+          "Un software para virtualizar sistemas operativos"
+        ],
+        "correct": 1,
+        "explanation": "ZeroTier se utiliza para integrar tecnologías que garanticen conectividad y seguridad, funcionando como una VPN para conectar servidores."
+      },
+      {
+        "question": "¿Qué diferencia principal existe entre una copia de seguridad incremental y una completa?",
+        "options": [
+          "La incremental copia todo, la completa solo cambios",
+          "La completa copia todos los datos; la incremental solo lo modificado desde el último respaldo",
+          "No hay diferencia, son sinónimos"
+        ],
+        "correct": 1,
+        "explanation": "La copia completa respalda todo; la incremental solo respalda los datos que han cambiado desde el último respaldo (de cualquier tipo)."
+      },
+      {
+        "question": "¿Qué herramienta se menciona para la automatización de tareas en entornos Linux?",
+        "options": [
+          "Task Scheduler",
           "Cron",
-          "Schtasks",
-          "VBoxManage"
+          "PowerShell"
         ],
         "correct": 1,
-        "explanation": "Schtasks es la herramienta de línea de comandos en Windows que permite crear y administrar tareas programadas."
+        "explanation": "En Linux, 'cron' es la herramienta estándar para la programación de tareas repetitivas a través del archivo crontab."
       },
       {
-        "question": "¿Qué diferencia fundamental distingue a una base de datos NoSQL orientada a documentos (como MongoDB) de una base de datos relacional?",
+        "question": "¿Qué problema aborda la Tercera Forma Normal (3FN)?",
         "options": [
-          "Almacena los datos en tablas con filas y columnas rígidas.",
-          "Utiliza documentos flexibles (como JSON/BSON) donde la estructura puede variar entre registros.",
-          "No permite la creación de índices ni operaciones de consulta complejas."
-        ],
-        "correct": 1,
-        "explanation": "MongoDB almacena datos en documentos BSON/JSON flexibles, permitiendo que los campos varíen entre documentos, a diferencia de la estructura tabular rígida de las relacionales."
-      },
-      {
-        "question": "Si se detecta una dependencia transitiva en una tabla (un atributo no clave depende de otro atributo no clave), ¿qué forma normal se está violando y debe aplicarse para corregirlo?",
-        "options": [
-          "Primera Forma Normal (1FN)",
-          "Segunda Forma Normal (2FN)",
-          "Tercera Forma Normal (3FN)"
-        ],
-        "correct": 2,
-        "explanation": "La 3FN se centra en eliminar dependencias transitivas, asegurando que los atributos no clave dependan únicamente de la clave primaria."
-      },
-      {
-        "question": "¿Cuál es la función principal de VBoxManage en la administración de entornos virtualizados?",
-        "options": [
-          "Monitorear el tráfico de red de la base de datos.",
-          "Automatizar la administración de máquinas virtuales desde la línea de comandos (CLI).",
-          "Diseñar diagramas entidad-relación para PostgreSQL."
-        ],
-        "correct": 1,
-        "explanation": "VBoxManage es la interfaz de línea de comandos de VirtualBox que permite controlar y automatizar todas las funciones del motor de virtualización."
-      },
-      {
-        "question": "En una estrategia de respaldo, ¿qué característica define a una copia de seguridad diferencial?",
-        "options": [
-          "Copia todos los datos de la base de datos cada vez que se ejecuta.",
-          "Copia solo los datos que han cambiado desde el último respaldo completo.",
-          "Copia solo los datos que han cambiado desde el último respaldo incremental."
-        ],
-        "correct": 1,
-        "explanation": "El respaldo diferencial guarda todos los cambios realizados desde el último respaldo completo, lo que facilita una restauración más rápida que los incrementales múltiples."
-      },
-      {
-        "question": "¿Qué herramienta permite establecer una red privada virtual (VPN) para conectar servidores de base de datos de forma segura entre distintas ubicaciones?",
-        "options": [
-          "DBeaver",
-          "ZeroTier",
-          "Apache Parquet"
-        ],
-        "correct": 1,
-        "explanation": "ZeroTier es una tecnología utilizada para crear redes virtuales seguras (SD-WAN) que permiten la conectividad entre servidores remotos."
-      },
-      {
-        "question": "¿Cuál es el propósito de realizar una desnormalización controlada en una base de datos?",
-        "options": [
-          "Eliminar por completo la redundancia de datos para ahorrar espacio.",
-          "Mejorar el rendimiento de lectura evitando operaciones de unión (JOINs) complejas, a costa de introducir redundancia.",
-          "Asegurar que la base de datos cumpla estrictamente con la forma normal de Boyce-Codd."
-        ],
-        "correct": 1,
-        "explanation": "La desnormalización introduce redundancia deliberada para optimizar la velocidad de las consultas de lectura, reduciendo la complejidad de los JOINs."
-      },
-      {
-        "question": "¿Qué comando de PostgreSQL se utiliza para generar un respaldo lógico de una base de datos?",
-        "options": [
-          "pg_restore",
-          "pg_dump",
-          "pg_stat_activity"
-        ],
-        "correct": 1,
-        "explanation": "pg_dump es la utilidad de PostgreSQL diseñada para extraer una base de datos en un archivo de script o archivo de almacenamiento."
-      },
-      {
-        "question": "En el contexto del caso de estudio 'Horizon', ¿cuál fue una de las principales fallas que llevó al escándalo?",
-        "options": [
-          "La falta de capacidad de almacenamiento en los servidores.",
-          "La aceptación de datos del sistema como evidencia irrefutable sin auditoría ni trazabilidad adecuada.",
-          "El uso de software de código abierto no autorizado."
-        ],
-        "correct": 1,
-        "explanation": "El caso Horizon resaltó el peligro de confiar ciegamente en datos de sistema sin auditoría, calidad de información ni mecanismos de defensa para los usuarios."
-      },
-      {
-        "question": "¿Qué define al RPO (Objetivo de Punto de Recuperación) en una estrategia de continuidad?",
-        "options": [
-          "El tiempo total que toma levantar el servidor.",
-          "La cantidad máxima de pérdida de datos medida en tiempo (cuánto atrás en el tiempo debemos recuperar).",
-          "El presupuesto asignado para la compra de discos duros."
-        ],
-        "correct": 1,
-        "explanation": "El RPO determina la tolerancia a la pérdida de datos, indicando el punto en el tiempo al que deben recuperarse los datos tras un fallo."
-      },
-      {
-        "question": "¿Qué ventaja ofrece el formato Apache Parquet para el almacenamiento de datos analíticos?",
-        "options": [
-          "Es un formato de texto plano fácil de leer por humanos.",
-          "Utiliza almacenamiento columnar y compresión, optimizando consultas que solo requieren ciertas columnas.",
-          "Es el formato nativo exclusivo de MongoDB."
-        ],
-        "correct": 1,
-        "explanation": "Parquet es un formato columnar que permite una alta compresión y eficiencia en consultas analíticas (OLAP) al leer solo las columnas necesarias."
-      },
-      {
-        "question": "Para automatizar una tarea en Linux que se ejecute cada lunes a las 3:00 AM, ¿qué sintaxis de Cron es correcta?",
-        "options": [
-          "0 3 * * 1 /ruta/script.sh",
-          "* * * * * /ruta/script.sh",
-          "3 0 1 * * /ruta/script.sh"
+          "Dependencias transitivas",
+          "Grupos repetitivos",
+          "Dependencias multivaluadas"
         ],
         "correct": 0,
-        "explanation": "La sintaxis '0 3 * * 1' corresponde al minuto 0, hora 3, cualquier día del mes, cualquier mes, día de la semana 1 (Lunes)."
+        "explanation": "La 3FN busca eliminar dependencias transitivas, donde un atributo no clave depende de otro atributo no clave."
       },
       {
-        "question": "¿Qué función cumple DBeaver en la administración de bases de datos?",
+        "question": "¿Cuál es la función de 'pg_dump' en PostgreSQL?",
         "options": [
-          "Es un motor de base de datos NoSQL.",
-          "Es una herramienta cliente universal (GUI) para administrar y consultar múltiples tipos de bases de datos.",
-          "Es un sistema operativo para servidores de datos."
+          "Restaurar una base de datos desde un archivo",
+          "Realizar un respaldo (backup) de la base de datos",
+          "Monitorizar las conexiones activas"
         ],
         "correct": 1,
-        "explanation": "DBeaver es una herramienta de gestión de bases de datos multiplataforma que soporta conectividad con diversos motores como PostgreSQL, MySQL, etc."
+        "explanation": "pg_dump es un comando utilizado para realizar respaldos de bases de datos en PostgreSQL."
       },
       {
-        "question": "¿Qué implica la propiedad de 'Atomicidad' en una transacción de base de datos (ACID)?",
+        "question": "¿Qué caracteriza a la base de datos 'mi_financiera_demo'?",
         "options": [
-          "Que los datos sean visibles inmediatamente por todos los usuarios.",
-          "Que la transacción se ejecute completamente o no se ejecute en absoluto (todo o nada).",
-          "Que los datos se guarden en átomos físicos del disco."
+          "Es un sistema real de un banco internacional",
+          "Es un recurso educativo ficticio para simular operaciones financieras",
+          "Es una base de datos NoSQL estática"
         ],
         "correct": 1,
-        "explanation": "La atomicidad garantiza que una transacción sea tratada como una unidad indivisible; si una parte falla, toda la transacción se revierte."
+        "explanation": "Es un recurso didáctico ficticio diseñado con enfoque educativo para estudiantes universitarios."
       },
       {
-        "question": "¿Cuál es una característica clave de las bases de datos orientadas a grafos dentro de la taxonomía NoSQL?",
+        "question": "En el caso de estudio Horizon, ¿cuál fue el fallo principal relacionado con la información?",
         "options": [
-          "Almacenar datos en tablas relacionadas por claves foráneas.",
-          "Optimizar el almacenamiento de relaciones complejas entre nodos (entidades) y aristas (relaciones).",
-          "Guardar información exclusivamente en pares clave-valor simples."
+          "La base de datos era demasiado lenta",
+          "Falta de controles de calidad y auditoría, asumiendo que el sistema era infalible",
+          "El sistema fue hackeado por externos"
         ],
         "correct": 1,
-        "explanation": "Las bases de datos de grafos están diseñadas para manejar y navegar eficientemente por relaciones complejas e interconectadas entre datos."
+        "explanation": "El caso expuso fallos en la gestión de calidad, ausencia de auditorías independientes y la presunción errónea de infalibilidad del sistema."
       },
       {
-        "question": "¿Qué problema resuelve la Segunda Forma Normal (2FN) que no cubre la 1FN?",
+        "question": "¿Qué es DBeaver?",
         "options": [
-          "Elimina las dependencias parciales (atributos que dependen solo de una parte de una clave primaria compuesta).",
-          "Elimina las dependencias multivaluadas.",
-          "Asegura la atomicidad de los datos."
+          "Un sistema operativo para servidores",
+          "Una herramienta de administración de bases de datos multiplataforma",
+          "Un lenguaje de programación para web"
+        ],
+        "correct": 1,
+        "explanation": "DBeaver es una herramienta de gestión de bases de datos universal y multiplataforma para desarrolladores y administradores."
+      },
+      {
+        "question": "¿Qué define el RPO (Objetivo de Punto de Recuperación)?",
+        "options": [
+          "El tiempo total que toma reparar el servidor",
+          "La máxima cantidad de tiempo de pérdida de datos aceptable",
+          "El costo total de la recuperación"
+        ],
+        "correct": 1,
+        "explanation": "RPO es la máxima cantidad de tiempo durante el cual se puede tolerar la pérdida de datos (qué tan atrás en el tiempo debemos recuperar)."
+      },
+      {
+        "question": "¿Qué es la desnormalización?",
+        "options": [
+          "El proceso de eliminar todas las tablas de la base de datos",
+          "Introducir redundancia controlada para mejorar el rendimiento de lectura",
+          "Aplicar reglas estrictas para dividir tablas"
+        ],
+        "correct": 1,
+        "explanation": "La desnormalización es una técnica de optimización que introduce redundancia deliberada para reducir la complejidad de las consultas (joins)."
+      },
+      {
+        "question": "¿Qué comando se usa en VirtualBox para clonar una máquina virtual?",
+        "options": [
+          "VBoxManage clonevm",
+          "VBoxManage copy",
+          "VBoxManage duplicate"
         ],
         "correct": 0,
-        "explanation": "La 2FN se enfoca en eliminar dependencias parciales, asegurando que todos los atributos no clave dependan de la clave primaria completa."
-      },
-      {
-        "question": "¿Qué es el 'Failover' en un entorno de alta disponibilidad?",
-        "options": [
-          "El proceso de realizar una copia de seguridad en cinta.",
-          "La conmutación automática a un servidor secundario o de respaldo cuando el principal falla.",
-          "La eliminación definitiva de datos corruptos."
-        ],
-        "correct": 1,
-        "explanation": "El failover es el mecanismo que permite redirigir las operaciones a un sistema de redundancia en caso de fallo del sistema principal."
-      },
-      {
-        "question": "¿Para qué se utiliza el comando 'schtasks /create' en Windows?",
-        "options": [
-          "Para crear una nueva base de datos en SQL Server.",
-          "Para programar una nueva tarea automatizada en el sistema.",
-          "Para compilar un script de Node.js."
-        ],
-        "correct": 1,
-        "explanation": "El comando 'schtasks /create' se utiliza en la línea de comandos de Windows para definir y programar nuevas tareas automáticas."
+        "explanation": "El comando 'VBoxManage clonevm' permite crear una copia idéntica de una máquina virtual existente."
       }
     ]
   },
@@ -214,16 +214,21 @@
     "name": "Relación de Columnas",
     "weight": 30,
     "pairs": {
-      "RTO": "Tiempo máximo aceptable para restaurar el servicio tras un desastre.",
-      "RPO": "Punto en el tiempo al que se deben recuperar los datos (tolerancia a pérdida).",
-      "DRP": "Documento que describe cómo responder a incidentes y reanudar operaciones.",
-      "Normalización": "Proceso de organización de datos para minimizar redundancia y anomalías.",
+      "RTO": "Tiempo máximo tolerable para recuperar un proceso de negocio tras un incidente.",
+      "RPO": "Cantidad máxima de datos perdidos aceptable medida en tiempo.",
+      "1FN": "Regla de normalización que exige atomicidad y filas únicas.",
+      "2FN": "Regla que elimina dependencias parciales de una clave compuesta.",
+      "3FN": "Regla que elimina dependencias transitivas entre atributos no clave.",
+      "Failover": "Conmutación de un servidor principal a uno secundario ante fallos.",
+      "VBoxManage": "Interfaz de línea de comandos para gestionar VirtualBox.",
+      "Schtasks": "Herramienta de Windows para programar tareas automáticas.",
+      "Cron": "Herramienta de Linux para programar tareas repetitivas.",
       "PostgreSQL": "Sistema de gestión de bases de datos relacional de código abierto.",
-      "MongoDB": "Base de datos NoSQL orientada a documentos (BSON/JSON).",
-      "Schtasks": "Herramienta de Windows para automatizar tareas programadas.",
-      "Cron": "Servicio de Linux para programar la ejecución de scripts o comandos.",
-      "VBoxManage": "Interfaz de línea de comandos para controlar VirtualBox.",
-      "Desnormalización": "Introducción deliberada de redundancia para optimizar consultas de lectura."
+      "MongoDB": "Base de datos NoSQL orientada a documentos.",
+      "DBeaver": "Cliente SQL universal y herramienta de administración de BD.",
+      "Normalización": "Proceso para minimizar redundancia y asegurar integridad de datos.",
+      "Desnormalización": "Técnica para mejorar rendimiento de lectura introduciendo redundancia.",
+      "Replicación": "Copia y mantenimiento de datos entre múltiples bases de datos."
     }
   },
   "section3": {
@@ -232,43 +237,63 @@
     "words": [
       {
         "word": "POSTGRESQL",
-        "hint": "Sistema de base de datos relacional open source enfocado en estándares y extensibilidad."
+        "hint": "Sistema de gestión de bases de datos relacional mencionado como herramienta clave del curso."
       },
       {
         "word": "MONGODB",
-        "hint": "Base de datos NoSQL que almacena información en documentos flexibles tipo JSON."
+        "hint": "Base de datos NoSQL orientada a documentos estudiada en la unidad 2."
       },
       {
         "word": "NORMALIZACION",
-        "hint": "Proceso teórico para organizar tablas y reducir la redundancia de datos."
+        "hint": "Proceso de diseño para organizar datos y reducir redundancia (1FN, 2FN, 3FN)."
       },
       {
-        "word": "RESPALDO",
-        "hint": "Copia de seguridad de la información para protegerla ante pérdidas."
-      },
-      {
-        "word": "AUTOMATIZACION",
-        "hint": "Uso de herramientas para ejecutar tareas repetitivas sin intervención humana."
-      },
-      {
-        "word": "FAILOVER",
-        "hint": "Capacidad de conmutar automáticamente a un sistema de respaldo ante un fallo."
+        "word": "BACKUP",
+        "hint": "Copia de seguridad de la información para prevenir pérdida de datos."
       },
       {
         "word": "REPLICACION",
-        "hint": "Proceso de copiar y mantener objetos de base de datos en múltiples bases."
+        "hint": "Proceso de mantener copias de la base de datos en múltiples servidores."
+      },
+      {
+        "word": "FAILOVER",
+        "hint": "Mecanismo de conmutación a un servidor de respaldo en caso de fallo."
+      },
+      {
+        "word": "AUTOMATIZACION",
+        "hint": "Uso de scripts (Shell, Batch) para realizar tareas sin intervención manual."
       },
       {
         "word": "DBEAVER",
-        "hint": "Herramienta gráfica universal para desarrolladores y administradores de bases de datos."
+        "hint": "Herramienta gráfica multiplataforma para administrar bases de datos."
       },
       {
         "word": "VIRTUALBOX",
-        "hint": "Software de virtualización que permite ejecutar múltiples sistemas operativos."
+        "hint": "Software de virtualización administrado mediante VBoxManage."
+      },
+      {
+        "word": "SNAPSHOT",
+        "hint": "Estado guardado de una máquina virtual en un momento específico."
       },
       {
         "word": "CONSISTENCIA",
-        "hint": "Propiedad que asegura que la base de datos permanezca en un estado válido tras una transacción."
+        "hint": "Propiedad de la base de datos que asegura la integridad de los datos (parte de ACID)."
+      },
+      {
+        "word": "ATOMICIDAD",
+        "hint": "Propiedad que asegura que una transacción se realiza completamente o no se realiza (1FN)."
+      },
+      {
+        "word": "DISPONIBILIDAD",
+        "hint": "Objetivo de seguridad y DRP para asegurar que los servicios estén accesibles."
+      },
+      {
+        "word": "ZEROTIER",
+        "hint": "Herramienta utilizada para configurar una VPN y conectar servidores."
+      },
+      {
+        "word": "SCHTASKS",
+        "hint": "Comando de Windows para programar tareas automatizadas."
       }
     ]
   }
