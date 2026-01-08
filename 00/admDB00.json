@@ -1,6 +1,6 @@
 {
   "general": {
-    "title": "Evaluación Digital: Administración de bases de datos",
+    "title": "Evaluación Digital: Administración de Base de Datos",
     "subtitle": "Diagnóstico Inicial",
     "professor": "MTI Jesús E. Romero Moreno"
   },
@@ -9,204 +9,204 @@
     "weight": 30,
     "questions": [
       {
-        "question": "¿Cuál es el propósito fundamental de la normalización en el diseño de bases de datos relacionales?",
+        "question": "Una organización necesita almacenar datos en documentos flexibles similares a JSON, donde los campos pueden variar entre documentos. ¿Qué tecnología es la más adecuada?",
         "options": [
-          "Aumentar la redundancia para asegurar copias de seguridad.",
-          "Organizar los datos para minimizar la redundancia y proteger la integridad.",
-          "Crear visualizaciones gráficas de los datos para reportes."
+          "PostgreSQL",
+          "MongoDB",
+          "DuckDB"
         ],
         "correct": 1,
-        "explanation": "La normalización busca organizar los datos eficientemente, minimizando la redundancia y protegiendo la integridad de la información [1]."
+        "explanation": "MongoDB es una base de datos de documentos que almacena datos en documentos flexibles similares a JSON (BSON), permitiendo que la estructura cambie con el tiempo [1]."
       },
       {
-        "question": "En el contexto de la administración de bases de datos, ¿qué significan las siglas DRP?",
+        "question": "Un administrador desea evitar que una tabla contenga grupos repetitivos y asegurar que todos los atributos sean atómicos. ¿Qué forma normal está aplicando?",
         "options": [
-          "Data Recovery Process",
-          "Plan de Recuperación ante Desastres",
-          "Database Replication Protocol"
+          "Primera Forma Normal (1FN)",
+          "Segunda Forma Normal (2FN)",
+          "Tercera Forma Normal (3FN)"
         ],
-        "correct": 1,
-        "explanation": "DRP son las siglas de 'Plan de Recuperación ante Desastres' (Disaster Recovery Plan) [2]."
+        "correct": 0,
+        "explanation": "La Primera Forma Normal (1FN) establece que no deben existir filas repetidas y todos los atributos deben ser atómicos (indivisibles) [2]."
       },
       {
-        "question": "Para gestionar bases de datos como PostgreSQL y MongoDB en este curso, ¿qué herramienta de gestión universal se utiliza?",
+        "question": "Se requiere automatizar la gestión de máquinas virtuales, incluyendo la toma de snapshots y el inicio de las mismas mediante línea de comandos. ¿Qué herramienta facilita esto?",
         "options": [
-          "VirtualBox",
           "DBeaver",
-          "Excel"
-        ],
-        "correct": 1,
-        "explanation": "El curso utiliza DBeaver para la gestión eficiente de bases de datos relacionales y no relacionales [3], [4]."
-      },
-      {
-        "question": "¿Qué regla define la Primera Forma Normal (1FN)?",
-        "options": [
-          "Eliminar dependencias transitivas.",
-          "Todos los atributos deben ser atómicos y no deben existir grupos repetitivos.",
-          "La tabla debe tener una clave foránea."
-        ],
-        "correct": 1,
-        "explanation": "La 1FN requiere que cada celda contenga un único valor indivisible (atómico) y que no existan grupos repetitivos [5], [6]."
-      },
-      {
-        "question": "Al automatizar tareas en Linux para la administración de bases de datos, ¿qué herramienta se utiliza para programar la ejecución?",
-        "options": [
-          "Schtasks",
-          "Cron",
-          "VBoxManage"
-        ],
-        "correct": 1,
-        "explanation": "Cron es el administrador de procesos en segundo plano en Linux que permite programar tareas automáticamente [7]."
-      },
-      {
-        "question": "¿Qué herramienta de línea de comandos se utiliza para administrar máquinas virtuales en VirtualBox?",
-        "options": [
-          "VMWareTools",
           "VBoxManage",
-          "Hyper-V Cmd"
+          "ZeroTier"
         ],
         "correct": 1,
-        "explanation": "VBoxManage es la interfaz de línea de comandos (CLI) de VirtualBox para gestionar máquinas virtuales [8]."
+        "explanation": "VBoxManage permite la automatización de la administración de máquinas virtuales, incluyendo la creación, configuración y gestión de snapshots [3], [4]."
       },
       {
-        "question": "En MongoDB, ¿qué comando se utiliza para realizar una copia de seguridad de la base de datos?",
+        "question": "Para conectar servidores de base de datos ubicados en diferentes ciudades a través de una red privada y segura, ¿qué tecnología se recomienda implementar?",
+        "options": [
+          "ZeroTier",
+          "Apache Parquet",
+          "NoSQLBooster"
+        ],
+        "correct": 0,
+        "explanation": "ZeroTier se utiliza para integrar tecnologías y garantizar conectividad y seguridad en situaciones de alta criticidad, funcionando como una VPN [5], [6]."
+      },
+      {
+        "question": "En un análisis de normalización, se detecta que el atributo 'Precio' depende solo de 'ID_Producto' y no de la clave compuesta completa de la tabla de pedidos. ¿Qué tipo de dependencia es esta?",
+        "options": [
+          "Dependencia Transitiva",
+          "Dependencia Parcial",
+          "Dependencia Multivaluada"
+        ],
+        "correct": 1,
+        "explanation": "Una dependencia parcial ocurre cuando un atributo no clave depende solo de una parte de la clave primaria compuesta, lo cual se resuelve en la 2FN [7]."
+      },
+      {
+        "question": "Si se necesita realizar un respaldo lógico de una base de datos PostgreSQL para su posterior restauración, ¿qué comando es el estándar a utilizar?",
         "options": [
           "mongoexport",
-          "pg_dump",
-          "mongodump"
-        ],
-        "correct": 2,
-        "explanation": "mongodump es la herramienta utilizada para realizar copias de seguridad en MongoDB [9]."
-      },
-      {
-        "question": "¿Qué es Apache Parquet según el contenido del curso?",
-        "options": [
-          "Un sistema de gestión de base de datos relacional.",
-          "Un formato de almacenamiento columnar eficiente para Big Data.",
-          "Una herramienta para crear diagramas entidad-relación."
-        ],
-        "correct": 1,
-        "explanation": "Apache Parquet es un formato de almacenamiento columnar que reduce el tamaño mediante compresión y es eficiente para consultas [10]."
-      },
-      {
-        "question": "¿Qué métrica define la máxima cantidad de tiempo durante el cual se pueden tolerar la pérdida de datos en un DRP?",
-        "options": [
-          "RTO (Recovery Time Objective)",
-          "RPO (Recovery Point Objective)",
-          "SLA (Service Level Agreement)"
-        ],
-        "correct": 1,
-        "explanation": "El RPO (Punto de recuperación objetivo) es la máxima cantidad de tiempo tolerable de pérdida de datos [11]."
-      },
-      {
-        "question": "¿Cuál es la característica principal de una base de datos clave-valor en NoSQL?",
-        "options": [
-          "Almacena datos en tablas relacionadas.",
-          "La información se guarda usando una clave única en un hash-map.",
-          "Utiliza grafos para relacionar entidades."
-        ],
-        "correct": 1,
-        "explanation": "En las BD clave-valor, la información se guarda utilizando una clave única y el valor vinculado es opaco [12]."
-      },
-      {
-        "question": "En el caso de estudio Horizon, ¿cuál fue una de las principales fallas detectadas?",
-        "options": [
-          "Falta de capacitación de los empleados.",
-          "Falta de controles de calidad en la información y auditorías independientes.",
-          "El uso de bases de datos NoSQL en lugar de relacionales."
-        ],
-        "correct": 1,
-        "explanation": "La problemática central fue utilizar datos de Horizon sin aplicar controles de calidad ni auditorías técnicas independientes [13]."
-      },
-      {
-        "question": "¿Qué comando de PostgreSQL se utiliza para generar un respaldo lógico de la base de datos?",
-        "options": [
-          "pg_restore",
           "pg_dump",
           "copy to"
         ],
         "correct": 1,
-        "explanation": "pg_dump es un comando clave para el respaldo de bases de datos en PostgreSQL [14]."
+        "explanation": "pg_dump es el comando clave para el respaldo de bases de datos en PostgreSQL, fundamental para la automatización de tareas administrativas [8]."
       },
       {
-        "question": "¿Qué tecnología se menciona para garantizar conectividad segura (VPN) entre servidores en la práctica de replicación?",
+        "question": "Para cargas de trabajo OLAP que requieren procesar grandes lotes de valores en una sola operación vectorial sin dependencias externas, ¿qué base de datos es ideal?",
         "options": [
-          "Hamachi",
-          "ZeroTier",
-          "OpenVPN"
+          "DuckDB",
+          "Redis",
+          "MySQL"
         ],
-        "correct": 1,
-        "explanation": "Se utiliza ZeroTier para conectar servidores a través de una VPN y asegurar la conectividad [15]."
+        "correct": 0,
+        "explanation": "DuckDB es un sistema de gestión de bases de datos analíticas integrables enfocado en cargas de trabajo OLAP con un motor vectorizado por columnas [9]."
       },
       {
-        "question": "¿Qué tipo de copia de seguridad crea una copia exacta de los datos en tiempo real (espejo)?",
+        "question": "Un desarrollador necesita exportar una colección de MongoDB a un archivo JSON legible. ¿Qué herramienta debe utilizar?",
         "options": [
-          "Incremental",
-          "Diferencial",
-          "RAID 1"
+          "mongorestore",
+          "mongodump",
+          "mongoexport"
         ],
         "correct": 2,
-        "explanation": "Una copia de seguridad en espejo, también conocida como RAID 1, crea una copia exacta en tiempo real [16]."
+        "explanation": "mongoexport permite la exportación de datos de una colección a formatos como JSON o CSV [10]."
       },
       {
-        "question": "¿Qué es DuckDB según la investigación presentada?",
+        "question": "En el contexto de un DRP (Plan de Recuperación ante Desastres), ¿cuál es una acción crítica para garantizar la continuidad del negocio?",
         "options": [
-          "Una base de datos documental.",
-          "Un sistema de gestión de bases de datos analíticas (OLAP) integrable.",
-          "Un servicio de nube para hospedar MongoDB."
+          "Diseñar estrategias de copias de seguridad y restauración",
+          "Aumentar el tamaño de los discos duros",
+          "Instalar interfaces gráficas en todos los servidores"
+        ],
+        "correct": 0,
+        "explanation": "Como parte esencial del DRP, se debe aprender a diseñar estrategias sólidas para la creación de copias de seguridad y restauración [5]."
+      },
+      {
+        "question": "Se requiere almacenar datos históricos de gran volumen para análisis, optimizando el espacio y la velocidad de lectura por columnas. ¿Qué formato de archivo es el más adecuado?",
+        "options": [
+          "CSV",
+          "Parquet",
+          "XML"
         ],
         "correct": 1,
-        "explanation": "DuckDB es un sistema de gestión de bases de datos analíticas relacionales e integrables enfocado en cargas de trabajo OLAP [17]."
+        "explanation": "Parquet es un formato de almacenamiento columnar que permite ejecutar consultas directamente aprovechando la lectura selectiva y compresión [11], [12]."
       },
       {
-        "question": "En MongoDB, si deseamos actualizar un campo específico de un documento, ¿qué operador utilizamos?",
+        "question": "Al diseñar una base de datos, se identifica que 'Código_Postal' depende de 'Ciudad', y 'Ciudad' depende de 'ID_Cliente'. ¿Qué forma normal busca eliminar esta dependencia transitiva?",
         "options": [
-          "$update",
-          "$set",
-          "$modify"
+          "1FN",
+          "2FN",
+          "3FN"
+        ],
+        "correct": 2,
+        "explanation": "La Tercera Forma Normal (3FN) se encarga de eliminar las dependencias transitivas, separando los atributos involucrados en nuevas tablas [13], [14]."
+      },
+      {
+        "question": "¿Qué herramienta gráfica es multiplataforma y permite administrar tanto bases de datos relacionales (PostgreSQL) como no relacionales?",
+        "options": [
+          "DBeaver",
+          "pgAdmin",
+          "SQL Server Management Studio"
+        ],
+        "correct": 0,
+        "explanation": "DBeaver es una herramienta multiplataforma compatible con bases de datos populares como MySQL, PostgreSQL, y también ofrece soporte para NoSQL [15], [16]."
+      },
+      {
+        "question": "En MongoDB, ¿qué método se utiliza para insertar múltiples documentos en una colección en una sola operación?",
+        "options": [
+          "insertOne()",
+          "insertMany()",
+          "bulkWrite()"
         ],
         "correct": 1,
-        "explanation": "Se utiliza el operador $set para actualizar campos específicos dentro de un documento [18]."
+        "explanation": "Para crear documentos nuevos en colecciones específicas, se utiliza el método insertMany() para insertar múltiples documentos a la vez [17]."
       },
       {
-        "question": "¿Qué implica la 'desnormalización' en el contexto de bases de datos NoSQL como MongoDB?",
+        "question": "Para mejorar el rendimiento de lectura en sistemas de Business Intelligence (BI), ¿qué estrategia se puede aplicar aunque implique cierta redundancia?",
         "options": [
-          "Dividir datos en múltiples tablas para reducir redundancia.",
-          "Consolidar información relacionada en un solo documento para evitar múltiples consultas.",
-          "Eliminar todos los índices de la colección."
+          "Normalización estricta",
+          "Desnormalización",
+          "Encriptación"
         ],
         "correct": 1,
-        "explanation": "La desnormalización implica proponer un esquema que consolide información relacionada para minimizar múltiples consultas [19]."
+        "explanation": "La desnormalización es un enfoque de optimización utilizado en sistemas de Reporting y BI para reducir la complejidad de las consultas y mejorar el rendimiento de lectura [18]."
       },
       {
-        "question": "¿Qué herramienta en Windows permite programar la ejecución automática de tareas, similar a cron en Linux?",
+        "question": "En el caso de estudio Horizon IT, ¿cuál fue una falla crítica identificada en la gestión de la información?",
         "options": [
-          "Taskmgr",
+          "Uso de software de código abierto",
+          "Falta de auditorías técnicas independientes",
+          "Exceso de copias de seguridad"
+        ],
+        "correct": 1,
+        "explanation": "Una medida preventiva omitida fue ordenar auditorías técnicas independientes para revisar la integridad de los datos y fallos del sistema [19]."
+      },
+      {
+        "question": "¿Qué propiedad de las bases de datos relacionales garantiza que una transacción se realice completamente o no se realice en absoluto?",
+        "options": [
+          "Consistencia",
+          "Aislamiento",
+          "Atomicidad"
+        ],
+        "correct": 2,
+        "explanation": "La atomicidad es una regla estricta del modelo ACID que garantiza 'todo o nada' en las transacciones [20]."
+      },
+      {
+        "question": "Para automatizar tareas recurrentes en un entorno Linux, como la ejecución de scripts de integridad de base de datos, ¿qué herramienta se utiliza?",
+        "options": [
           "Schtasks",
-          "Cmd"
+          "Cron",
+          "Task Scheduler"
         ],
         "correct": 1,
-        "explanation": "Schtasks en Windows permite programar la ejecución automática de tareas [7]."
+        "explanation": "Cron en Linux permite programar la ejecución automática de tareas, como scripts de integridad, optimizando el rendimiento [21]."
       },
       {
-        "question": "¿Qué diferencia principal existe entre SQL y NoSQL según el modelo de datos?",
+        "question": "Si se necesita actualizar un campo específico en un documento de MongoDB, ¿qué operador se debe usar dentro de updateOne?",
         "options": [
-          "SQL usa esquemas dinámicos y NoSQL esquemas rígidos.",
-          "SQL usa tablas y relaciones; NoSQL usa modelos flexibles como documentos o clave-valor.",
-          "No hay diferencia, ambos usan tablas."
+          "$set",
+          "$push",
+          "$inc"
         ],
-        "correct": 1,
-        "explanation": "Las bases relacionales (SQL) usan tablas y reglas estrictas, mientras que NoSQL ofrece esquemas flexibles y modelos variados [20], [21]."
+        "correct": 0,
+        "explanation": "Se utiliza el operador $set para actualizar el valor de un campo específico dentro de un documento que cumple con el filtro [22]."
       },
       {
-        "question": "¿Qué función cumple el comando `VBoxManage snapshot`?",
+        "question": "¿Qué tipo de dependencia se aborda específicamente en la Cuarta Forma Normal (4FN)?",
         "options": [
-          "Inicia una máquina virtual.",
-          "Toma una instantánea del estado actual de una máquina virtual.",
-          "Elimina el disco duro virtual."
+          "Dependencia Funcional",
+          "Dependencia Multivaluada",
+          "Dependencia Parcial"
         ],
         "correct": 1,
-        "explanation": "Este comando permite la toma de snapshots automáticos para guardar el estado de la VM [22]."
+        "explanation": "La 4FN se aplica cuando existen dependencias multivaluadas, donde un atributo determina múltiples valores de otro atributo independientes entre sí [23]."
+      },
+      {
+        "question": "En un entorno de replicación de PostgreSQL, ¿qué función cumplen los servidores secundarios (esclavos)?",
+        "options": [
+          "Escritura exclusiva",
+          "Solo lectura y respaldo",
+          "Procesamiento de transacciones principales"
+        ],
+        "correct": 1,
+        "explanation": "En la replicación, se comprueba que las bases de datos secundarias operan en modo de solo lectura, impidiendo escrituras directas [24]."
       }
     ]
   },
@@ -214,16 +214,16 @@
     "name": "Relación de Columnas",
     "weight": 30,
     "pairs": {
-      "DRP": "Plan de Recuperación ante Desastres para asegurar continuidad del negocio.",
-      "1FN": "Forma normal que exige atomicidad y eliminación de grupos repetitivos.",
-      "MongoDB": "Base de datos NoSQL orientada a documentos (BSON/JSON).",
-      "VBoxManage": "Interfaz de línea de comandos para administrar VirtualBox.",
-      "PostgreSQL": "Sistema de gestión de bases de datos relacional objeto-relacional.",
-      "ZeroTier": "Tecnología utilizada para crear redes privadas virtuales (VPN) seguras.",
-      "Cron": "Administrador de tareas programadas en sistemas Linux.",
-      "Parquet": "Formato de almacenamiento columnar comprimido para Big Data.",
-      "RPO": "Punto de recuperación objetivo: máxima pérdida de datos tolerable.",
-      "DuckDB": "Base de datos analítica en proceso enfocada en OLAP."
+      "DRP": "Plan diseñado para minimizar la interrupción de operaciones y proteger datos críticos ante eventos adversos [25].",
+      "Entidad": "Representa un objeto o concepto del mundo real sobre el que se desea almacenar información [26].",
+      "BSON": "Formato de intercambio de datos similar a JSON utilizado por MongoDB para almacenar documentos [27].",
+      "VBoxManage": "Herramienta de línea de comandos para la gestión automatizada de máquinas virtuales en VirtualBox [3].",
+      "ZeroTier": "Tecnología utilizada para garantizar conectividad y seguridad mediante una VPN en situaciones críticas [5].",
+      "pg_dump": "Comando de PostgreSQL utilizado para realizar copias de seguridad de una base de datos [8].",
+      "DuckDB": "Sistema de gestión de bases de datos analíticas integrables enfocado en OLAP y formato de archivo único [9].",
+      "Parquet": "Formato de almacenamiento columnar que permite ejecutar consultas eficientes sin importar todos los datos [11].",
+      "Normalización": "Proceso sistemático para organizar datos, minimizar redundancia y asegurar la integridad en bases relacionales [28].",
+      "Mongoexport": "Herramienta para exportar datos de una colección de MongoDB a formatos como JSON o CSV [10]."
     }
   },
   "section3": {
@@ -231,64 +231,64 @@
     "weight": 40,
     "words": [
       {
-        "word": "NORMALIZACION",
-        "hint": "Proceso para minimizar redundancia y organizar datos."
+        "word": "POSTGRESQL",
+        "hint": "Sistema de gestión de bases de datos relacional objeto-relacional de código abierto [29]."
       },
       {
         "word": "MONGODB",
-        "hint": "Base de datos NoSQL orientada a documentos."
-      },
-      {
-        "word": "POSTGRESQL",
-        "hint": "Sistema de gestión de base de datos relacional potente."
+        "hint": "Base de datos NoSQL orientada a documentos que usa formato BSON [29]."
       },
       {
         "word": "DBEAVER",
-        "hint": "Herramienta gráfica universal para administrar bases de datos."
+        "hint": "Herramienta gráfica multiplataforma para la administración de bases de datos [30]."
+      },
+      {
+        "word": "NORMALIZACION",
+        "hint": "Proceso de organización de datos para reducir la redundancia y mejorar la integridad [31]."
       },
       {
         "word": "ATOMICIDAD",
-        "hint": "Propiedad de la 1FN donde los valores son indivisibles."
-      },
-      {
-        "word": "SNAPSHOT",
-        "hint": "Captura del estado de una máquina virtual en un momento dado."
-      },
-      {
-        "word": "PARQUET",
-        "hint": "Formato de archivo columnar eficiente para análisis."
+        "hint": "Propiedad ACID que asegura que una transacción se ejecute totalmente o no se ejecute [20]."
       },
       {
         "word": "REPLICACION",
-        "hint": "Copia de datos entre servidores para alta disponibilidad."
+        "hint": "Proceso de copiar y mantener objetos de base de datos en múltiples bases de datos que conforman un sistema distribuido [6]."
       },
       {
-        "word": "ZEROTIER",
-        "hint": "Herramienta para crear una VPN y conectar servidores."
+        "word": "SNAPSHOT",
+        "hint": "Captura del estado de una máquina virtual en un momento específico [4]."
       },
       {
-        "word": "SCHTASKS",
-        "hint": "Comando de Windows para programar tareas automáticas."
+        "word": "DOCUMENTO",
+        "hint": "Unidad básica de datos en MongoDB, equivalente a una fila en bases relacionales [27]."
       },
       {
-        "word": "VBOXMANAGE",
-        "hint": "Comando para gestionar VirtualBox desde la consola."
+        "word": "COLECCION",
+        "hint": "Agrupación de documentos en MongoDB, equivalente a una tabla en bases relacionales [32]."
       },
       {
-        "word": "DUCKDB",
-        "hint": "Base de datos SQL OLAP integrable y rápida."
+        "word": "COLUMNAR",
+        "hint": "Tipo de almacenamiento utilizado por DuckDB y Parquet para optimizar consultas analíticas [9]."
       },
       {
-        "word": "JSON",
-        "hint": "Formato de texto ligero para intercambio de datos."
-      },
-      {
-        "word": "BACKUP",
-        "hint": "Copia de seguridad de la información."
+        "word": "AUTOMATIZACION",
+        "hint": "Uso de scripts y herramientas (como Shell o Cron) para realizar tareas sin intervención manual [33]."
       },
       {
         "word": "SHELL",
-        "hint": "Interfaz de línea de comandos para interactuar con el sistema."
+        "hint": "Interfaz de línea de comandos utilizada para interactuar con el sistema operativo y automatizar tareas [33]."
+      },
+      {
+        "word": "BACKUP",
+        "hint": "Copia de seguridad de los datos para su recuperación en caso de pérdida [25]."
+      },
+      {
+        "word": "JSON",
+        "hint": "Formato de texto ligero para el intercambio de datos, legible por humanos [27]."
+      },
+      {
+        "word": "NOSQL",
+        "hint": "Categoría de bases de datos que no utilizan el modelo relacional tabular tradicional [29]."
       }
     ]
   }
