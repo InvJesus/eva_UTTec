@@ -1,0 +1,300 @@
+{
+  "general": {
+    "title": "Evaluación Digital: CÓMPUTO EN LA NUBE",
+    "subtitle": "Diagnóstico",
+    "professor": "MTI Jesús E. Romero Moreno"
+  },
+  "section1": {
+    "name": "Opción Múltiple",
+    "weight": 30,
+    "questions": [
+      {
+        "question": "¿Cuál es el propósito principal de la computación en la nube según el documento?",
+        "options": [
+          "Instalar software localmente en todos los dispositivos de la empresa",
+          "Permitir el acceso a recursos informáticos como almacenamiento y servidores a través de Internet",
+          "Eliminar por completo el uso de computadoras personales"
+        ],
+        "correct": 1,
+        "explanation": "La computación en la nube permite a usuarios y empresas acceder a recursos como almacenamiento y servidores vía Internet sin infraestructura física propia."
+      },
+      {
+        "question": "¿Qué define al modelo de servicio IaaS (Infraestructura como Servicio)?",
+        "options": [
+          "Proporciona recursos de infraestructura virtualizados como servidores y redes a través de Internet",
+          "Ofrece un entorno de desarrollo completo sin gestionar la infraestructura subyacente",
+          "Permite acceder a aplicaciones listas para usar directamente desde el navegador"
+        ],
+        "correct": 0,
+        "explanation": "El modelo IaaS proporciona recursos de infraestructura virtualizados, permitiendo alquilar servidores, almacenamiento y redes con gran control."
+      },
+      {
+        "question": "¿Qué característica distingue a la Nube Híbrida?",
+        "options": [
+          "Es una nube dedicada exclusivamente a una sola organización",
+          "Combina nubes públicas y privadas, permitiendo mover datos y aplicaciones entre ellas",
+          "Es un servicio ofrecido únicamente por proveedores externos para el público general"
+        ],
+        "correct": 1,
+        "explanation": "La nube híbrida combina nubes públicas y privadas, ofreciendo flexibilidad para mover cargas de trabajo según sea necesario."
+      },
+      {
+        "question": "¿Qué es Terraform en el contexto de la automatización de infraestructuras?",
+        "options": [
+          "Un sistema operativo para servidores físicos",
+          "Una herramienta de Infraestructura como Código (IaC) para definir y aprovisionar infraestructuras",
+          "Un software antivirus para entornos en la nube"
+        ],
+        "correct": 1,
+        "explanation": "Terraform se define como una herramienta de Infraestructura como Código (IaC) que permite gestionar infraestructuras de manera automatizada y reproducible."
+      },
+      {
+        "question": "¿Cuál es la función principal de Proxmox VE descrita en el contenido?",
+        "options": [
+          "Una plataforma de virtualización de código abierto que combina máquinas virtuales y contenedores",
+          "Un servicio de correo electrónico basado en la nube",
+          "Una herramienta exclusiva para la edición de documentos en línea"
+        ],
+        "correct": 0,
+        "explanation": "Proxmox es una plataforma de virtualización que combina virtualización basada en contenedores (LXC) y máquinas virtuales (KVM)."
+      },
+      {
+        "question": "¿Qué beneficio ofrece el 'Cómputo en la Niebla' (Fog Computing) integrado con IoT?",
+        "options": [
+          "Aumenta significativamente la latencia de la red",
+          "Centraliza todo el procesamiento exclusivamente en la nube pública",
+          "Reduce la latencia al procesar datos cerca de la fuente y mejora la eficiencia operativa"
+        ],
+        "correct": 2,
+        "explanation": "El cómputo en la niebla acerca el procesamiento al borde de la red, reduciendo la latencia y mejorando la velocidad de respuesta."
+      },
+      {
+        "question": "¿Qué herramienta se menciona para establecer redes privadas virtuales (VPN) seguras y escalables?",
+        "options": [
+          "ZeroTier",
+          "Apache",
+          "MySQL"
+        ],
+        "correct": 0,
+        "explanation": "ZeroTier proporciona una red definida por software (SDN) que facilita la creación de VPNs seguras y escalables."
+      },
+      {
+        "question": "¿Qué modelo de servicio utiliza la empresa ActivTrades para su plataforma de trading?",
+        "options": [
+          "IaaS (Infraestructura como Servicio)",
+          "SaaS (Software como Servicio)",
+          "PaaS (Plataforma como Servicio)"
+        ],
+        "correct": 1,
+        "explanation": "ActivTrades utiliza un modelo SaaS, permitiendo a los usuarios acceder a la plataforma desde cualquier dispositivo sin instalaciones locales."
+      },
+      {
+        "question": "¿Qué es FaaS (Function as a Service)?",
+        "options": [
+          "Un modelo donde se alquilan servidores físicos por mes",
+          "Un modelo de ejecución donde el código se ejecuta en respuesta a eventos sin gestionar servidores",
+          "Un servicio de almacenamiento de archivos estáticos"
+        ],
+        "correct": 1,
+        "explanation": "FaaS permite ejecutar funciones individuales en respuesta a eventos, eliminando la necesidad de gestionar la infraestructura subyacente."
+      },
+      {
+        "question": "¿Cuál es una desventaja o desafío del uso de FaaS mencionado?",
+        "options": [
+          "El costo fijo mensual elevado",
+          "La latencia en la ejecución conocida como 'cold start' (arranque en frío)",
+          "La necesidad de administrar manualmente el sistema operativo"
+        ],
+        "correct": 1,
+        "explanation": "Uno de los desafíos de FaaS es la latencia al invocar una función inactiva, conocida como 'cold start'."
+      },
+      {
+        "question": "¿Qué permiten plataformas como Nextcloud y ownCloud?",
+        "options": [
+          "Crear servicios de almacenamiento y colaboración en la nube alojados en servidores propios",
+          "Únicamente enviar correos electrónicos masivos",
+          "Gestionar exclusivamente redes sociales corporativas"
+        ],
+        "correct": 0,
+        "explanation": "Nextcloud y ownCloud son soluciones para almacenamiento y colaboración en la nube que permiten el control total de los datos."
+      },
+      {
+        "question": "¿Qué función cumple Ngrok según las guías de despliegue?",
+        "options": [
+          "Optimizar bases de datos SQL",
+          "Exponer un servidor local a Internet mediante un túnel seguro",
+          "Crear máquinas virtuales en Azure"
+        ],
+        "correct": 1,
+        "explanation": "Ngrok permite exponer un servidor local a Internet, generando una URL pública que apunta a un puerto local."
+      },
+      {
+        "question": "¿Qué es la 'Escalabilidad' en el contexto de la nube?",
+        "options": [
+          "La capacidad de ajustar recursos hacia arriba o abajo según la demanda",
+          "La instalación de software antivirus",
+          "La compra de hardware físico permanente"
+        ],
+        "correct": 0,
+        "explanation": "La escalabilidad permite a las organizaciones ajustar dinámicamente sus recursos para optimizar el rendimiento y la eficiencia."
+      },
+      {
+        "question": "¿Qué puerto utiliza ZeroTier generalmente para su tráfico?",
+        "options": [
+          "80",
+          "443",
+          "9993"
+        ],
+        "correct": 2,
+        "explanation": "Las guías de configuración mencionan que se debe permitir el tráfico en el puerto 9993 que ZeroTier utiliza."
+      },
+      {
+        "question": "¿Qué es un 'Contenedor' en virtualización?",
+        "options": [
+          "Una caja física para guardar servidores",
+          "Una unidad ligera que comparte el sistema operativo pero tiene su propia aplicación y dependencias",
+          "Un tipo de cable de red"
+        ],
+        "correct": 1,
+        "explanation": "Los contenedores son unidades más livianas que las máquinas virtuales, comparten el SO host pero aíslan la aplicación."
+      },
+      {
+        "question": "¿Qué ventaja ofrece la automatización con Terraform?",
+        "options": [
+          "Requiere intervención manual en cada paso",
+          "Garantiza eficiencia, escalabilidad y repetibilidad al gestionar infraestructura como código",
+          "Solo funciona con un único proveedor de nube"
+        ],
+        "correct": 1,
+        "explanation": "Terraform permite definir infraestructuras de manera automatizada, asegurando consistencia y eficiencia."
+      },
+      {
+        "question": "¿Cuál es un beneficio clave del uso de claves SSH mencionado en el documento?",
+        "options": [
+          "Permite contraseñas más cortas",
+          "Mejora la seguridad frente a contraseñas simples para la autenticación",
+          "Elimina la necesidad de usuarios"
+        ],
+        "correct": 1,
+        "explanation": "La utilización de claves SSH mejora la seguridad frente a contraseñas simples al conectarse a máquinas virtuales."
+      },
+      {
+        "question": "¿Qué significa SaaS?",
+        "options": [
+          "Storage as a Service",
+          "Software as a Service",
+          "Security as a Service"
+        ],
+        "correct": 1,
+        "explanation": "SaaS son las siglas de Software as a Service (Software como Servicio), un modelo de entrega de aplicaciones."
+      },
+      {
+        "question": "¿Para qué sirve el comando 'terraform apply'?",
+        "options": [
+          "Para destruir los recursos creados",
+          "Para aplicar los cambios planificados y crear la infraestructura",
+          "Para descargar el instalador de Terraform"
+        ],
+        "correct": 1,
+        "explanation": "El paso 'terraform apply' aplica los cambios planificados y crea los recursos definidos, como una máquina virtual."
+      },
+      {
+        "question": "¿Qué característica tiene una Nube Pública?",
+        "options": [
+          "Recursos dedicados exclusivamente a una sola organización",
+          "Servicios ofrecidos por terceros a través de Internet disponibles para el público en general",
+          "No requiere conexión a Internet"
+        ],
+        "correct": 1,
+        "explanation": "La nube pública ofrece recursos de computación disponibles para el público en general a través de Internet (ej. AWS, Azure)."
+      }
+    ]
+  },
+  "section2": {
+    "name": "Relación de Columnas",
+    "weight": 30,
+    "pairs": {
+      "Terraform": "Herramienta de Infraestructura como Código (IaC) para aprovisionamiento automatizado",
+      "Proxmox": "Plataforma de virtualización que combina KVM y contenedores LXC",
+      "ZeroTier": "Red definida por software (SDN) para crear VPNs seguras y escalables",
+      "SaaS": "Modelo donde se accede a aplicaciones a través de Internet sin instalación local",
+      "PaaS": "Entorno de desarrollo y despliegue en la nube sin gestión de infraestructura",
+      "IaaS": "Provisión de recursos virtualizados como servidores y almacenamiento",
+      "Nube Híbrida": "Combinación de nubes públicas y privadas con portabilidad de datos",
+      "Fog Computing": "Extensión de la nube al borde de la red para reducir latencia",
+      "Latencia": "Tiempo que tarda una orden en ejecutarse o datos en viajar",
+      "Nextcloud": "Plataforma de almacenamiento y colaboración de código abierto alojada por el usuario",
+      "Ngrok": "Herramienta para exponer servidores locales a Internet mediante túneles",
+      "FaaS": "Ejecución de código en respuesta a eventos sin gestión de servidores",
+      "Escalabilidad": "Capacidad de ajustar recursos dinámicamente según la demanda",
+      "Docker": "Plataforma para crear y ejecutar contenedores de aplicaciones",
+      "Kubernetes": "Sistema para la orquestación y administración de contenedores"
+    }
+  },
+  "section3": {
+    "name": "Juego del Ahorcado",
+    "weight": 40,
+    "words": [
+      {
+        "word": "TERRAFORM",
+        "hint": "Herramienta de IaC para gestionar infraestructura mediante código"
+      },
+      {
+        "word": "PROXMOX",
+        "hint": "Plataforma de virtualización que soporta KVM y LXC"
+      },
+      {
+        "word": "ZEROTIER",
+        "hint": "Tecnología para crear redes privadas virtuales (VPN) tipo SDN"
+      },
+      {
+        "word": "NUBE",
+        "hint": "Entorno que permite acceso a recursos informáticos vía Internet"
+      },
+      {
+        "word": "LATENCIA",
+        "hint": "Retardo en la red crucial para aplicaciones en tiempo real"
+      },
+      {
+        "word": "VIRTUALIZACION",
+        "hint": "Tecnología base para crear máquinas virtuales y contenedores"
+      },
+      {
+        "word": "CONTENEDOR",
+        "hint": "Unidad de software ligera que empaqueta código y dependencias"
+      },
+      {
+        "word": "SAAS",
+        "hint": "Modelo de entrega de software como servicio"
+      },
+      {
+        "word": "PAAS",
+        "hint": "Modelo de plataforma como servicio para desarrolladores"
+      },
+      {
+        "word": "IAAS",
+        "hint": "Modelo de infraestructura como servicio (servidores, redes)"
+      },
+      {
+        "word": "HIBRIDA",
+        "hint": "Tipo de nube que combina entornos públicos y privados"
+      },
+      {
+        "word": "NEXTCLOUD",
+        "hint": "Software para crear tu propia nube de almacenamiento y colaboración"
+      },
+      {
+        "word": "NGROK",
+        "hint": "Crea túneles seguros hacia localhost"
+      },
+      {
+        "word": "ESCALABILIDAD",
+        "hint": "Capacidad de crecer o disminuir recursos según necesidad"
+      },
+      {
+        "word": "INTERNET",
+        "hint": "Medio global a través del cual se entregan los servicios en la nube"
+      }
+    ]
+  }
+}
