@@ -1,0 +1,100 @@
+{
+  "general": {
+    "title": "Evaluación Digital: Administración de base de datos",
+    "subtitle": "Diagnóstico",
+    "professor": "MTI Jesús E. Romero Moreno"
+  },
+  "section1": {
+    "name": "Opción Múltiple",
+    "weight": 30,
+    "questions": [
+      {
+        "question": "¿Cuál es el propósito principal de utilizar Shell scripting en la administración de bases de datos según el curso?",
+        "options": [
+          "Diseñar interfaces gráficas de usuario",
+          "Automatizar procesos de mantenimiento y tareas críticas",
+          "Crear diagramas entidad-relación"
+        ],
+        "correct": 1,
+        "explanation": "El curso aborda la automatización a través de Shell scripting para procesos de mantenimiento y tareas críticas."
+      },
+      {
+        "question": "¿Qué herramienta se menciona para la gestión eficiente de bases de datos relacionales junto con PostgreSQL?",
+        "options": [
+          "NoSQLBooster",
+          "DBeaver",
+          "ZeroTier"
+        ],
+        "correct": 1,
+        "explanation": "Se especifica el uso de DBeaver y PostgreSQL para la gestión eficiente de bases de datos relacionales."
+      },
+      {
+        "question": "¿Cuál es la función de ZeroTier dentro del Plan de Recuperación ante Desastres (DRP)?",
+        "options": [
+          "Realizar copias de seguridad automáticas",
+          "Garantizar conectividad y seguridad en situaciones de alta criticidad",
+          "Optimizar consultas SQL"
+        ],
+        "correct": 1,
+        "explanation": "ZeroTier se utiliza para integrar tecnologías que garanticen conectividad y seguridad en situaciones críticas del DRP."
+      },
+      {
+        "question": "¿Qué aspecto es fundamental asegurar en la gestión de la calidad de los datos?",
+        "options": [
+          "La velocidad de internet del servidor",
+          "La exactitud, confiabilidad y utilidad de los datos",
+          "El color de la interfaz de usuario"
+        ],
+        "correct": 1,
+        "explanation": "La gestión de calidad busca verificar y asegurar estándares que respalden la exactitud, confiabilidad y utilidad de la información."
+      },
+      {
+        "question": "¿Qué herramienta se utiliza para la implementación y administración de MongoDB?",
+        "options": [
+          "DBeaver",
+          "NoSQLBooster",
+          "PgAdmin"
+        ],
+        "correct": 1,
+        "explanation": "El documento menciona NoSQLBooster como la herramienta para trabajar con bases de datos como MongoDB."
+      }
+    ]
+  },
+  "section2": {
+    "name": "Relación de Columnas",
+    "weight": 30,
+    "pairs": {
+      "PostgreSQL": "Sistema gestor de bases de datos relacionales utilizado en el curso.",
+      "MongoDB": "Base de datos no relacional orientada a documentos.",
+      "DRP": "Plan diseñado para responder a incidentes y recuperar operaciones.",
+      "Node.js": "Tecnología utilizada junto con Shell scripting para automatizar procesos.",
+      "Monitoreo": "Actividad para supervisar el rendimiento del sistema gestor."
+    }
+  },
+  "section3": {
+    "name": "Juego del Ahorcado",
+    "weight": 40,
+    "words": [
+      {
+        "word": "ESCALABILIDAD",
+        "hint": "Característica clave a asegurar en entornos NoSQL y bases de datos en crecimiento."
+      },
+      {
+        "word": "INTEGRIDAD",
+        "hint": "Propiedad de la seguridad que garantiza que los datos no han sido alterados."
+      },
+      {
+        "word": "RESTAURACION",
+        "hint": "Proceso inverso a la copia de seguridad, fundamental para la recuperación de datos."
+      },
+      {
+        "word": "NOSQLBOOSTER",
+        "hint": "Herramienta mencionada para gestionar bases de datos MongoDB."
+      },
+      {
+        "word": "AUTOMATIZACION",
+        "hint": "Uso de scripts para ejecutar tareas de mantenimiento sin intervención manual."
+      }
+    ]
+  }
+}
