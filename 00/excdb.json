@@ -1,0 +1,300 @@
+{
+  "general": {
+    "title": "Evaluación Digital: EXTRACCIÓN DE CONOCIMIENTO EN BASES DE DATOS",
+    "subtitle": "Diagnóstico",
+    "professor": "MTI Jesús E. Romero Moreno"
+  },
+  "section1": {
+    "name": "Opción Múltiple",
+    "weight": 30,
+    "questions": [
+      {
+        "question": "¿Cuál es el objetivo principal de un Data Warehouse en una organización?",
+        "options": [
+          "Eliminar todos los datos históricos para ahorrar espacio",
+          "Consolidar datos de múltiples fuentes para habilitar análisis complejos y estratégicos",
+          "Gestionar únicamente las transacciones diarias en tiempo real"
+        ],
+        "correct": 1,
+        "explanation": "Un Data Warehouse tiene como función principal consolidar información de diversas fuentes para facilitar el análisis estratégico y la toma de decisiones."
+      },
+      {
+        "question": "¿Qué significan las siglas ETL en el contexto de la preparación de datos?",
+        "options": [
+          "Evaluación, Transferencia y Limpieza",
+          "Extracción, Transformación y Carga",
+          "Edición, Texto y Listado"
+        ],
+        "correct": 1,
+        "explanation": "ETL se refiere al proceso fundamental de Extracción, Transformación y Carga de datos para su posterior análisis."
+      },
+      {
+        "question": "¿Qué herramienta se destaca por facilitar la integración de datos y los procesos ETL?",
+        "options": [
+          "Pentaho",
+          "Photoshop",
+          "Word"
+        ],
+        "correct": 0,
+        "explanation": "Pentaho es la herramienta mencionada para optimizar procesos de integración y preparación de conjuntos de datos (ETL)."
+      },
+      {
+        "question": "¿Cuál es la función principal de Power BI en el análisis de datos?",
+        "options": [
+          "Creación de paneles interactivos y visualización efectiva de datos",
+          "Administración de servidores físicos",
+          "Programación de sistemas operativos"
+        ],
+        "correct": 0,
+        "explanation": "Power BI se utiliza para la creación de dashboards interactivos y la representación visual de información compleja."
+      },
+      {
+        "question": "¿Qué característica define al Aprendizaje Supervisado?",
+        "options": [
+          "El uso de algoritmos que no requieren datos previos",
+          "El entrenamiento con datos que incluyen etiquetas de entrada y salida esperada",
+          "La búsqueda de patrones en datos sin ninguna estructura definida"
+        ],
+        "correct": 1,
+        "explanation": "El aprendizaje supervisado se basa en modelos entrenados con pares de datos de entrada y salida conocidos."
+      },
+      {
+        "question": "¿Cuál es el objetivo de los algoritmos de Clustering en el aprendizaje no supervisado?",
+        "options": [
+          "Predecir un valor numérico futuro exacto",
+          "Agrupar datos con características similares sin etiquetas predefinidas",
+          "Clasificar imágenes basándose en nombres conocidos"
+        ],
+        "correct": 1,
+        "explanation": "El clustering busca encontrar estructuras o agrupamientos naturales dentro de un conjunto de datos no etiquetados."
+      },
+      {
+        "question": "¿Para qué se utiliza la biblioteca TensorFlow?",
+        "options": [
+          "Para editar videos de alta resolución",
+          "Para implementar modelos avanzados de aprendizaje automático y redes neuronales",
+          "Para gestionar correos electrónicos"
+        ],
+        "correct": 1,
+        "explanation": "TensorFlow es una plataforma y biblioteca utilizada para la implementación de modelos de inteligencia artificial y machine learning."
+      },
+      {
+        "question": "¿Qué sistema de gestión de bases de datos se menciona como orientado al análisis (OLAP)?",
+        "options": [
+          "DuckDB",
+          "SQLite",
+          "Notepad"
+        ],
+        "correct": 0,
+        "explanation": "DuckDB se menciona como una base de datos optimizada para tareas de análisis de datos."
+      },
+      {
+        "question": "¿Qué lenguaje de programación es fundamental para la implementación de modelos de análisis de datos?",
+        "options": [
+          "HTML",
+          "Python",
+          "CSS"
+        ],
+        "correct": 1,
+        "explanation": "Python es el lenguaje de programación clave mencionado para desarrollar modelos de análisis y ciencia de datos."
+      },
+      {
+        "question": "¿Qué finalidad tiene la 'Limpieza de Datos'?",
+        "options": [
+          "Asegurar la calidad de los datos eliminando errores e inconsistencias",
+          "Borrar los datos para liberar espacio en el disco duro",
+          "Encriptar la información para que nadie la lea"
+        ],
+        "correct": 0,
+        "explanation": "La limpieza de datos es una técnica crítica para corregir errores, valores faltantes y asegurar la fiabilidad del análisis."
+      },
+      {
+        "question": "¿Qué tipo de base de datos es PostgreSQL?",
+        "options": [
+          "Base de datos jerárquica antigua",
+          "Sistema de gestión de bases de datos relacional",
+          "Hoja de cálculo simple"
+        ],
+        "correct": 1,
+        "explanation": "PostgreSQL es un sistema de gestión de bases de datos relacional utilizado para almacenar y consultar información estructurada."
+      },
+      {
+        "question": "¿Qué herramienta de Google se utiliza para ejecutar código y modelos en la nube?",
+        "options": [
+          "Google Colab",
+          "Google Maps",
+          "Google Earth"
+        ],
+        "correct": 0,
+        "explanation": "Google Colab es la plataforma mencionada para ejecutar notebooks y modelos de ciencia de datos en la nube."
+      },
+      {
+        "question": "¿Qué es la 'Minería de Datos' (Data Mining)?",
+        "options": [
+          "El proceso de extraer minerales de una computadora",
+          "El descubrimiento de patrones y conocimientos útiles en grandes volúmenes de datos",
+          "La compra y venta de bases de datos"
+        ],
+        "correct": 1,
+        "explanation": "La minería de datos implica explorar grandes conjuntos de datos para descubrir patrones significativos."
+      },
+      {
+        "question": "¿Qué implica el análisis de regresión?",
+        "options": [
+          "Predecir valores continuos numéricos basándose en variables independientes",
+          "Clasificar objetos en categorías discretas",
+          "Agrupar datos por colores"
+        ],
+        "correct": 0,
+        "explanation": "La regresión es una técnica de aprendizaje supervisado utilizada para predecir valores numéricos continuos."
+      },
+      {
+        "question": "¿Cuál es el propósito final de aplicar técnicas de extracción de conocimiento?",
+        "options": [
+          "Generar gráficos bonitos sin contexto",
+          "Apoyar y mejorar la toma de decisiones en las organizaciones",
+          "Llenar discos duros con información redundante"
+        ],
+        "correct": 1,
+        "explanation": "El objetivo último de todas las técnicas y herramientas es contribuir a una mejor toma de decisiones organizacionales."
+      },
+      {
+        "question": "¿Qué base de datos NoSQL se incluye en las herramientas del curso?",
+        "options": [
+          "MongoDB",
+          "Oracle",
+          "MariaDB"
+        ],
+        "correct": 0,
+        "explanation": "MongoDB se menciona como una de las tecnologías para la gestión de bases de datos, específicamente del tipo NoSQL."
+      },
+      {
+        "question": "¿Qué técnica pertenece al Análisis No Supervisado?",
+        "options": [
+          "Reducción de Dimensionalidad",
+          "Regresión Lineal",
+          "Árboles de Decisión"
+        ],
+        "correct": 0,
+        "explanation": "La reducción de dimensionalidad es una técnica clave dentro del análisis no supervisado para simplificar la complejidad de los datos."
+      },
+      {
+        "question": "¿Qué herramienta complementa a Power BI para la transformación de datos?",
+        "options": [
+          "Power Query",
+          "Paint",
+          "Outlook"
+        ],
+        "correct": 0,
+        "explanation": "Power Query es la herramienta mencionada que complementa las capacidades de transformación de datos antes de la visualización."
+      },
+      {
+        "question": "¿Qué es un 'Dashboard'?",
+        "options": [
+          "Un tablero de control visual que muestra métricas clave (KPIs)",
+          "Un tipo de teclado mecánico",
+          "Un virus informático"
+        ],
+        "correct": 0,
+        "explanation": "Un dashboard es una interfaz visual que presenta información crítica y métricas de rendimiento para el análisis rápido."
+      },
+      {
+        "question": "¿Qué concepto abarca volumen, velocidad y variedad de datos?",
+        "options": [
+          "Small Data",
+          "Big Data",
+          "Micro Data"
+        ],
+        "correct": 1,
+        "explanation": "Big Data se caracteriza tradicionalmente por las 3 V: Volumen, Velocidad y Variedad de la información."
+      }
+    ]
+  },
+  "section2": {
+    "name": "Relación de Columnas",
+    "weight": 30,
+    "pairs": {
+      "Pentaho": "Herramienta especializada en procesos ETL",
+      "Power BI": "Plataforma de visualización y Business Intelligence",
+      "Python": "Lenguaje de programación para Ciencia de Datos",
+      "TensorFlow": "Biblioteca para Machine Learning e IA",
+      "Data Warehouse": "Almacén centralizado para análisis histórico",
+      "ETL": "Proceso de Extracción, Transformación y Carga",
+      "Supervisado": "Aprendizaje basado en datos etiquetados",
+      "No Supervisado": "Aprendizaje que busca patrones sin etiquetas",
+      "DuckDB": "Base de datos analítica embebida (OLAP)",
+      "PostgreSQL": "Base de datos relacional robusta (ORDBMS)",
+      "Clustering": "Agrupamiento de datos por similitud",
+      "Regresión": "Predicción de valores numéricos continuos",
+      "Limpieza de Datos": "Corrección de inconsistencias y valores nulos",
+      "Google Colab": "Entorno de notebooks en la nube",
+      "MongoDB": "Base de datos orientada a documentos (NoSQL)"
+    }
+  },
+  "section3": {
+    "name": "Juego del Ahorcado",
+    "weight": 40,
+    "words": [
+      {
+        "word": "PENTAHO",
+        "hint": "Plataforma utilizada para la integración y transformación de datos (ETL)"
+      },
+      {
+        "word": "PYTHON",
+        "hint": "Lenguaje de programación principal para análisis de datos"
+      },
+      {
+        "word": "TENSORFLOW",
+        "hint": "Biblioteca de código abierto para aprendizaje automático"
+      },
+      {
+        "word": "WAREHOUSE",
+        "hint": "Almacén de datos estructurado para soporte de decisiones (Data ...)"
+      },
+      {
+        "word": "CLUSTERING",
+        "hint": "Técnica de agrupación en aprendizaje no supervisado"
+      },
+      {
+        "word": "SUPERVISADO",
+        "hint": "Tipo de aprendizaje que requiere un maestro o etiquetas"
+      },
+      {
+        "word": "DASHBOARD",
+        "hint": "Panel visual para mostrar indicadores clave de desempeño"
+      },
+      {
+        "word": "DUCKDB",
+        "hint": "Motor de base de datos SQL OLAP en proceso"
+      },
+      {
+        "word": "MONGODB",
+        "hint": "Sistema de base de datos NoSQL orientado a documentos"
+      },
+      {
+        "word": "POSTGRESQL",
+        "hint": "Sistema de gestión de bases de datos relacional de objetos"
+      },
+      {
+        "word": "POWERBI",
+        "hint": "Servicio de análisis de negocios de Microsoft"
+      },
+      {
+        "word": "LIMPIEZA",
+        "hint": "Proceso de asegurar la calidad de los datos (... de Datos)"
+      },
+      {
+        "word": "REGRESION",
+        "hint": "Método estadístico para estimar relaciones entre variables"
+      },
+      {
+        "word": "DECISIONES",
+        "hint": "El análisis de datos busca mejorar la toma de ..."
+      },
+      {
+        "word": "MINERIA",
+        "hint": "Proceso de extracción de patrones en grandes datos (... de Datos)"
+      }
+    ]
+  }
+}
