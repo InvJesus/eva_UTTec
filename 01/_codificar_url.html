@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codificador de URL Base64</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+            border: 1px solid #4CAF50;
+        }
+        .info {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+        .copy-btn {
+            background-color: #2196F3;
+            margin-top: 10px;
+        }
+        .copy-btn:hover {
+            background-color: #1976D2;
+        }
+        .decode-btn {
+            background-color: #ff9800;
+        }
+        .decode-btn:hover {
+            background-color: #f57c00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 Codificador/Decodificador de URL Base64</h1>
+        <p style="text-align: center; color: #666;">Herramienta para codificar y decodificar URLs en Base64</p>
+        
+        <div class="info">
+            <strong>📋 Instrucciones:</strong>
+            <ol>
+                <li>Pega la URL completa de tu archivo .enc (ej: https://usuario.github.io/repo/archivo.enc)</li>
+                <li>Haz clic en "Codificar a Base64"</li>
+                <li>Copia el resultado y úsalo en <code>ENCRYPTED_CONFIG_URL_B64</code></li>
+                <li>También puedes decodificar una URL Base64 para verificar que sea correcta</li>
+            </ol>
+        </div>
+
+        <div class="form-group">
+            <label for="urlInput">URL del archivo .enc:</label>
+            <input type="text" id="urlInput" placeholder="https://usuario.github.io/repo/archivo.enc">
+        </div>
+
+        <button onclick="codificarURL()">🔒 Codificar a Base64</button>
+        <button class="decode-btn" onclick="decodificarURL()">🔓 Decodificar desde Base64</button>
+
+        <div id="result" style="display: none;" class="result">
+            <h3 id="resultTitle">Resultado:</h3>
+            <textarea id="resultContent" readonly style="min-height: 80px; background-color: #f9f9f9;"></textarea>
+            <button class="copy-btn" onclick="copiarResultado()">📋 Copiar al Portapapeles</button>
+        </div>
+
+        <div class="form-group" style="margin-top: 30px;">
+            <label for="base64Input">O pega aquí una URL codificada en Base64 para decodificar:</label>
+            <textarea id="base64Input" placeholder="aHR0cHM6Ly9..."></textarea>
+        </div>
+    </div>
+
+    <script>
+        function codificarURL() {
+            const url = document.getElementById('urlInput').value.trim();
+            
+            if (!url) {
+                alert('Por favor, ingresa una URL');
+                return;
+            }
+
+            try {
+                const encoded = btoa(url);
+                document.getElementById('resultTitle').textContent = '✅ URL Codificada en Base64:';
+                document.getElementById('resultContent').value = encoded;
+                document.getElementById('result').style.display = 'block';
+            } catch (e) {
+                alert('Error al codificar: ' + e.message);
+            }
+        }
+
+        function decodificarURL() {
+            const base64 = document.getElementById('base64Input').value.trim() || 
+                          document.getElementById('urlInput').value.trim();
+            
+            if (!base64) {
+                alert('Por favor, ingresa una URL codificada en Base64');
+                return;
+            }
+
+            try {
+                const decoded = atob(base64);
+                document.getElementById('resultTitle').textContent = '✅ URL Decodificada:';
+                document.getElementById('resultContent').value = decoded;
+                document.getElementById('result').style.display = 'block';
+            } catch (e) {
+                alert('Error al decodificar. Verifica que sea una cadena Base64 válida: ' + e.message);
+            }
+        }
+
+        function copiarResultado() {
+            const resultContent = document.getElementById('resultContent');
+            resultContent.select();
+            document.execCommand('copy');
+            alert('¡Copiado al portapapeles!');
+        }
+    </script>
+</body>
+</html>

@@ -96,12 +96,13 @@
         <div class="info">
             <strong>📋 Instrucciones:</strong>
             <ol>
-                <li>Pega el contenido de tu archivo <code>admDB01.json</code> en el área de texto</li>
+                <li>Pega el contenido de tu archivo JSON en el área de texto</li>
                 <li>Ingresa la clave secreta que usarás para descifrar (la misma que usarán los estudiantes)</li>
+                <li><strong>Opcional:</strong> Cambia el nombre del archivo si lo deseas (por defecto: <code>admDB01.enc</code>)</li>
                 <li>Haz clic en "Cifrar JSON"</li>
-                <li>Descarga el archivo cifrado (se guardará como <code>admDB01.enc</code>)</li>
+                <li>Descarga el archivo cifrado con el nombre que especificaste</li>
                 <li>Sube el archivo <code>.enc</code> a tu servidor (GitHub Pages, etc.)</li>
-                <li>Actualiza la URL en el código HTML si es necesario</li>
+                <li>Usa <code>codificar_url.html</code> para codificar la URL en Base64 y actualizar <code>ENCRYPTED_CONFIG_URL_B64</code> en el código HTML</li>
             </ol>
         </div>
 
@@ -113,6 +114,12 @@
         <div class="form-group">
             <label for="secretKey">Clave Secreta (Secret Key):</label>
             <input type="password" id="secretKey" placeholder="Ingresa la clave que usarán los estudiantes para acceder">
+        </div>
+
+        <div class="form-group">
+            <label for="fileName">Nombre del archivo cifrado (opcional):</label>
+            <input type="text" id="fileName" placeholder="admDB01.enc" value="admDB01.enc">
+            <small style="color: #666; display: block; margin-top: 5px;">Por defecto: admDB01.enc. Asegúrate de usar la extensión .enc</small>
         </div>
 
         <button onclick="cifrarJSON()">🔒 Cifrar JSON</button>
@@ -187,7 +194,9 @@
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = 'admDB01.enc';
+            // Nombre del archivo (puedes cambiarlo aquí)
+            const fileName = document.getElementById('fileName')?.value || 'admDB01.enc';
+            a.download = fileName;
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
