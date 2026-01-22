@@ -1111,6 +1111,10 @@
         // URL del archivo cifrado codificada en Base64 para ofuscación
         // Decodificar en tiempo de ejecución con atob()
         const ENCRYPTED_CONFIG_URL_B64 = "aHR0cHM6Ly9pbnZqZXN1cy5naXRodWIuaW8vZXZhX1VUVGVjLzAxL2FkbURCMDEuZW5j";
+        
+        // URL de respaldo para archivo JSON original (sin cifrar) - modo de transición
+        // Codificada en Base64 para ofuscación
+        const FALLBACK_JSON_URL_B64 = "aHR0cHM6Ly9pbnZqZXN1cy5naXRodWIuaW8vZXZhX1VUVGVjLzAxL2FkbURCMDEuanNvbg==";
 
         // Variable global para almacenar la configuración cargada
         let EVALUATION_CONFIG = null;
@@ -1239,15 +1243,13 @@
         // ====================================
 
         async function loadJSONConfig(secretKey) {
-            console.group('📡 CARGANDO CONFIGURACIÓN CIFRADA');
+            console.group('📡 CARGANDO CONFIGURACIÓN');
             
-            if (!secretKey || secretKey.trim().length === 0) {
-                throw new Error('Clave incorrecta. Se requiere una clave para descifrar el archivo.');
-            }
-            
-            // Decodificar URL desde Base64
+            // Decodificar URLs desde Base64
             const encryptedConfigUrl = atob(ENCRYPTED_CONFIG_URL_B64);
-            console.log('🌐 URL del archivo cifrado:', encryptedConfigUrl);
+            const fallbackJsonUrl = atob(FALLBACK_JSON_URL_B64);
+            console.log('🌐 URL cifrada:', encryptedConfigUrl);
+            console.log('🌐 URL de respaldo (JSON):', fallbackJsonUrl);
 
             // Configuración optimizada para GitHub Pages
             const fetchOptions = {
@@ -1260,8 +1262,11 @@
                 cache: 'no-store'
             };
 
+            // ============================================
+            // INTENTO 1: Descargar y descifrar archivo .enc
+            // ============================================
             try {
-                console.log('⏳ Descargando archivo cifrado (.enc)...');
+                console.log('⏳ Intento 1: Descargando archivo cifrado (.enc)...');
 
                 const urlWithTimestamp = `${encryptedConfigUrl}?_t=${Date.now()}&_r=${Math.random()}`;
                 console.log('📡 URL con cache-busting:', urlWithTimestamp);
@@ -1272,9 +1277,10 @@
 
                 if (!response.ok) {
                     if (response.status === 404) {
-                        throw new Error('El archivo cifrado no existe. Verifica que el archivo .enc esté subido al servidor.');
+                        console.log('⚠️ Archivo .enc no encontrado, intentando con JSON de respaldo...');
+                        throw new Error('FILE_NOT_FOUND'); // Lanzar error especial para activar fallback
                     } else if (response.status === 403) {
-                        throw new Error('Acceso denegado (403). Verifica que el repositorio sea público.');
+                        throw new Error(`Acceso denegado (403). Verifica que el repositorio sea público.`);
                     } else {
                         throw new Error(`Error HTTP ${response.status}: ${response.statusText}`);
                     }
@@ -1288,95 +1294,99 @@
 
                 // Verificar si es HTML en lugar del archivo cifrado
                 if (encryptedContent.trim().startsWith('<!DOCTYPE') || encryptedContent.trim().startsWith('<html')) {
-                    throw new Error('El servidor devolvió HTML en lugar del archivo cifrado. Verifica la URL.');
+                    console.log('⚠️ El servidor devolvió HTML, intentando con JSON de respaldo...');
+                    throw new Error('FILE_NOT_FOUND');
                 }
 
                 // Verificar si es una página de error 404 de GitHub
                 if (encryptedContent.includes('404: Not Found') || encryptedContent.includes('File not found')) {
-                    throw new Error('El archivo cifrado no existe en la URL especificada.');
+                    console.log('⚠️ Página 404 detectada, intentando con JSON de respaldo...');
+                    throw new Error('FILE_NOT_FOUND');
                 }
-
-                // Limpiar el contenido cifrado (eliminar espacios en blanco)
-                const cleanEncryptedContent = encryptedContent.trim();
 
                 // Intentar descifrar el contenido con AES
                 console.log('🔐 Intentando descifrar con AES...');
-                console.log('🔑 Usando clave secreta proporcionada');
-                
                 let decryptedContent;
                 try {
-                    // CryptoJS.AES.decrypt espera el contenido cifrado y la clave
-                    // El contenido debe estar en formato Base64 (que es el formato por defecto de CryptoJS)
-                    const decrypted = CryptoJS.AES.decrypt(cleanEncryptedContent, secretKey);
+                    const decrypted = CryptoJS.AES.decrypt(encryptedContent, secretKey);
                     decryptedContent = decrypted.toString(CryptoJS.enc.Utf8);
                     
                     // Verificar si el descifrado fue exitoso
                     if (!decryptedContent || decryptedContent.length === 0) {
-                        console.error('❌ El descifrado resultó en una cadena vacía');
-                        console.log('🔍 Esto generalmente indica que la clave es incorrecta');
-                        throw new Error('Clave incorrecta. No se pudo descifrar el archivo.');
+                        throw new Error('Clave incorrecta o contenido cifrado inválido');
                     }
                     
                     console.log('✅ Contenido descifrado exitosamente');
                     console.log('📝 Contenido descifrado:', decryptedContent.length, 'caracteres');
-                    console.log('🔍 Primeros 50 caracteres del contenido descifrado:', decryptedContent.substring(0, 50));
                     
                     // Procesar el contenido descifrado
                     return await processDecryptedContent(decryptedContent, 'encrypted');
                     
                 } catch (decryptError) {
                     console.error('❌ Error descifrando contenido:', decryptError.message);
-                    console.log('🔍 Detalles del error:', decryptError);
-                    
-                    // Si el error ya tiene un mensaje específico, lanzarlo
-                    if (decryptError.message.includes('Clave incorrecta')) {
-                        throw decryptError;
+                    // Si el error es de clave incorrecta, no intentar fallback
+                    if (decryptError.message.includes('Clave incorrecta') || 
+                        decryptError.message.includes('contenido cifrado inválido')) {
+                        throw new Error('Clave incorrecta. No se pudo descifrar el archivo.');
                     }
-                    
-                    // Si el descifrado resultó en cadena vacía, es clave incorrecta
-                    throw new Error('Clave incorrecta. No se pudo descifrar el archivo.');
+                    // Si es otro error, intentar fallback
+                    throw new Error('FILE_NOT_FOUND');
                 }
 
             } catch (error) {
-                console.error('❌ ERROR CRÍTICO cargando configuración:', error.message);
-                console.log('🔧 Detalles técnicos:', error);
-                console.log('🌐 URL que falló:', encryptedConfigUrl);
-                
-                // Diagnóstico específico del error
-                console.group('🔍 DIAGNÓSTICO DEL ERROR:');
+                // Si el error es FILE_NOT_FOUND, intentar con JSON de respaldo
+                if (error.message === 'FILE_NOT_FOUND' || error.message.includes('404')) {
+                    console.log('');
+                    console.log('🔄 Cambiando a modo de respaldo: Intentando con archivo JSON sin cifrar...');
+                    
+                    // ============================================
+                    // INTENTO 2: Descargar archivo JSON sin cifrar (modo de transición)
+                    // ============================================
+                    try {
+                        const fallbackUrlWithTimestamp = `${fallbackJsonUrl}?_t=${Date.now()}&_r=${Math.random()}`;
+                        console.log('📡 URL de respaldo con cache-busting:', fallbackUrlWithTimestamp);
 
-                if (error.message.includes('fetch') || error.message.includes('Failed to fetch')) {
-                    console.log('🌐 Problema de red o CORS detectado');
-                    console.log('💡 Posibles causas:');
-                    console.log('   - Sin conexión a internet');
-                    console.log('   - Repositorio privado (debe ser público)');
-                    console.log('   - URL incorrecta');
-                } else if (error.message.includes('404') || error.message.includes('no existe')) {
-                    console.log('📁 Archivo cifrado no encontrado');
-                    console.log('💡 Verifica:');
-                    console.log('   - Que el archivo .enc existe en el repositorio');
-                    console.log('   - Que la ruta en la URL sea correcta');
-                    console.log('   - Que el repositorio sea público');
-                    console.log('   - Que hayas cifrado el JSON usando la herramienta cifrar_json.html');
-                } else if (error.message.includes('HTML')) {
-                    console.log('🌐 GitHub devolvió HTML en lugar del archivo cifrado');
-                    console.log('💡 Posibles causas:');
-                    console.log('   - URL apunta a la página del repositorio, no al archivo');
-                    console.log('   - Archivo no existe y GitHub muestra página 404');
-                } else if (error.message.includes('Clave incorrecta')) {
-                    console.log('🔐 Error de autenticación');
-                    console.log('💡 La clave ingresada no es correcta para descifrar el archivo');
-                    console.log('💡 Asegúrate de usar la misma clave con la que cifraste el archivo');
+                        const fallbackResponse = await fetch(fallbackUrlWithTimestamp, fetchOptions);
+
+                        console.log('📊 Status HTTP (respaldo):', fallbackResponse.status, fallbackResponse.statusText);
+
+                        if (!fallbackResponse.ok) {
+                            throw new Error(`Error HTTP ${fallbackResponse.status}: ${fallbackResponse.statusText}`);
+                        }
+
+                        console.log('✅ Respuesta HTTP exitosa (respaldo)');
+
+                        // Obtener el contenido JSON directamente
+                        const jsonContent = await fallbackResponse.text();
+                        console.log('📝 Contenido JSON descargado:', jsonContent.length, 'caracteres');
+
+                        // Verificar si es HTML
+                        if (jsonContent.trim().startsWith('<!DOCTYPE') || jsonContent.trim().startsWith('<html')) {
+                            throw new Error('GitHub Pages devolvió una página HTML en lugar del archivo JSON.');
+                        }
+
+                        // Verificar si es una página de error 404
+                        if (jsonContent.includes('404: Not Found') || jsonContent.includes('File not found')) {
+                            throw new Error('El archivo JSON de respaldo tampoco existe.');
+                        }
+
+                        // Procesar el contenido JSON directamente (sin cifrado)
+                        console.log('✅ Usando archivo JSON sin cifrar (modo de transición)');
+                        console.log('⚠️ NOTA: El archivo .enc no está disponible. Usa el modo de respaldo.');
+                        return await processDecryptedContent(jsonContent, 'fallback');
+
+                    } catch (fallbackError) {
+                        console.error('❌ Error en modo de respaldo:', fallbackError.message);
+                        throw new Error(`No se pudo cargar ni el archivo cifrado ni el JSON de respaldo. ${fallbackError.message}`);
+                    }
+                } else {
+                    // Si es otro tipo de error, lanzarlo normalmente
+                    throw error;
                 }
-
-                console.groupEnd();
-                console.groupEnd();
-
-                throw error; // Re-lanzar el error para que se maneje en authenticateUser
             }
         }
 
-        // Función auxiliar para procesar contenido descifrado
+        // Función auxiliar para procesar contenido descifrado o JSON
         async function processDecryptedContent(content, source) {
             // Limpiar el contenido
             let cleanContent = content.trim();
@@ -1403,54 +1413,125 @@
             } catch (parseError) {
                 console.error('❌ Error parseando JSON:', parseError.message);
                 console.log('📄 Contenido que causó el error:', cleanContent.substring(0, 300));
-
-                // Intentar identificar el problema específico
-                const errorLine = parseError.message.match(/line (\d+)/);
-                if (errorLine) {
-                    const lines = cleanContent.split('\n');
-                    const lineNum = parseInt(errorLine[1]) - 1;
-                    console.log(`🔍 Línea ${lineNum + 1} problemática:`, lines[lineNum]);
-                }
-
                 throw new Error(`Error de sintaxis JSON: ${parseError.message}`);
             }
 
-            // Validar la estructura del JSON
-            console.log('🔍 Validando estructura del JSON...');
-            const validation = validateJSONStructure(parsedConfig);
+                // Limpiar el contenido JSON descifrado
+                let cleanContent = decryptedContent.trim();
 
-            if (!validation.isValid) {
-                console.error('❌ Estructura JSON inválida');
-                console.group('🚨 ERRORES ENCONTRADOS:');
-                validation.errors.forEach(error => console.error('  •', error));
+                // Remover BOM si existe
+                if (cleanContent.charCodeAt(0) === 0xFEFF) {
+                    cleanContent = cleanContent.substring(1);
+                    console.log('🧹 BOM removido del contenido');
+                }
+
+                // Verificar que comience con { o [
+                if (!cleanContent.startsWith('{') && !cleanContent.startsWith('[')) {
+                    console.error('❌ El contenido descifrado no parece ser JSON válido');
+                    console.log('🔍 Primeros 100 caracteres después de limpieza:', cleanContent.substring(0, 100));
+                    throw new Error('El contenido descifrado no es JSON válido. Debe comenzar con { o [');
+                }
+
+                // Intentar parsear el JSON
+                let parsedConfig;
+                try {
+                    parsedConfig = JSON.parse(cleanContent);
+                    console.log('✅ JSON parseado exitosamente');
+                    console.log('📋 Claves principales detectadas:', Object.keys(parsedConfig));
+                } catch (parseError) {
+                    console.error('❌ Error parseando JSON:', parseError.message);
+                    console.log('📄 Contenido que causó el error:', cleanContent.substring(0, 300));
+
+                    // Intentar identificar el problema específico
+                    const errorLine = parseError.message.match(/line (\d+)/);
+                    if (errorLine) {
+                        const lines = cleanContent.split('\n');
+                        const lineNum = parseInt(errorLine[1]) - 1;
+                        console.log(`🔍 Línea ${lineNum + 1} problemática:`, lines[lineNum]);
+                    }
+
+                    throw new Error(`Error de sintaxis JSON: ${parseError.message}`);
+                }
+
+                // Validar la estructura del JSON
+                console.log('🔍 Validando estructura del JSON...');
+                const validation = validateJSONStructure(parsedConfig);
+
+                if (!validation.isValid) {
+                    console.error('❌ Estructura JSON inválida');
+                    console.group('🚨 ERRORES ENCONTRADOS:');
+                    validation.errors.forEach(error => console.error('  •', error));
+                    console.groupEnd();
+
+                    console.log('📋 Estructura recibida:', JSON.stringify(parsedConfig, null, 2));
+                    throw new Error('La estructura del JSON no cumple con el formato esperado. Revisa los errores en la consola.');
+                }
+
+                console.log('✅ Estructura JSON válida');
+
+                if (validation.warnings.length > 0) {
+                    console.group('⚠️ ADVERTENCIAS:');
+                    validation.warnings.forEach(warning => console.warn('  •', warning));
+                    console.groupEnd();
+                }
+
+                // Asignar configuración global
+                EVALUATION_CONFIG = parsedConfig;
+
+                console.log('🎉 ¡CONFIGURACIÓN CARGADA EXITOSAMENTE!');
+                console.log('📊 Estadísticas finales:', validation.stats);
                 console.groupEnd();
 
-                console.log('📋 Estructura recibida:', JSON.stringify(parsedConfig, null, 2));
-                throw new Error('La estructura del JSON no cumple con el formato esperado. Revisa los errores en la consola.');
-            }
+                return {
+                    success: true,
+                    config: parsedConfig,
+                    validation,
+                    source: 'github-pages'
+                };
 
-            console.log('✅ Estructura JSON válida');
+            } catch (error) {
+                console.error('❌ ERROR CRÍTICO cargando configuración:', error.message);
+                console.log('🔧 Detalles técnicos:', error);
+                console.log('🌐 URL que falló:', encryptedConfigUrl);
 
-            if (validation.warnings.length > 0) {
-                console.group('⚠️ ADVERTENCIAS:');
-                validation.warnings.forEach(warning => console.warn('  •', warning));
+                // Diagnóstico específico del error
+                console.group('🔍 DIAGNÓSTICO DEL ERROR:');
+
+                if (error.message.includes('fetch')) {
+                    console.log('🌐 Problema de red o CORS detectado');
+                    console.log('💡 Posibles causas:');
+                    console.log('   - Sin conexión a internet');
+                    console.log('   - Repositorio privado (debe ser público)');
+                    console.log('   - URL incorrecta');
+                } else if (error.message.includes('404')) {
+                    console.log('📁 Archivo no encontrado');
+                    console.log('💡 Verifica:');
+                    console.log('   - Que el archivo existe en el repositorio');
+                    console.log('   - Que la ruta en la URL sea correcta');
+                    console.log('   - Que el repositorio sea público');
+                } else if (error.message.includes('HTML')) {
+                    console.log('🌐 GitHub devolvió HTML en lugar del archivo JSON');
+                    console.log('💡 Posibles causas:');
+                    console.log('   - URL apunta a la página del repositorio, no al archivo');
+                    console.log('   - Archivo no existe y GitHub muestra página 404');
+                } else if (error.message.includes('JSON')) {
+                    console.log('📝 Error de formato en el archivo JSON');
+                    console.log('💡 Revisa:');
+                    console.log('   - Sintaxis JSON válida');
+                    console.log('   - Comillas dobles en lugar de simples');
+                    console.log('   - Comas y llaves correctas');
+                }
+
                 console.groupEnd();
+                console.groupEnd();
+
+                return {
+                    success: false,
+                    error: error.message,
+                    fallback: getDefaultConfig(),
+                    source: 'error'
+                };
             }
-
-            // Asignar configuración global
-            EVALUATION_CONFIG = parsedConfig;
-
-            console.log('🎉 ¡CONFIGURACIÓN CARGADA EXITOSAMENTE!');
-            console.log('📊 Estadísticas finales:', validation.stats);
-            console.log('📦 Fuente: Archivo cifrado (.enc)');
-            console.groupEnd();
-
-            return {
-                success: true,
-                config: parsedConfig,
-                validation,
-                source: 'encrypted-file'
-            };
         }
 
         function validateJSONStructure(config) {
@@ -1877,7 +1958,6 @@
             console.log('🔐 Intento de autenticación');
             console.log('Clave ingresada (usada como Secret Key):', secretKey ? '***' : '(vacía)');
 
-            // Validar que se haya ingresado una clave
             if (!secretKey || secretKey.trim().length === 0) {
                 console.log('❌ Clave vacía');
                 const errorDiv = document.getElementById('authError');
@@ -1886,7 +1966,7 @@
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        Por favor ingresa la clave de acceso para descifrar el archivo.
+                        Por favor ingresa una clave de acceso.
                     </div>
                 `;
                 errorDiv.classList.remove('hidden');
@@ -1910,13 +1990,11 @@
                 const loadResult = await loadJSONConfig(secretKey);
 
                 if (!loadResult.success) {
-                    console.error('❌ Error cargando configuración');
+                    console.error('❌ Error cargando configuración cifrada');
                     throw new Error(loadResult.error || 'Error desconocido al cargar la configuración');
                 }
 
                 console.log('✅ Configuración descifrada y cargada exitosamente');
-                console.log('🔐 Archivo cifrado descifrado correctamente con la clave proporcionada');
-                
                 errorDiv.classList.add('hidden');
                 proceedWithAuthentication();
 

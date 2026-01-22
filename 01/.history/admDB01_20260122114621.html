@@ -1914,8 +1914,12 @@
                     throw new Error(loadResult.error || 'Error desconocido al cargar la configuración');
                 }
 
-                console.log('✅ Configuración descifrada y cargada exitosamente');
-                console.log('🔐 Archivo cifrado descifrado correctamente con la clave proporcionada');
+                console.log('✅ Configuración cargada exitosamente');
+                if (loadResult.source === 'encrypted-file') {
+                    console.log('🔐 Archivo cifrado descifrado correctamente');
+                } else if (loadResult.source === 'fallback-json') {
+                    console.log('📄 Usando archivo JSON de respaldo (sin cifrado)');
+                }
                 
                 errorDiv.classList.add('hidden');
                 proceedWithAuthentication();
