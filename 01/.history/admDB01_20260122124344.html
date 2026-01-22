@@ -1209,10 +1209,6 @@
             // Decodificar URL desde Base64
             const encryptedConfigUrl = atob(ENCRYPTED_CONFIG_URL_B64);
             console.log('🌐 URL del archivo cifrado:', encryptedConfigUrl);
-            
-            // Extraer y almacenar el nombre del archivo para el sistema de intentos
-            currentEncFileName = getEncFileNameFromUrl(encryptedConfigUrl);
-            console.log('📁 Nombre del archivo .enc:', currentEncFileName);
 
             // Configuración optimizada para GitHub Pages
             const fetchOptions = {
