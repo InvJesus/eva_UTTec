@@ -1631,24 +1631,30 @@
         }
 
         function showJSONStructureGuide() {
-            console.group('📋 GUÍA COMPLETA PARA CONFIGURAR ARCHIVO CIFRADO');
-            const encryptedConfigUrl = atob(ENCRYPTED_CONFIG_URL_B64);
-            console.log('🌐 URL del archivo cifrado:', encryptedConfigUrl);
-            console.log('');
-            console.log('🔧 INSTRUCCIONES PARA CREAR EL ARCHIVO .enc:');
-            console.log('');
-            console.log('1️⃣ Cifra tu archivo JSON usando CryptoJS:');
-            console.log('   • Usa CryptoJS.AES.encrypt(jsonString, secretKey)');
-            console.log('   • Guarda el resultado en un archivo con extensión .enc');
-            console.log('');
-            console.log('2️⃣ Sube el archivo .enc a un servidor público:');
-            console.log('   • GitHub Pages (recomendado)');
-            console.log('   • Cualquier servidor web que permita acceso público');
-            console.log('');
-            console.log('3️⃣ Actualiza la URL en el código:');
-            console.log('   • Codifica la URL en Base64');
-            console.log('   • Actualiza la constante ENCRYPTED_CONFIG_URL_B64');
-            console.log('');
+            console.group('📋 GUÍA COMPLETA PARA CONFIGURAR JSON');
+            console.log('🌐 URL actual configurada:', JSON_CONFIG_URL);
+
+            if (JSON_CONFIG_URL.includes('YOUR_JSON_ID')) {
+                console.warn('⚠️ IMPORTANTE: Debes cambiar la URL por una real');
+                console.log('');
+                console.log('🔧 OPCIONES PARA ALOJAR TU JSON:');
+                console.log('');
+                console.log('1️⃣ JSONKeeper (Recomendado - Gratis):');
+                console.log('   • Ve a: https://jsonkeeper.com/');
+                console.log('   • Pega tu JSON y obtén una URL');
+                console.log('   • Ejemplo: https://jsonkeeper.com/b/ABCD');
+                console.log('');
+                console.log('2️⃣ GitHub Raw (Gratis):');
+                console.log('   • Sube tu archivo .json a un repositorio público');
+                console.log('   • Usa la URL raw del archivo');
+                console.log('   • Ejemplo: https://raw.githubusercontent.com/usuario/repo/main/config.json');
+                console.log('');
+                console.log('3️⃣ Pastebin (Gratis):');
+                console.log('   • Ve a: https://pastebin.com/');
+                console.log('   • Pega tu JSON y obtén URL raw');
+                console.log('   • Ejemplo: https://pastebin.com/raw/ABC123');
+                console.log('');
+            }
 
             console.log('📝 ESTRUCTURA JSON REQUERIDA:');
             console.log(JSON.stringify(EXPECTED_JSON_STRUCTURE, null, 2));
@@ -1660,7 +1666,7 @@
             console.log('1. Copia el ejemplo JSON completo');
             console.log('2. Modifica el contenido según tus necesidades');
             console.log('3. Súbelo a uno de los servicios mencionados');
-            console.log('4. Codifica la URL del archivo .enc en Base64 y actualiza ENCRYPTED_CONFIG_URL_B64');
+            console.log('4. Actualiza la variable JSON_CONFIG_URL con tu URL');
             console.log('5. Las ponderaciones deben sumar exactamente 100%');
             console.log('');
             console.log('🚨 VALIDACIONES AUTOMÁTICAS:');
@@ -4367,9 +4373,8 @@
         // Inicializar la aplicación cuando se carga la página
         document.addEventListener('DOMContentLoaded', function () {
             console.log('🚀 Evaluación Digital cargada correctamente');
-            console.log('🔐 Sistema de cifrado AES activado');
-            const encryptedConfigUrl = atob(ENCRYPTED_CONFIG_URL_B64);
-            console.log('🌐 URL del archivo cifrado:', encryptedConfigUrl);
+            console.log('🔑 Clave de acceso configurada:', ACCESS_KEY);
+            console.log('🌐 URL JSON configurada:', JSON_CONFIG_URL);
 
             // Mostrar guía de estructura JSON esperada
             showJSONStructureGuide();

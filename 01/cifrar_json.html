@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramienta de Cifrado AES para JSON</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            border-radius: 5px;
+            border: 1px solid #4CAF50;
+        }
+        .info {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196F3;
+        }
+        .warning {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            border-left: 4px solid #ff9800;
+        }
+        .download-btn {
+            background-color: #2196F3;
+            margin-top: 10px;
+        }
+        .download-btn:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Herramienta de Cifrado AES</h1>
+        <p style="text-align: center; color: #666;">Cifra tu archivo JSON para usar con el sistema de evaluación</p>
+        
+        <div class="info">
+            <strong>📋 Instrucciones:</strong>
+            <ol>
+                <li>Pega el contenido de tu archivo <code>admDB01.json</code> en el área de texto</li>
+                <li>Ingresa la clave secreta que usarás para descifrar (la misma que usarán los estudiantes)</li>
+                <li>Haz clic en "Cifrar JSON"</li>
+                <li>Descarga el archivo cifrado (se guardará como <code>admDB01.enc</code>)</li>
+                <li>Sube el archivo <code>.enc</code> a tu servidor (GitHub Pages, etc.)</li>
+                <li>Actualiza la URL en el código HTML si es necesario</li>
+            </ol>
+        </div>
+
+        <div class="form-group">
+            <label for="jsonContent">Contenido JSON (texto plano):</label>
+            <textarea id="jsonContent" placeholder='Pega aquí el contenido de tu archivo JSON, por ejemplo: {"general": {"title": "..."}}'></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="secretKey">Clave Secreta (Secret Key):</label>
+            <input type="password" id="secretKey" placeholder="Ingresa la clave que usarán los estudiantes para acceder">
+        </div>
+
+        <button onclick="cifrarJSON()">🔒 Cifrar JSON</button>
+
+        <div id="result" style="display: none;" class="result">
+            <h3>✅ JSON Cifrado Exitosamente</h3>
+            <p><strong>Contenido cifrado:</strong></p>
+            <textarea id="encryptedContent" readonly style="min-height: 150px; background-color: #f9f9f9;"></textarea>
+            <button class="download-btn" onclick="descargarArchivo()">💾 Descargar archivo .enc</button>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ Importante:</strong>
+            <ul>
+                <li>Guarda la clave secreta de forma segura. Sin ella, no podrás descifrar el archivo.</li>
+                <li>La misma clave debe usarse en el sistema de evaluación para descifrar.</li>
+                <li>El archivo cifrado (.enc) puede subirse a cualquier servidor público.</li>
+                <li>Nunca compartas la clave secreta junto con el archivo cifrado.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let encryptedData = '';
+
+        function cifrarJSON() {
+            const jsonContent = document.getElementById('jsonContent').value.trim();
+            const secretKey = document.getElementById('secretKey').value.trim();
+
+            // Validaciones
+            if (!jsonContent) {
+                alert('Por favor, ingresa el contenido JSON');
+                return;
+            }
+
+            if (!secretKey) {
+                alert('Por favor, ingresa la clave secreta');
+                return;
+            }
+
+            // Validar que sea JSON válido
+            try {
+                JSON.parse(jsonContent);
+            } catch (e) {
+                alert('El contenido no es un JSON válido. Error: ' + e.message);
+                return;
+            }
+
+            // Cifrar usando AES
+            try {
+                encryptedData = CryptoJS.AES.encrypt(jsonContent, secretKey).toString();
+                
+                // Mostrar resultado
+                document.getElementById('encryptedContent').value = encryptedData;
+                document.getElementById('result').style.display = 'block';
+                
+                // Scroll al resultado
+                document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+            } catch (e) {
+                alert('Error al cifrar: ' + e.message);
+            }
+        }
+
+        function descargarArchivo() {
+            if (!encryptedData) {
+                alert('No hay contenido cifrado para descargar');
+                return;
+            }
+
+            // Crear blob y descargar
+            const blob = new Blob([encryptedData], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'admDB01.enc';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

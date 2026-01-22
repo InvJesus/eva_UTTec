@@ -1660,7 +1660,7 @@
             console.log('1. Copia el ejemplo JSON completo');
             console.log('2. Modifica el contenido según tus necesidades');
             console.log('3. Súbelo a uno de los servicios mencionados');
-            console.log('4. Codifica la URL del archivo .enc en Base64 y actualiza ENCRYPTED_CONFIG_URL_B64');
+            console.log('4. Actualiza la variable JSON_CONFIG_URL con tu URL');
             console.log('5. Las ponderaciones deben sumar exactamente 100%');
             console.log('');
             console.log('🚨 VALIDACIONES AUTOMÁTICAS:');
@@ -4367,9 +4367,8 @@
         // Inicializar la aplicación cuando se carga la página
         document.addEventListener('DOMContentLoaded', function () {
             console.log('🚀 Evaluación Digital cargada correctamente');
-            console.log('🔐 Sistema de cifrado AES activado');
-            const encryptedConfigUrl = atob(ENCRYPTED_CONFIG_URL_B64);
-            console.log('🌐 URL del archivo cifrado:', encryptedConfigUrl);
+            console.log('🔑 Clave de acceso configurada:', ACCESS_KEY);
+            console.log('🌐 URL JSON configurada:', JSON_CONFIG_URL);
 
             // Mostrar guía de estructura JSON esperada
             showJSONStructureGuide();
