@@ -1,0 +1,55 @@
+{
+  "general": {
+    "title": "Evaluación Digital: Administración de base de datos",
+    "subtitle": "Diagnóstico",
+    "professor": "MTI Jesús E. Romero Moreno"
+  },
+  "section1": {
+    "name": "Opción Múltiple",
+    "weight": 30,
+    "questions": [
+      {
+        "question": "¿Cuál es el objetivo principal de la Normalización en bases de datos relacionales?",
+        "options": [
+          "Aumentar la redundancia para asegurar copias de seguridad",
+          "Organizar los datos para minimizar la redundancia y proteger la integridad",
+          "Convertir bases de datos relacionales en NoSQL"
+        ],
+        "correct": 1,
+        "explanation": "La normalización busca organizar los datos eficientemente, minimizando la redundancia y protegiendo la integridad de la información."
+      },
+      {
+        "question": "¿Qué condición fundamental debe cumplir una tabla para estar en Primera Forma Normal (1FN)?",
+        "options": [
+          "Todos los atributos deben ser atómicos y no existir filas repetidas",
+          "No deben existir dependencias transitivas",
+          "La tabla debe tener una clave foránea"
+        ],
+        "correct": 0,
+        "explanation": "Para la 1FN, cada celda debe contener un valor indivisible (atómico) y cada fila debe ser única."
+      }
+    ]
+  },
+  "section2": {
+    "name": "Relación de Columnas",
+    "weight": 30,
+    "pairs": {
+      "RTO": "Tiempo máximo tolerable para recuperar un proceso de negocio tras un incidente.",
+      "RPO": "Cantidad máxima de datos perdidos aceptable medida en tiempo."
+    }
+  },
+  "section3": {
+    "name": "Juego del Ahorcado",
+    "weight": 40,
+    "words": [
+      {
+        "word": "POSTGRESQL",
+        "hint": "Sistema de gestión de bases de datos relacional mencionado como herramienta clave del curso."
+      },
+      {
+        "word": "MONGODB",
+        "hint": "Base de datos NoSQL orientada a documentos estudiada en la unidad 2."
+      }
+    ]
+  }
+}
