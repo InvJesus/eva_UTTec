@@ -482,16 +482,28 @@
                     </div>
 
                     <form onsubmit="authenticateUser(event)" class="space-y-5">
-                        <!-- Campo de contraseña/clave de acceso -->
+                        <!-- Campo de usuario/email -->
+                        <div class="relative">
+                            <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                            </div>
+                            <input type="text" id="accessKey" 
+                                class="w-full pl-12 pr-4 py-3 bg-blue-100 border-0 rounded-xl text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-blue-50 transition-all"
+                                placeholder="Email or Username" required>
+                        </div>
+
+                        <!-- Campo de contraseña -->
                         <div class="password-input relative">
-                            <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 z-10">
+                            <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white z-10">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                 </svg>
                             </div>
                             <input type="password" id="accessKeyPassword"
                                 class="w-full pl-12 pr-12 py-3 bg-blue-100 border-0 rounded-xl text-gray-700 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:bg-blue-50 transition-all"
-                                placeholder="Clave de Acceso" required>
+                                placeholder="Password" required>
                             <span class="password-toggle absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer text-gray-500 hover:text-gray-700" onclick="togglePasswordVisibility()">
                                 <svg id="eyeIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
