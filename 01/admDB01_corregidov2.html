@@ -770,7 +770,7 @@
                             <p class="text-lg font-bold text-indigo-700"><span id="startSection1Weight">30</span>%</p>
                         </div>
                         <div class="bg-white rounded-lg p-3 md:p-4 border border-slate-300">
-                            <div class="text-xl md:text-2xl mb-2">ðŸ”—</div>
+                            <div class="text-xl md:text-2xl mb-2">🔗</div>
                             <h4 class="font-semibold text-slate-700 mb-1 text-sm md:text-base">Sección 2</h4>
                             <p class="text-xs md:text-sm text-gray-600"><span id="startSection2Count">5</span> pares de
                                 conceptos</p>
@@ -1345,7 +1345,7 @@
             
             // Extraer y almacenar el nombre del archivo para el sistema de intentos
             currentEncFileName = getEncFileNameFromUrl(encryptedConfigUrl);
-            console.log('ðŸ“ Nombre del archivo .enc:', currentEncFileName);
+            console.log('📡 Nombre del archivo .enc:', currentEncFileName);
 
             // Configuración optimizada para GitHub Pages
             const fetchOptions = {
@@ -1399,7 +1399,7 @@
 
                 // Intentar descifrar el contenido con AES
                 console.log('🔒 Intentando descifrar con AES...');
-                console.log('ðŸ”‘ Usando clave secreta proporcionada');
+                console.log('🔑 Usando clave secreta proporcionada');
                 
                 let decryptedContent;
                 try {
@@ -1450,7 +1450,7 @@
                     console.log('   - Repositorio privado (debe ser público)');
                     console.log('   - URL incorrecta');
                 } else if (error.message.includes('404') || error.message.includes('no existe')) {
-                    console.log('ðŸ“ Archivo cifrado no encontrado');
+                    console.log('📡 Archivo cifrado no encontrado');
                     console.log('💡 Verifica:');
                     console.log('   - Que el archivo .enc existe en el repositorio');
                     console.log('   - Que la ruta en la URL sea correcta');
@@ -1482,7 +1482,7 @@
             // Remover BOM si existe
             if (cleanContent.charCodeAt(0) === 0xFEFF) {
                 cleanContent = cleanContent.substring(1);
-                console.log('ðŸ§¹ BOM removido del contenido');
+                console.log('🧹 BOM removido del contenido');
             }
 
             // Verificar que comience con { o [
@@ -1540,7 +1540,7 @@
 
             console.log('🎉 ¡CONFIGURACIÓN CARGADA EXITOSAMENTE!');
             console.log('📊 Estadísticas finales:', validation.stats);
-            console.log('ðŸ“¦ Fuente: Archivo cifrado (.enc)');
+            console.log('📦 Fuente: Archivo cifrado (.enc)');
             console.groupEnd();
 
             return {
@@ -1709,15 +1709,15 @@
             console.log('');
             console.log('🔧 INSTRUCCIONES PARA CREAR EL ARCHIVO .enc:');
             console.log('');
-            console.log('1ï¸âƒ£ Cifra tu archivo JSON usando CryptoJS:');
+            console.log('1️⃣ Cifra tu archivo JSON usando CryptoJS:');
             console.log('   • Usa CryptoJS.AES.encrypt(jsonString, secretKey)');
             console.log('   • Guarda el resultado en un archivo con extensión .enc');
             console.log('');
-            console.log('2ï¸âƒ£ Sube el archivo .enc a un servidor público:');
+            console.log('2️⃣ Sube el archivo .enc a un servidor público:');
             console.log('   • GitHub Pages (recomendado)');
             console.log('   • Cualquier servidor web que permita acceso público');
             console.log('');
-            console.log('3ï¸âƒ£ Actualiza la URL en el código:');
+            console.log('3️⃣ Actualiza la URL en el código:');
             console.log('   • Codifica la URL en Base64');
             console.log('   • Actualiza la constante ENCRYPTED_CONFIG_URL_B64');
             console.log('');
@@ -1846,7 +1846,7 @@
                 return;
             }
 
-            console.log('ðŸŽ¨ Actualizando interfaz con datos del JSON...');
+            console.log('🎨 Actualizando interfaz con datos del JSON...');
 
             // Actualizar título principal en la pantalla de inicio
             const mainTitleEl = document.querySelector('#startScreen h1');
@@ -1904,7 +1904,7 @@
                 });
             }
 
-            console.log('ðŸŽ¨ Interfaz actualizada completamente desde el JSON');
+            console.log('🎨 Interfaz actualizada completamente desde el JSON');
         }
 
         // Funciones de autenticación
@@ -3029,11 +3029,11 @@
             let warningMessage = '⚠️ Atención: Se detectaron números duplicados:\n\n';
 
             if (duplicates.concepts.length > 0) {
-                warningMessage += `ðŸ”µ Conceptos con números repetidos: ${duplicates.concepts.join(', ')}\n`;
+                warningMessage += `🔵 Conceptos con números repetidos: ${duplicates.concepts.join(', ')}\n`;
             }
 
             if (duplicates.definitions.length > 0) {
-                warningMessage += `ðŸŸ¢ Definiciones con números repetidos: ${duplicates.definitions.join(', ')}\n`;
+                warningMessage += `🟢 Definiciones con números repetidos: ${duplicates.definitions.join(', ')}\n`;
             }
 
             warningMessage += '\nCada número debe usarse solo una vez. Por favor, revisa tus conexiones.';
@@ -3601,8 +3601,8 @@
             const basePointsPerWord = pointsSystem.maxPoints.section3 / totalWords;
 
             console.log(`🎯 Nueva palabra cargada: "${word}"`);
-            console.log(`ðŸ’° Puntos base disponibles: ${basePointsPerWord.toFixed(1)} pts`);
-            console.log(`ðŸ“‰ Penalización por error: 15% (${(basePointsPerWord * 0.15).toFixed(1)} pts)`);
+            console.log(`💰 Puntos base disponibles: ${basePointsPerWord.toFixed(1)} pts`);
+            console.log(`📉 Penalización por error: 15% (${(basePointsPerWord * 0.15).toFixed(1)} pts)`);
             console.log(`❌ Fallar palabra (6 errores): 0 pts`);
         }
 
@@ -3933,7 +3933,7 @@
 
                 recalculatedSection2 = (correctPairs / totalPairs) * pointsSystem.maxPoints.section2;
 
-                console.log('ðŸ”— Sección 2 - Recálculo:', {
+                console.log('🔗 Sección 2 - Recálculo:', {
                     totalPares: totalPairs,
                     paresCorrectos: correctPairs,
                     puntosCalculados: recalculatedSection2,
@@ -4445,7 +4445,7 @@
             
             // Inicializar el nombre del archivo .enc para el sistema de intentos
             currentEncFileName = getEncFileNameFromUrl(encryptedConfigUrl);
-            console.log('ðŸ“ Nombre del archivo .enc detectado:', currentEncFileName);
+            console.log('📡 Nombre del archivo .enc detectado:', currentEncFileName);
             console.log('📊 Intentos actuales para este archivo:', getAttemptCount());
 
             // Mostrar guía de estructura JSON esperada
@@ -4466,10 +4466,10 @@
                 // Mostrar información de configuración
                 console.group('📋 RESUMEN DE CONFIGURACIÓN ACTUAL');
                 console.log('📝 Título:', EVALUATION_CONFIG.general?.title || 'No definido');
-                console.log('ðŸ“š Materia:', EVALUATION_CONFIG.general?.subtitle || 'No definido');
+                console.log('📚 Materia:', EVALUATION_CONFIG.general?.subtitle || 'No definido');
                 console.log('👨‍🏫 Profesor:', EVALUATION_CONFIG.general?.professor || 'No definido');
                 console.log('❓ Preguntas:', validation.stats?.totalQuestions || 0);
-                console.log('ðŸ”— Pares:', validation.stats?.totalPairs || 0);
+                console.log('🔗 Pares:', validation.stats?.totalPairs || 0);
                 console.log('🎯 Palabras:', validation.stats?.totalWords || 0);
                 console.log('⚖️ Ponderación total:', validation.stats?.totalWeight + '%' || 'No calculado');
                 console.groupEnd();
@@ -4481,7 +4481,7 @@
             console.group('ℹ️ INFORMACIÓN DEL SISTEMA');
             console.log('🔒 Autenticación: Requerida');
             console.log('📡 Carga JSON: Automática al autenticarse');
-            console.log('ðŸ›¡ï¸ Validación: Automática antes de iniciar');
+            console.log('🛡️ Validación: Automática antes de iniciar');
             console.log('🔒 Sistema: Solo funciona con archivo cifrado');
             console.groupEnd();
         });
