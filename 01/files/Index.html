@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Digital - Google Apps Script</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <?!= include('Styles'); ?>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 via-white to-purple-50 min-h-screen">
+    <!-- Indicador de carga para Google Drive -->
+    <div id="driveLoadingIndicator" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-xl shadow-2xl p-8 text-center max-w-md">
+            <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto mb-4"></div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Cargando desde Google Drive</h3>
+            <p class="text-gray-600">Descargando y descifrando archivo...</p>
+        </div>
+    </div>
+
+    <?!= include('Content'); ?>
+
+    <script>
+        // ========================================
+        // CONFIGURACIÓN PARA GOOGLE APPS SCRIPT
+        // ========================================
+        
+        // ⚠️ IMPORTANTE: Reemplaza este ID con el ID de tu archivo .enc en Google Drive
+        // Para obtener el ID: Clic derecho en el archivo → Obtener enlace → Copiar ID de la URL
+        const GOOGLE_DRIVE_FILE_ID = "1IBtatGgMNe9FDcT6hJWbDyDPgSo5KH2E";
+        
+        // Variables globales
+        let EVALUATION_CONFIG = null;
+        let currentEncFileName = 'admDB01.enc';
+
+        // ========================================
+        // FUNCIÓN PARA CARGAR DESDE GOOGLE DRIVE
+        // ========================================
+        
+        /**
+         * Carga y descifra el archivo de configuración desde Google Drive
+         * @param {string} secretKey - Clave para descifrar el archivo
+         * @returns {Promise<Object>} Configuración descifrada
+         */
+        async function loadJSONConfig(secretKey) {
+            console.group('📡 CARGANDO CONFIGURACIÓN DESDE GOOGLE DRIVE');
+            
+            // Validar clave
+            if (!secretKey || secretKey.trim().length === 0) {
+                throw new Error('Se requiere una clave para descifrar el archivo.');
+            }
+            
+            console.log('🔑 Clave recibida');
+            console.log('📁 ID del archivo en Drive:', GOOGLE_DRIVE_FILE_ID);
+            console.log('📁 Nombre del archivo:', currentEncFileName);
+
+            // Mostrar indicador de carga
+            const loadingIndicator = document.getElementById('driveLoadingIndicator');
+            if (loadingIndicator) {
+                loadingIndicator.classList.remove('hidden');
+            }
+
+            try {
+                console.log('⏳ Descargando archivo cifrado desde Google Drive...');
+                
+                // Llamar a la función del servidor de Google Apps Script
+                const encryptedContent = await new Promise((resolve, reject) => {
+                    google.script.run
+                        .withSuccessHandler(function(content) {
+                            console.log('✅ Archivo recibido desde Google Drive');
+                            resolve(content);
+                        })
+                        .withFailureHandler(function(error) {
+                            console.error('❌ Error al descargar desde Drive:', error);
+                            reject(new Error('Error de Google Drive: ' + error.message));
+                        })
+                        .getEncryptedFileContent(GOOGLE_DRIVE_FILE_ID);
+                });
+
+                console.log('📦 Tamaño del contenido cifrado:', encryptedContent.length, 'caracteres');
+
+                // Descifrar el contenido usando CryptoJS
+                console.log('🔓 Descifrando contenido con AES-256...');
+                
+                const decrypted = CryptoJS.AES.decrypt(encryptedContent, secretKey.trim());
+                const decryptedText = decrypted.toString(CryptoJS.enc.Utf8);
+
+                // Verificar si el descifrado fue exitoso
+                if (!decryptedText || decryptedText.length === 0) {
+                    throw new Error('Clave incorrecta. No se pudo descifrar el archivo.');
+                }
+
+                console.log('✅ Descifrado exitoso');
+                console.log('📄 Tamaño del JSON descifrado:', decryptedText.length, 'caracteres');
+
+                // Parsear el JSON
+                console.log('🔄 Parseando JSON...');
+                const config = JSON.parse(decryptedText);
+                
+                console.log('✅ Configuración cargada correctamente');
+                console.groupEnd();
+
+                // Ocultar indicador de carga
+                if (loadingIndicator) {
+                    loadingIndicator.classList.add('hidden');
+                }
+
+                return config;
+
+            } catch (error) {
+                console.error('❌ Error en loadJSONConfig:', error);
+                console.groupEnd();
+                
+                // Ocultar indicador de carga
+                if (loadingIndicator) {
+                    loadingIndicator.classList.add('hidden');
+                }
+                
+                // Proporcionar mensajes de error específicos
+                if (error.message && error.message.includes('Clave incorrecta')) {
+                    throw new Error('Clave incorrecta. Verifica tu contraseña e intenta nuevamente.');
+                } else if (error.message && error.message.includes('JSON')) {
+                    throw new Error('El archivo descifrado no es un JSON válido. Verifica la clave o el archivo.');
+                } else if (error.message && error.message.includes('Drive')) {
+                    throw new Error('Error al acceder a Google Drive. Verifica los permisos y el ID del archivo.');
+                } else if (error.message && error.message.includes('No se pudo encontrar')) {
+                    throw new Error('Archivo no encontrado en Google Drive. Verifica el ID del archivo.');
+                } else {
+                    throw new Error('Error al cargar el archivo: ' + error.message);
+                }
+            }
+        }
+
+        // ========================================
+        // DIAGNÓSTICO Y VERIFICACIÓN
+        // ========================================
+        
+        console.log('🚀 Sistema de Evaluación Digital - Google Apps Script Edition');
+        console.log('📁 ID del archivo configurado:', GOOGLE_DRIVE_FILE_ID);
+        console.log('📍 Fuente de datos: Google Drive');
+        console.log('🔐 Sistema de cifrado: AES-256 con CryptoJS');
+        console.log('✅ Listo para autenticación');
+        
+        // ========================================
+        // RESTO DEL CÓDIGO JAVASCRIPT ORIGINAL
+        // ========================================
+        <?!= include('MainScript'); ?>
+        
+    </script>
+</body>
+
+</html>
