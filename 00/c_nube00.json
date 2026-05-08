@@ -49,7 +49,7 @@
         "explanation": "Terraform se define como una herramienta de Infraestructura como Código (IaC) que permite gestionar infraestructuras de manera automatizada y reproducible."
       },
       {
-        "question": "¿Cuál es la función principal de Proxmox VE descrita en el contenido?",
+        "question": "¿Cuál es la función principal de Proxmox VE ?",
         "options": [
           "Una plataforma de virtualización de código abierto que combina máquinas virtuales y contenedores",
           "Un servicio de correo electrónico basado en la nube",
@@ -69,7 +69,7 @@
         "explanation": "El cómputo en la niebla acerca el procesamiento al borde de la red, reduciendo la latencia y mejorando la velocidad de respuesta."
       },
       {
-        "question": "¿Qué herramienta se menciona para establecer redes privadas virtuales (VPN) seguras y escalables?",
+        "question": "¿Qué herramienta se aplica para redes privadas virtuales (VPN) seguras y escalables?",
         "options": [
           "ZeroTier",
           "Apache",
